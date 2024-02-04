@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Ventoura.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Ventoura.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ventoura.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Ventoura.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Ventoura.Domain/Ventoura.Domain.csproj",
+      "msbuildProject": "../Ventoura.Domain/Ventoura.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Ventoura.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\User\\.nuget\\packages\\": {},
@@ -14,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Ventoura\\src\\Core\\Ventoura.Application\\Ventoura.Application.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Core\\Ventoura.Application\\Ventoura.Application.csproj",
       "projectName": "Ventoura.Application",
-      "projectPath": "C:\\Users\\User\\Desktop\\Ventoura\\src\\Core\\Ventoura.Application\\Ventoura.Application.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Core\\Ventoura.Application\\Ventoura.Application.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Ventoura\\src\\Core\\Ventoura.Application\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Core\\Ventoura.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -38,7 +57,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Core\\Ventoura.Domain\\Ventoura.Domain.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Core\\Ventoura.Domain\\Ventoura.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

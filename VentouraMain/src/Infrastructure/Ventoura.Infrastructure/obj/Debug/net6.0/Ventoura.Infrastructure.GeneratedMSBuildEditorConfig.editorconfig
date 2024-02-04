@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Ventoura.Infrastructure
-build_property.ProjectDir = C:\Users\User\Desktop\Ventoura\src\Infrastructure\Ventoura.Infrastructure\
+build_property.ProjectDir = C:\Users\User\Desktop\Ventoura\VentouraMain\src\Infrastructure\Ventoura.Infrastructure\

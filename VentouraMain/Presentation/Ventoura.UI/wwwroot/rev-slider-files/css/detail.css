@@ -1,0 +1,35 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-section {
+    flex: 1;
+}
+
+.right-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.mini-road {
+    flex: 1;
+    position: relative;
+    height: 300px; /* İhtiyaca göre ayarla */
+}
+
+.car {
+    width: 50px;
+    height: 30px;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    transition: 1s all ease-in-out; /* Araç hareketi için geçiş efekti */
+}

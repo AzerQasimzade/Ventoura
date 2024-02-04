@@ -9,3 +9,14 @@ C:\Users\User\Desktop\Ventoura\src\Core\Ventoura.Domain\obj\Debug\net6.0\Ventour
 C:\Users\User\Desktop\Ventoura\src\Core\Ventoura.Domain\obj\Debug\net6.0\refint\Ventoura.Domain.dll
 C:\Users\User\Desktop\Ventoura\src\Core\Ventoura.Domain\obj\Debug\net6.0\Ventoura.Domain.pdb
 C:\Users\User\Desktop\Ventoura\src\Core\Ventoura.Domain\obj\Debug\net6.0\ref\Ventoura.Domain.dll
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\bin\Debug\net6.0\Ventoura.Domain.deps.json
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\bin\Debug\net6.0\Ventoura.Domain.dll
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\bin\Debug\net6.0\Ventoura.Domain.pdb
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\Ventoura.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\Ventoura.Domain.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\Ventoura.Domain.AssemblyInfo.cs
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\Ventoura.Domain.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\Ventoura.Domain.dll
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\refint\Ventoura.Domain.dll
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\Ventoura.Domain.pdb
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\ref\Ventoura.Domain.dll

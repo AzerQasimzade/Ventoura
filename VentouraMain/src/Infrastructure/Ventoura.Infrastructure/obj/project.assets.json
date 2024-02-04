@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Ventoura\\src\\Infrastructure\\Ventoura.Infrastructure\\Ventoura.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Infrastructure\\Ventoura.Infrastructure\\Ventoura.Infrastructure.csproj",
       "projectName": "Ventoura.Infrastructure",
-      "projectPath": "C:\\Users\\User\\Desktop\\Ventoura\\src\\Infrastructure\\Ventoura.Infrastructure\\Ventoura.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Infrastructure\\Ventoura.Infrastructure\\Ventoura.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Ventoura\\src\\Infrastructure\\Ventoura.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Infrastructure\\Ventoura.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

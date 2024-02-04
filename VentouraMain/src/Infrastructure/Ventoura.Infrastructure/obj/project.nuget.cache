@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VQ2gXTkRXjhVzPb5EIfuSTzuz0NzCEYoXBIYlDgz48PWwJ15/tJoG/8Wt6as/Nui5flwZslhm8GyS1OB60xP5g==",
+  "dgSpecHash": "wY8nOpj/Q8T5Ka/eNzh/DIyf2Ct03ImyezyvmyCVIf3vq21qh18UVDlGTSk7/gZcnp6AHGAEi9pdABNpaT7QtA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\Ventoura\\src\\Infrastructure\\Ventoura.Infrastructure\\Ventoura.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Infrastructure\\Ventoura.Infrastructure\\Ventoura.Infrastructure.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

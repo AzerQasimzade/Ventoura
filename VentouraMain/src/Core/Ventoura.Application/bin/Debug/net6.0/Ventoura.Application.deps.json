@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Ventoura.Application/1.0.0": {
+        "dependencies": {
+          "Ventoura.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Ventoura.Application.dll": {}
+        }
+      },
+      "Ventoura.Domain/1.0.0": {
+        "runtime": {
+          "Ventoura.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ventoura.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Ventoura.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Ventoura\\src\\Core\\Ventoura.Domain\\Ventoura.Domain.csproj": {}
+    "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Core\\Ventoura.Domain\\Ventoura.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Ventoura\\src\\Core\\Ventoura.Domain\\Ventoura.Domain.csproj": {
+    "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Core\\Ventoura.Domain\\Ventoura.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Ventoura\\src\\Core\\Ventoura.Domain\\Ventoura.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Core\\Ventoura.Domain\\Ventoura.Domain.csproj",
         "projectName": "Ventoura.Domain",
-        "projectPath": "C:\\Users\\User\\Desktop\\Ventoura\\src\\Core\\Ventoura.Domain\\Ventoura.Domain.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Core\\Ventoura.Domain\\Ventoura.Domain.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Ventoura\\src\\Core\\Ventoura.Domain\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\src\\Core\\Ventoura.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
