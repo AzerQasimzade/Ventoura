@@ -20,3 +20,4 @@ C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\n
 C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\refint\Ventoura.Domain.dll
 C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\Ventoura.Domain.pdb
 C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\ref\Ventoura.Domain.dll
+C:\Users\User\Desktop\Ventoura\VentouraMain\src\Core\Ventoura.Domain\obj\Debug\net6.0\Ventoura.Domain.csproj.AssemblyReference.cache

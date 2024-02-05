@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using Ventoura.Domain.Entities;
 
 namespace Ventoura.Persistence.DAL
 {
-    internal class AppDbContext:DbContext
+    public class AppDbContext:IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options) 
         {
@@ -18,6 +19,8 @@ namespace Ventoura.Persistence.DAL
         public DbSet<Tour> Tours { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<TourImage> TourImages { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

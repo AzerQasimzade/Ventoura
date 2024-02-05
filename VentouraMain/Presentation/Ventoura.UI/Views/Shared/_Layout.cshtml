@@ -59,7 +59,9 @@
                     <div class="col-6">
                         <ul id="top_links">
                             <li><a href="#sign-in-dialog" id="access_link">Sign in</a></li>
+                            <li><a href="#sign-up-dialog" id="register_link">Sign Up</a></li>
                             <li><a href="wishlist.html" id="wishlist_link">Wishlist</a></li>
+
                             <li><a href="http://themeforest.net/item/citytours-city-tours-tour-tickets-and-guides/10715647?ref=ansonika">Purchase this template</a></li>
                         </ul>
                     </div>
@@ -422,7 +424,7 @@
                 </div>
                 <div class="text-center"><input type="submit" value="Log In" class="btn_login"></div>
                 <div class="text-center">
-                    Don’t have an account? <a href="javascript:void(0);">Sign up</a>
+                    Don’t have an account? <a asp-action="Register" asp-controller="AppUser">Sign up</a>
                 </div>
                 <div id="forgot_pw">
                     <div class="form-group">
@@ -437,7 +439,8 @@
         </form>
         <!--form -->
     </div>
-    <!-- /Sign In Popup -->
+
+   
     <!-- Common scripts -->
     <script src="~/main/js/jquery-3.6.0.min.js"></script>
     <script src="~/main/js/common_scripts_min.js"></script>

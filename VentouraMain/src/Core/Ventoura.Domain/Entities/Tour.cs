@@ -21,12 +21,14 @@ namespace Ventoura.Domain.Entities
         public TimeSpan? EndTime { get; set; }
         public int? AdultCount { get; set; }
         public int? ChildrenCount { get; set; }
+        public List<TourImage>? TourImages { get; set; }
 
         // Relations
         public int CountryId { get; set; }
         public Country Country { get; set; }
         public int CityId { get; set; }
         public City City { get; set; }
+
 
     }
 }
