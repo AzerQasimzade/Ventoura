@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Views/AppUser/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Views/AppUser/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

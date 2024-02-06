@@ -10,5 +10,8 @@ namespace Ventoura.Application.Abstractions.Services
     public interface IAuthService
     {
         Task Register(RegisterVM registerVM);
+        Task LogOut();
+        Task Login(LoginVM loginVM);
+
     }
 }

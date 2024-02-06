@@ -1,75 +1,162 @@
 ﻿@using Ventoura.Application.ViewModels.Users;
 @using Ventoura.Domain.Enums;
-@model RegisterVM 
+@model RegisterVM
 <!-- /Sign Up Popup -->
-<main>
-    <section id="hero" class="login">
+@{
+    Layout = null;
+}
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Xmee | Login and Register Form Html Templates</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/Identity/img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Identity/css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="~/Identity/css/fontawesome-all.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="~/Identity/font/flaticon.css">
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Identity/style.css">
+    <!-- Custom CSS -->
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="preloader" class="preloader">
+        <div class='inner'>
+            <div class='line1'></div>
+            <div class='line2'></div>
+            <div class='line3'></div>
+        </div>
+    </div>
+    <section class="fxt-template-animation fxt-template-layout34" style="margin-bottom: 120px;" data-bg-image="img/elements/bg1.png">
+        <div class="fxt-shape">
+            <div class="fxt-transformX-L-50 fxt-transition-delay-1">
+                <img src="~/Identity/img/elements/shape1.png" alt="Shape">
+            </div>
+        </div>
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
-                    <div id="login">
-                        <div class="text-center"><img src="img/logo_sticky.png" alt="Image" width="160" height="34"></div>
-                        <hr>
-                        <form>
-                            <div asp-validation-summary="ModelOnly"></div>
-                            <div class="form-group">
-                                <label asp-for="Username">Username</label>
-                                <input asp-for="Username" class=" form-control" placeholder="Username">
-                                <span asp-validation-for="Username"></span>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="fxt-column-wrap justify-content-between">
+                        <div class="fxt-animated-img">
+                            <div class="fxt-transformX-L-50 fxt-transition-delay-10">
+                                <img src="~/Identity/img/figure/bg34-1.png" alt="Animated Image">
                             </div>
-                            <div class="form-group">
-                                <label asp-for="Name">Name</label>
-                                <input asp-for="Name" class=" form-control" placeholder="Name">
-                                <span asp-validation-for="Name"></span>
+                        </div>
+                        <div class="fxt-transformX-L-50 fxt-transition-delay-3">
+                            <a href="login-34.html" class="fxt-logo"><img src="~/Identity/img/logo_sticky.png" alt="Logo"></a>
+                        </div>
+                        <div class="fxt-transformX-L-50 fxt-transition-delay-5">
+                            <div class="fxt-middle-content">
+                                <h1 class="fxt-main-title">Sign Up to Rechage Direct</h1>
+                                <div class="fxt-switcher-description1">If you have an account You can <a href="login-34.html" class="text-danger"> Sign In</a></div>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="Surname">Surname</label>
-                                <input asp-for="Surname" class=" form-control" placeholder="Surname">
-                                <span asp-validation-for="Surname"></span>
+                        </div>
+                        <div class="fxt-transformX-L-50 fxt-transition-delay-7">
+                            <div class="fxt-qr-code">
+                                <img src="~/Identity/img/elements/qr-register-34.png" alt="QR">
                             </div>
-                            <div class="form-group">
-                                <label asp-for="Email">Email</label>
-                                <input asp-for="Email" class=" form-control" placeholder="Email">
-                                <span asp-validation-for="Email"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Password">Password</label>
-                                <input asp-for="Password" class=" form-control" placeholder="Password">
-                                <span asp-validation-for="Password"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="ConfirmPassword">ConfirmPassword</label>
-                                <input asp-for="ConfirmPassword" class=" form-control" placeholder="ConfirmPassword">
-                                <span asp-validation-for="ConfirmPassword"></span>
-                            </div>
-                            <div class="col-md-12 col-12">
-                                <label>Gender</label>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" asp-for="Gender" value="@GenderHelper.Male" />
-                                    <label class="form-check-label">Male</label>
+                        </div>
+                        <ul class="fxt-socials">
+                            <li class="fxt-google">
+                                <a href="#" title="google"><i class="fab fa-google-plus-g"></i></a>
+                            </li>
+                            <li class="fxt-apple">
+                                <a href="#" title="apple"><i class="fab fa-apple"></i></a>
+                            </li>
+                            <li class="fxt-facebook">
+                                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="fxt-column-wrap justify-content-center">
+                        <div class="fxt-form">
+                            <form method="post">
+                                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                                <div class="form-group">
+                                    @* <label asp-for="Username">Username</label> *@
+                                    <input asp-for="Username"  class="form-control"  placeholder="Username" required="required">
+                                    <span asp-validation-for="Username" class="text-danger"></span> 
                                 </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" asp-for="Gender" value="@GenderHelper.Female" />
-                                    <label class="form-check-label">Female</label>
+                                <div class="form-group">
+                                    @* <label asp-for="Name">Name</label> *@
+                                    <input asp-for="Name"  class="form-control" placeholder="Name" required="required">
+                                    <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" asp-for="Gender" value="@GenderHelper.Others" />
-                                    <label class="form-check-label">Others</label>
+                                <div class="form-group">
+                                    @* <label asp-for="Surname">Surname</label> *@
+                                    <input asp-for="Surname" class="form-control"  placeholder="Surname" required="required">
+                                    <span asp-validation-for="Surname" class="text-danger"></span>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" asp-for="Gender" value="@GenderHelper.NonBinary" />
-                                    <label class="form-check-label">NonBinary</label>
+                                <div class="form-group">
+                                    @* <label asp-for="Email">Email</label> *@
+                                    <input asp-for="Email"  class="form-control"  placeholder="Email" required="required">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
-                                <span class="text-danger" asp-validation-for="Gender"></span>
-                            </div>
-                            <div id="pass-info" class="clearfix"></div>
-                            <button class="btn_full">Create an account</button>
-                        </form>
+                                <div class="form-group">
+                                    @* <label asp-for="Password">Password</label> *@
+                                    <input asp-for="Password" class="form-control"  placeholder="Password" required="required">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    @* <label asp-for="ConfirmPassword">ConfirmPassword</label> *@
+                                    <input asp-for="ConfirmPassword" class="form-control"  placeholder="ConfirmPassword" required="required">
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <div class="fxt-style-line">
+                                        <span>Choose Gender</span>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" asp-for="Gender" value="@GenderHelper.Male" />
+                                        <label class="form-check-label">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" asp-for="Gender" value="@GenderHelper.Female" />
+                                        <label class="form-check-label">Female</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" asp-for="Gender" value="@GenderHelper.Others" />
+                                        <label class="form-check-label">Others</label>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Gender"></span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="fxt-btn-fill">Sign Up</button>
+                                </div>
+                            </form>
+                        </div>
+                       
                     </div>
                 </div>
             </div>
         </div>
     </section>
-</main><!-- End main -->
+    <!-- jquery-->
+    <script src="~/Identity/js/jquery-3.5.0.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/Identity/js/bootstrap.min.js"></script>
+    <!-- Imagesloaded js -->
+    <script src="~/Identity/js/imagesloaded.pkgd.min.js"></script>
+    <!-- Validator js -->
+    <script src="~/Identity/js/validator.min.js"></script>
+    <!-- Custom Js -->
+    <script src="~/Identity/js/main.js"></script>
+
+</body>
+
+</html>
+

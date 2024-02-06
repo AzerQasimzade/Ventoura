@@ -12,10 +12,31 @@ namespace Ventoura.UI.Controllers
         {
             _service = service;
         }
-        public async Task<IActionResult> Register([FromForm] RegisterVM vm)
+        public IActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterVM vm)
         {
             await _service.Register(vm);
-            return View(vm);
+            return RedirectToAction("Index","Home");
+        }
+        public async Task<IActionResult> LogOut()
+        {
+            await _service.LogOut();
+            return RedirectToAction("Index", "Home");
+        }
+        public IActionResult Login()
+        { 
+            return View();
+        }
+        [HttpPost]
+
+        public async Task<IActionResult> Login(LoginVM loginVM)
+        {
+            await _service.Login(loginVM);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

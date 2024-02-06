@@ -5,6 +5,674 @@
       "PackagePath": "staticwebassets\\Ventoura.UI.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\Identity\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\css\\fontawesome-all.min.css",
+      "PackagePath": "staticwebassets\\Identity\\css\\fontawesome-all.min.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\css\\star-animation.css",
+      "PackagePath": "staticwebassets\\Identity\\css\\star-animation.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\css\\vegas.min.css",
+      "PackagePath": "staticwebassets\\Identity\\css\\vegas.min.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\font\\Flaticon.eot",
+      "PackagePath": "staticwebassets\\Identity\\font\\Flaticon.eot"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\font\\Flaticon.svg",
+      "PackagePath": "staticwebassets\\Identity\\font\\Flaticon.svg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\font\\Flaticon.ttf",
+      "PackagePath": "staticwebassets\\Identity\\font\\Flaticon.ttf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\font\\Flaticon.woff",
+      "PackagePath": "staticwebassets\\Identity\\font\\Flaticon.woff"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\font\\Flaticon.woff2",
+      "PackagePath": "staticwebassets\\Identity\\font\\Flaticon.woff2"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\font\\_flaticon.scss",
+      "PackagePath": "staticwebassets\\Identity\\font\\_flaticon.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\font\\flaticon.css",
+      "PackagePath": "staticwebassets\\Identity\\font\\flaticon.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\font\\flaticon.html",
+      "PackagePath": "staticwebassets\\Identity\\font\\flaticon.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\elements\\bg1.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\elements\\bg1.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\elements\\hover-element.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\elements\\hover-element.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\elements\\otp-icon-light.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\elements\\otp-icon-light.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\elements\\otp-icon.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\elements\\otp-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\elements\\overlay.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\elements\\overlay.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\elements\\qr-forgot-password-34.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\elements\\qr-forgot-password-34.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\elements\\qr-login-34.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\elements\\qr-login-34.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\elements\\qr-otp-34.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\elements\\qr-otp-34.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\elements\\qr-register-34.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\elements\\qr-register-34.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\elements\\shape1.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\elements\\shape1.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\favicon.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg1-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg1-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg1-r.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg1-r.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg10-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg10-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg12-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg12-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg13-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg13-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg14-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg14-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg15-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg15-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg15-r.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg15-r.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg17-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg17-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg18-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg18-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg19-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg19-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg2-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg2-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg2-r.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg2-r.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg20-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg20-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg22-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg22-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg23-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg23-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg24-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg24-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg27-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg27-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg28-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg28-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg29-l-1.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg29-l-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg29-l-2.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg29-l-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg29-l-3.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg29-l-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg3-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg3-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg3-r.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg3-r.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg33-1.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg33-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg34-1.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg34-1.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg4-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg4-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg4-r.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg4-r.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg5-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg5-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg6-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg6-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg6-r.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg6-r.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg7-l.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg7-l.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg8-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg8-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\bg9-l.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\bg9-l.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\figure\\otp-4.jpg",
+      "PackagePath": "staticwebassets\\Identity\\img\\figure\\otp-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-1.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-1.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-10.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-10.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-11.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-11.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-12.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-12.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-13.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-13.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-14.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-14.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-15.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-15.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-16.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-16.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-17.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-17.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-18.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-18.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-19.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-19.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-2.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-2.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-20.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-20.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-21.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-21.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-22.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-22.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-23.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-23.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-24.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-24.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-25.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-25.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-26.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-26.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-27.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-27.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-28.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-28.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-29.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-29.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-3.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-3.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-30.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-30.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-31.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-31.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-32.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-32.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-33.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-33.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-34.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-34.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-4.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-4.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-5.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-5.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-6.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-6.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-7.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-7.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-8.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-8.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo-9.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo-9.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\logo_sticky.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\logo_sticky.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\img\\otp-logo-3.png",
+      "PackagePath": "staticwebassets\\Identity\\img\\otp-logo-3.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\imagesloaded.pkgd.min.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\imagesloaded.pkgd.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\jquery-3.5.0.min.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\jquery-3.5.0.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\jquery.mb.YTPlayer.min.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\jquery.mb.YTPlayer.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\main.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\particles-1.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\particles-1.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\particles-2.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\particles-2.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\particles-3.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\particles-3.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\particles.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\particles.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\particles.min.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\particles.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\popper.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\star-animation.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\star-animation.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\starfield.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\starfield.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\validator.min.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\validator.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\js\\vegas.min.js",
+      "PackagePath": "staticwebassets\\Identity\\js\\vegas.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\less\\style.css",
+      "PackagePath": "staticwebassets\\Identity\\less\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\less\\style.less",
+      "PackagePath": "staticwebassets\\Identity\\less\\style.less"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\README.md",
+      "PackagePath": "staticwebassets\\Identity\\sass\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\base\\_bases.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\base\\_bases.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\base\\bases\\_animation-classes.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\base\\bases\\_animation-classes.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\base\\bases\\_default.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\base\\bases\\_default.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\base\\bases\\_typography.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\base\\bases\\_typography.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\base\\bases\\_variables.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\base\\bases\\_variables.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\_layouts.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\_layouts.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout1.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout1.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout10.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout10.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout11.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout11.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout12.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout12.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout13.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout13.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout14.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout14.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout15.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout15.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout16.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout16.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout17.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout17.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout18.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout18.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout19.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout19.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout2.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout2.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout20.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout20.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout21.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout21.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout22.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout22.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout23.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout23.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout24.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout24.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout25.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout25.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout26.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout26.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout27.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout27.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout28.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout28.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout29.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout29.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout3.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout3.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout30.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout30.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout31.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout31.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout32.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout32.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout33.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout33.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout34.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout34.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout4.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout4.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout5.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout5.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout6.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout6.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout7.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout7.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout8.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout8.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\layout\\layouts\\_template-layout9.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\layout\\layouts\\_template-layout9.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\sass\\style.scss",
+      "PackagePath": "staticwebassets\\Identity\\sass\\style.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\style.css",
+      "PackagePath": "staticwebassets\\Identity\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\style.css.map",
+      "PackagePath": "staticwebassets\\Identity\\style.css.map"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\Identity\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\Identity\\webfonts\\fa-solid-900.woff2"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\.DS_Store",
       "PackagePath": "staticwebassets\\main\\.DS_Store"
     },

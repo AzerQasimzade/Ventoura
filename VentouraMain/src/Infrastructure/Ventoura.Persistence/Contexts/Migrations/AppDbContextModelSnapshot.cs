@@ -264,7 +264,7 @@ namespace Ventoura.Persistence.Contexts.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Cities");
+                    b.ToTable("Cities", (string)null);
                 });
 
             modelBuilder.Entity("Ventoura.Domain.Entities.Country", b =>
@@ -295,7 +295,7 @@ namespace Ventoura.Persistence.Contexts.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Countries");
+                    b.ToTable("Countries", (string)null);
                 });
 
             modelBuilder.Entity("Ventoura.Domain.Entities.Tour", b =>
@@ -374,7 +374,7 @@ namespace Ventoura.Persistence.Contexts.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Tours");
+                    b.ToTable("Tours", (string)null);
                 });
 
             modelBuilder.Entity("Ventoura.Domain.Entities.TourImage", b =>
@@ -409,7 +409,7 @@ namespace Ventoura.Persistence.Contexts.Migrations
 
                     b.HasIndex("TourId");
 
-                    b.ToTable("TourImages");
+                    b.ToTable("TourImages", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

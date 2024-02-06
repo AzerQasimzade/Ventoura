@@ -8,7 +8,7 @@ builder.Services.AddPersistenceServices(builder.Configuration);
 var app = builder.Build();
 
 app.UseStaticFiles();
-
+app.UseAuthentication();
 app.UseRouting();
 
 app.UseAuthorization();

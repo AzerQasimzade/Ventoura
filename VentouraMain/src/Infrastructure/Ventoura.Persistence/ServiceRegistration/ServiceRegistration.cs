@@ -3,10 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using Ventoura.Application.Abstractions.Repositories;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Domain.Entities;
@@ -15,7 +12,7 @@ using Ventoura.Persistence.Implementations.Repositories;
 using Ventoura.Persistence.Implementations.Services;
 
 namespace Ventoura.Persistence.ServiceRegistration
-{
+{   
     public static class ServiceRegistration
     {
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services,IConfiguration configuration)
@@ -24,7 +21,7 @@ namespace Ventoura.Persistence.ServiceRegistration
             services.AddIdentity<AppUser, IdentityRole>(opt =>
             {
                 opt.Password.RequireNonAlphanumeric = false;
-            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
+            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<ITourService, TourService>();
 
@@ -36,7 +33,6 @@ namespace Ventoura.Persistence.ServiceRegistration
             services.AddScoped<ICityService, CityService>();
 
             services.AddScoped<IAuthService, AuthService>();
-            
 
             return services;
         }

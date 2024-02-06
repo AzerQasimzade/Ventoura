@@ -113,3 +113,5 @@ C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\obj\Debug\n
 C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\bin\Debug\net6.0\AutoMapper.Collection.dll

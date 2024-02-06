@@ -13,6 +13,6 @@ namespace Ventoura.Domain.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public GenderHelper Gender { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

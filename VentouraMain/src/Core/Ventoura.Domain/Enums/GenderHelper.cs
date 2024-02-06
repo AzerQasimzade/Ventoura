@@ -10,7 +10,6 @@ namespace Ventoura.Domain.Enums
     {
         Male,
         Female,
-        Others,
-        NonBinary
+        Others
     }
 }
