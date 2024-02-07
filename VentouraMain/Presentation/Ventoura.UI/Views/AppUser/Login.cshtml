@@ -71,19 +71,21 @@
                 <div class="col-lg-4">
                     <div class="fxt-column-wrap justify-content-center">
                         <div class="fxt-form">
-                            <form method="POST">
+                            <form method="post">
                                 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                                 <div class="form-group">
-                                    <input asp-for="UsernameOrEmail" class="form-control" placeholder="Username or Email" required="required">
+                                    <label asp-for="UsernameOrEmail">UserName or Email</label>
+                                    <input asp-for="UsernameOrEmail" class="form-control" placeholder="Username or Email">
                                     <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input asp-for="Password" class="form-control" placeholder="Password" required="required">
+                                    <label asp-for="Password">Password</label>
+                                    <input asp-for="Password" class="form-control" placeholder="Password">
                                     <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="IsRemembered">Remember Me</label>
-                                    <input asp-for="IsRemembered" />
+                                    <input asp-for="IsRemembered"/>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="fxt-btn-fill">Sign In</button>

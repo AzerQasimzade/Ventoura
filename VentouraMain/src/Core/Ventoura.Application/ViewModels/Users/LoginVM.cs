@@ -11,7 +11,7 @@ namespace Ventoura.Application.ViewModels.Users
     public class LoginVM
     {
         [Required]
-        [MinLength(5)]
+        [MinLength(4)]
         [MaxLength(50)]
         public string UsernameOrEmail { get; set; }
         [Required]
@@ -19,7 +19,7 @@ namespace Ventoura.Application.ViewModels.Users
         [DataType(DataType.Password)]
         public string Password { get; set; }
         public bool IsRemembered { get; set; }
-        public List<string> Errors { get; set; } = new List<string>();
+        public bool LockOutOnFailure { get; set; }
 
     }
 }

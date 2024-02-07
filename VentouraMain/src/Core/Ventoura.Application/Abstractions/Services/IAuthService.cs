@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,10 @@ namespace Ventoura.Application.Abstractions.Services
 {
     public interface IAuthService
     {
-        Task Register(RegisterVM registerVM);
+        Task<bool> Register(RegisterVM registerVM, ModelStateDictionary modelstate);
         Task LogOut();
-        Task Login(LoginVM loginVM);
+        Task<bool> Login(LoginVM loginVM,ModelStateDictionary modelstate);
+        Task CreateRoles();
 
     }
 }

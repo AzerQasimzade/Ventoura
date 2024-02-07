@@ -36,6 +36,8 @@ namespace Ventoura.Application.Validators
                .Matches(@"^[a-zA-Z\s]*$");
             RuleFor(x => x)
                 .Must(x => x.ConfirmPassword == x.Password);
+            RuleFor(x => x)
+                .NotEmpty();
         }
     }
 }

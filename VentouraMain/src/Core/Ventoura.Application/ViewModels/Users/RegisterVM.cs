@@ -27,13 +27,18 @@ namespace Ventoura.Application.ViewModels.Users
         [MaxLength(25, ErrorMessage = "Surname cannot be longer than 25 characters")]
         public string Surname { get; set; }
         [Required(ErrorMessage = "Password is required,Please Input Password")]
+        [MaxLength(25, ErrorMessage = "Password cannot be longer than 25 characters")]
+        [MinLength(8, ErrorMessage = "Password must be at least 8 characters long")]
+
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [Required(ErrorMessage = "Password is required,Please Input Password")]
         [DataType(DataType.Password)]
         [Compare(nameof(Password), ErrorMessage = "Confirm Pasword is not Matching with your Password")]
+        [MaxLength(25, ErrorMessage = "Password cannot be longer than 25 characters")]
+        [MinLength(8, ErrorMessage = "Password must be at least 8 characters long")]
         public string ConfirmPassword { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Gender is required,Please Input Gender")]
         public GenderHelper Gender { get; set; }
 
 

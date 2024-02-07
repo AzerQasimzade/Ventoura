@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace Ventoura.Domain.Enums
 {
     public enum GenderHelper
-    {
-        Male,
-        Female,
-        Others
+    { 
+        None = 0,
+        Female=2,
+        Male=1,
+        Others=3
     }
 }

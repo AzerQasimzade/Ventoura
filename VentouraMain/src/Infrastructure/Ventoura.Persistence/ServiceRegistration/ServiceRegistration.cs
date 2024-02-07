@@ -20,7 +20,11 @@ namespace Ventoura.Persistence.ServiceRegistration
             services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("Default")));
             services.AddIdentity<AppUser, IdentityRole>(opt =>
             {
+                
                 opt.Password.RequireNonAlphanumeric = false;
+                opt.Lockout.AllowedForNewUsers = true;
+                opt.Lockout.MaxFailedAccessAttempts = 3;
+                opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<ITourService, TourService>();
