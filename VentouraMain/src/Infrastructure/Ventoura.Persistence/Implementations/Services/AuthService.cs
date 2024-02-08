@@ -1,21 +1,11 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Users;
 using Ventoura.Domain.Entities;
 using Ventoura.Domain.Enums;
 using Ventoura.Domain.Extensions;
-
 namespace Ventoura.Persistence.Implementations.Services
 {
     public class AuthService:IAuthService
@@ -29,6 +19,7 @@ namespace Ventoura.Persistence.Implementations.Services
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+      
         }
         public async Task CreateRoles()
         {
@@ -42,9 +33,8 @@ namespace Ventoura.Persistence.Implementations.Services
                     });
                 }
             }
-        }
-
-        public async Task<bool> Login(LoginVM loginVM,ModelStateDictionary modelstate)
+        } 
+        public async Task<bool> Login(LoginVM loginVM, ModelStateDictionary modelstate)
         {
             if (!modelstate.IsValid)
             {
@@ -65,8 +55,8 @@ namespace Ventoura.Persistence.Implementations.Services
                 modelstate.AddModelError(String.Empty, "Email,Username or Password is incorrect");
                 return false;
             }
-            var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, loginVM.IsRemembered,true);
-            if (result.IsLockedOut) 
+            var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, loginVM.IsRemembered, true);
+            if (result.IsLockedOut)
             {
                 modelstate.AddModelError(String.Empty, "Your Account Blocked because of Fail attempts,Please Try after 30 second");
                 return false;
@@ -77,7 +67,7 @@ namespace Ventoura.Persistence.Implementations.Services
                 return false;
             }
             return true;
-        }
+        } 
         public async Task LogOut()
         {
            await _signInManager.SignOutAsync();
@@ -144,7 +134,9 @@ namespace Ventoura.Persistence.Implementations.Services
             await _userManager.AddToRoleAsync(user,UserRoles.Member.ToString());
             await _signInManager.SignInAsync(user, false);
             return true;
-        }     
+        }
+
         
+
     }
 }

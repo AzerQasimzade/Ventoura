@@ -12,7 +12,7 @@ namespace Ventoura.Application.Abstractions.Services
     {
         Task<bool> Register(RegisterVM registerVM, ModelStateDictionary modelstate);
         Task LogOut();
-        Task<bool> Login(LoginVM loginVM,ModelStateDictionary modelstate);
+        Task<bool> Login(LoginVM loginVM, ModelStateDictionary modelstate);
         Task CreateRoles();
 
     }

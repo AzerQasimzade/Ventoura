@@ -9,6 +9,7 @@
       "Ventoura.Domain/1.0.0": {
         "dependencies": {
           "AutoMapper.Collection": "9.0.0",
+          "Microsoft.AspNetCore.Authentication.Google": "6.0.25",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25",
           "Microsoft.AspNetCore.Identity.UI": "6.0.25"
         },
@@ -35,6 +36,14 @@
           "lib/netstandard2.1/AutoMapper.Collection.dll": {
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.0.0"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/6.0.25": {
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "6.0.25.0",
+            "fileVersion": "6.0.2523.52315"
           }
         }
       },
@@ -259,6 +268,13 @@
       "sha512": "sha512-tFsFFNrf1Z3TBi8XqAlKWemjYeUyaoiNqCPXsCatVZXd3sC/HCF0/tIkld6GBljF2oPZTO+EckyMGZh1jn85zQ==",
       "path": "automapper.collection/9.0.0",
       "hashPath": "automapper.collection.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/6.0.25": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-obPAt1SM7VX7GwTjdR318RA9sei/oucn8Pu2ZxAnpCwYtYFU/BC9kyE0l3/oSkg5cfGngJn3i88dqDEagqZ+6g==",
+      "path": "microsoft.aspnetcore.authentication.google/6.0.25",
+      "hashPath": "microsoft.aspnetcore.authentication.google.6.0.25.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/6.0.25": {
       "type": "package",
