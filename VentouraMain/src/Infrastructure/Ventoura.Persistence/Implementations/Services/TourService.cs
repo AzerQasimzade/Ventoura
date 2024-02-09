@@ -1,13 +1,9 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using Ventoura.Application.Abstractions.Repositories;
 using Ventoura.Application.Abstractions.Services;
+using Ventoura.Application.ViewModels;
+using Ventoura.Application.ViewModels.Cities;
+using Ventoura.Application.ViewModels.Countries;
 using Ventoura.Application.ViewModels.Tours;
 using Ventoura.Domain.Entities;
 
@@ -16,18 +12,16 @@ namespace Ventoura.Persistence.Implementations.Services
     public class TourService : ITourService
     {
         private readonly ITourRepository _repository;
-        private readonly ModelStateDictionary _modelstate;
-        private readonly IMapper _mapper;
 
-        public TourService(ITourRepository repository,ModelStateDictionary modelstate,IMapper mapper)
+        public TourService(ITourRepository repository)
         {
             _repository = repository;
-            _modelstate = modelstate;
-            _mapper = mapper;
         }
         public async Task<ICollection<TourItemVM>> GetAllAsync(int page, int take)
         {
-            ICollection<Tour> tours =await  _repository.GetAll(skip: (page - 1) * take, take: take).Include(c=>c.TourImages.Where(i=>i.IsPrimary==true)).ToListAsync();
+            ICollection<Tour> tours =await  _repository.GetAll(skip: (page - 1) * take, take: take)
+                .Include(c=>c.TourImages.Where(i=>i.IsPrimary==true))         
+                .ToListAsync();
             ICollection<TourItemVM> dtos = new List<TourItemVM>();
             foreach (var tour in tours)
             {
@@ -74,15 +68,72 @@ namespace Ventoura.Persistence.Implementations.Services
             });
             await _repository.SaveChangesAsync();
         }
+		public async Task<TourGetVM> GetByIdAsync(int id)
+		{
+			Tour tour = await _repository.GetByIdAsync(id, false, nameof(Tour.Country), nameof(Tour.City),nameof(Tour.TourImages));
+			TourGetVM getVM = new TourGetVM
+			{
+				AdultCount = tour.AdultCount,
+				StartDate = tour.StartDate,
+				Sale = tour.Sale,
+				SalePrice = tour.SalePrice,
+				StartTime = tour.StartTime,
+				ChildrenCount = tour.ChildrenCount,
+				CityId = tour.CityId,
+				CountryId = tour.CountryId,
+				IncludeDesc = tour.IncludeDesc,
+				Includes = tour.Includes,
+				Name = tour.Name,
+				Description = tour.Description,
+				Price = tour.Price,
+				TotalPrice = tour.TotalPrice,
+				DayCount = tour.DayCount,
+				EndTime = tour.EndTime,
+			};
 
-        public async Task<TourGetVM> GetByIdAsync(int id)
-        {
-            Tour tour = await _repository.GetByIdAsync(id,false,nameof(Tour.Country),nameof(Tour.City));
-            if (tour is null)
-            {
-                _modelstate.AddModelError(String.Empty, "The product you are looking for is no longer available");
-            }
-            
-        }
-    }
+			// tour null değilse, diğer alanları da doldurabilirsiniz
+			if (tour.City != null)
+			{
+				getVM.City = new IncludeCityVM { Name = tour.City.Name };// City null değilse CityViewModel'i oluştur
+			}
+			if (tour.Country != null)
+			{
+				getVM.Country = new IncludeCountryVM { Name = tour.Country.Name }; // Country null değilse CountryViewModel'i oluştur
+			}
+			getVM.TourImages = tour.TourImages;
+			return getVM;
+		}
+
+		//public async Task<TourGetVM> GetByIdAsync(int id)
+		//{
+		//    Tour tour = await _repository.GetByIdAsync(id,false,nameof(Tour.Country),nameof(Tour.City));
+
+		//    TourGetVM getVM = new TourGetVM
+		//    {
+
+		//        AdultCount = tour.AdultCount,
+		//        StartDate = tour.StartDate,
+		//        Sale = tour.Sale,
+		//        SalePrice = tour.SalePrice,
+		//        StartTime = tour.StartTime,
+		//        ChildrenCount = tour.ChildrenCount,
+		//        CityId = tour.CityId,
+		//        CountryId = tour.CountryId,
+		//        IncludeDesc = tour.IncludeDesc,
+		//        Includes = tour.Includes,
+		//        Name = tour.Name,
+		//        Description = tour.Description,
+		//        Price = tour.Price,
+		//        TotalPrice = tour.TotalPrice,
+		//        DayCount = tour.DayCount,
+		//        EndTime = tour.EndTime,
+		//    };
+		//    getVM.City.Name = tour.City.Name;
+		//    getVM.Country.Name = tour.Country.Name;
+		//    getVM.TourImages = tour.TourImages;
+		//    getVM.CityId = tour.CityId;
+		//    getVM.CountryId = tour.CountryId;
+		//    return getVM;
+		//}
+	}
 }

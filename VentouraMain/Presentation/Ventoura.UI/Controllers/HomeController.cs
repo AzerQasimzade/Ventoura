@@ -12,15 +12,21 @@ namespace Ventoura.UI.Controllers
         {
             _tourService = tourService;
         }
-        [HttpGet]
         public async Task<IActionResult> Index(int page = 1, int take = 20)
         {
             return View(await _tourService.GetAllAsync(page, take));
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Detail(int id)
+        public async Task<IActionResult> Details(int id)
         {
-
+			if (id <= 0) return BadRequest();
+			var tour = await _tourService.GetByIdAsync(id);
+			if (tour == null)
+			{
+				ModelState.AddModelError(string.Empty, "The product you are looking for is no longer available");
+				return View("Error");
+			}
+            return View(await _tourService.GetByIdAsync(id)); 
         }
+
     }
 }

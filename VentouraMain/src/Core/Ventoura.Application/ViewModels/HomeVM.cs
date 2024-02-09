@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Ventoura.Application.ViewModels.Tours;
+using Ventoura.Domain.Entities;
 
 namespace Ventoura.Application.ViewModels
 {
     public class HomeVM
     {
+        public TourGetVM TourGetVm { get; set; }
+
     }
 }

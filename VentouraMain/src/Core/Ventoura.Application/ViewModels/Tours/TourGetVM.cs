@@ -28,7 +28,7 @@ namespace Ventoura.Application.ViewModels.Tours
         public int? ChildrenCount { get; set; }
         public string Url { get; set; }
         public bool? IsPrimary { get; set; }
-        public Tour Tour { get; set; }
+        //public Tour Tour { get; set; }
         public int TourId { get; set; }
         public List<TourImage> TourImages { get; set; }
         //Relationals

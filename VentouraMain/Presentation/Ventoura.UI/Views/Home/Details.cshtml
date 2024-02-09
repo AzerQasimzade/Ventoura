@@ -1,0 +1,466 @@
+﻿@using Ventoura.Application.ViewModels.Tours;
+@model TourGetVM
+<!-- End Header -->
+<section class="parallax-window" data-parallax="scroll" data-image-src="/main/img/single_tour_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+	<div class="parallax-content-2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<h1>@Model.Name</h1>
+					<span>@Model.Country,@Model.City.Name</span>
+					<span class="rating"><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small></span>
+				</div>
+				<div class="col-md-4">
+					<div id="price_single_main">
+						from/per person <span><sup>$</sup>@Model.Price</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End section -->
+<main>
+	<!-- End Position -->
+	<div class="collapse" id="collapseMap">
+		<div id="map" class="map"></div>
+	</div>
+	<!-- End Map -->
+	<div class="container margin_60">
+		<div class="row">
+			<div class="col-lg-8" id="single_tour_desc">
+				<div id="single_tour_feat">
+					<ul>
+						<li><i class="icon_set_1_icon-4"></i>Museum</li>
+						<li><i class="icon_set_1_icon-83"></i>3 Hours</li>
+						<li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
+						<li><i class="icon_set_1_icon-82"></i>144 Likes</li>
+						<li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
+						<li><i class="icon_set_1_icon-97"></i>Audio guide</li>
+						<li><i class="icon_set_1_icon-29"></i>Tour guide</li>
+					</ul>
+				</div>
+
+				<p class="d-none d-md-block d-block d-lg-none"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a></p>
+				<!-- Map button for tablets/mobiles -->
+
+				<div id="Img_carousel" class="slider-pro">
+					<div class="sp-slides">
+						@* @foreach (var item in Model.TourGetVm.TourImages)
+						{
+
+							<div class="sp-slide">
+								<img alt="Image" class="sp-image" src="~/main/css/images/@item.Url" data-src="~/main/img/slider_single_tour/1_medium.jpg" data-small="img/slider_single_tour/1_small.jpg" data-medium="img/slider_single_tour/1_medium.jpg" data-large="img/slider_single_tour/1_large.jpg" data-retina="img/slider_single_tour/1_large.jpg">
+							</div>
+						} *@
+							@foreach (var item in Model.TourImages)
+							{
+								<div class="sp-slide">
+								<img alt="Image" class="sp-image"
+								src="~/rev-slider-files/assets/@item.Tour.TourImages.FirstOrDefault(c=>c.IsPrimary==true).Url" 
+								data-src="~/rev-slider-files/assets/@item.Tour.TourImages.FirstOrDefault(c=>c.IsPrimary==false).Url"
+							    data-small="/rev-slider-files/assets/@item.Tour.TourImages.FirstOrDefault(c=>c.IsPrimary==null).Url"
+							    data-medium="/rev-slider-files/assets/@item.Tour.TourImages.FirstOrDefault(c=>c.IsPrimary==null).Url"
+							    data-large="/rev-slider-files/assets/@item.Tour.TourImages.FirstOrDefault(c=>c.IsPrimary==null).Url"
+								data-retina="/rev-slider-files/assets/@item.Tour.TourImages.FirstOrDefault(c=>c.IsPrimary==null).Url">
+								</div>
+							}
+					</div>
+					@* <div class="sp-thumbnails">
+						@foreach (var item in Model.TourGetVm.TourImages)
+						{
+							<img alt="Image" class="sp-thumbnail" src="~/main/img/slider_single_tour/@item.Url">
+						}
+					</div> *@
+					<div class="sp-thumbnails">
+						
+							@foreach (var item in Model.TourImages)
+							{
+							<img alt="Image" class="sp-thumbnail" src="~/rev-slider-files/assets/@item.Tour.TourImages.FirstOrDefault(x=>x.IsPrimary==true).Url">
+							}
+						
+					</div>
+				</div>
+
+				<hr>
+
+				<div class="row">
+					<div class="col-lg-3">
+						<h3>Description</h3>
+					</div>
+					<div class="col-lg-9">
+						<h4>@Model.Name</h4>
+						<p>
+							@Model.Description
+						</p>
+						<h4>What's include</h4>
+						<p>
+							@Model.IncludeDesc
+						</p>
+						<div class="row">
+							<div class="col-md-6">
+								<ul class="list_ok">
+										<li>@Model.IncludeDesc</li>
+								</ul>
+							</div>
+							<div class="col-md-6">
+								<ul class="list_ok">
+									<li>@Model.Includes</li>
+									<
+								</ul>
+							</div>
+						</div>
+						<!-- End row  -->
+					</div>
+				</div>
+				<hr>
+				@* <div class="row">
+					<div class="col-lg-3">
+						<h3>Schedule</h3>
+					</div>
+					<div class="col-lg-9">
+
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th colspan="2">
+											1st March to 31st October
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											Monday
+										</td>
+										<td>
+											10.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Tuesday
+										</td>
+										<td>
+											09.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Wednesday
+										</td>
+										<td>
+											09.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Thursday
+										</td>
+										<td>
+											<span class="label label-danger">Closed</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Friday
+										</td>
+										<td>
+											09.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Saturday
+										</td>
+										<td>
+											09.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Sunday
+										</td>
+										<td>
+											10.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong><em>Last Admission</em></strong>
+										</td>
+										<td>
+											<strong>17.00</strong>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th colspan="2">
+											1st November to 28th February
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											Monday
+										</td>
+										<td>
+											10.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Tuesday
+										</td>
+										<td>
+											09.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Wednesday
+										</td>
+										<td>
+											09.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Thursday
+										</td>
+										<td>
+											<span class="label label-danger">Closed</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Friday
+										</td>
+										<td>
+											09.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Saturday
+										</td>
+										<td>
+											09.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Sunday
+										</td>
+										<td>
+											10.00 - 17.30
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong><em>Last Admission</em></strong>
+										</td>
+										<td>
+											<strong>17.00</strong>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div> *@
+				<hr>
+				<div class="row">
+					<div class="col-lg-3">
+						<h3>Reviews </h3>
+						<a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">Leave a review</a>
+					</div>
+					<div class="col-lg-9">
+						<div id="general_rating">
+							11 Reviews
+							<div class="rating">
+								<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+							</div>
+						</div>
+						<!-- End general_rating -->
+						<div class="row" id="rating_summary">
+							<div class="col-md-6">
+								<ul>
+									<li>
+										Position
+										<div class="rating">
+											<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+										</div>
+									</li>
+									<li>
+										Tourist guide
+										<div class="rating">
+											<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-6">
+								<ul>
+									<li>
+										Price
+										<div class="rating">
+											<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+										</div>
+									</li>
+									<li>
+										Quality
+										<div class="rating">
+											<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- End row -->
+						<hr>
+						<div class="review_strip_single">
+							<img src="~/main/img/avatar1.jpg" alt="Image" class="rounded-circle">
+							<small> - 10 March 2015 -</small>
+							<h4>Jhon Doe</h4>
+							<p>
+								"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+							</p>
+							<div class="rating">
+								<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+							</div>
+						</div>
+						<!-- End review strip -->
+
+						<div class="review_strip_single">
+							<img src="~/main/img/avatar3.jpg" alt="Image" class="rounded-circle">
+							<small> - 10 March 2015 -</small>
+							<h4>Jhon Doe</h4>
+							<p>
+								"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+							</p>
+							<div class="rating">
+								<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+							</div>
+						</div>
+						<!-- End review strip -->
+
+						<div class="review_strip_single last">
+							<img src="~/main/img/avatar2.jpg" alt="Image" class="rounded-circle">
+							<small> - 10 March 2015 -</small>
+							<h4>Jhon Doe</h4>
+							<p>
+								"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+							</p>
+							<div class="rating">
+								<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+							</div>
+						</div>
+						<!-- End review strip -->
+					</div>
+				</div>
+			</div>
+			<!--End  single_tour_desc-->
+
+			<aside class="col-lg-4" id="sidebar">
+				<p class="d-none d-xl-block d-lg-block d-xl-none">
+					<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
+				</p>
+				<div class="theiaStickySidebar">
+					<div class="box_style_1 expose" id="booking_box">
+						<h3 class="inner">- Booking -</h3>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group scroll-fix">
+									<label><i class="icon-calendar-7"></i>Date</label>
+									<input class="date-pick form-control" value="" type="text">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group scroll-fix-time">
+									<label><i class=" icon-clock"></i>Time</label>
+									<input class="time-pick form-control" value=" AM" type="text">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<div class="form-group">
+									<label>Adults</label>
+									<div class="numbers-row">
+										<input type="text" value="1" id="adults" class="qty2 form-control" name="quantity">
+									</div>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="form-group">
+									<label>Children</label>
+									<div class="numbers-row">
+										<input type="text" value="0" id="children" class="qty2 form-control" name="quantity">
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<table class="table table_summary">
+							<tbody>
+								<tr>
+									<td>
+										Adults
+									</td>
+									<td class="text-right">
+										2
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Children
+									</td>
+									<td class="text-right">
+										0
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Total amount
+									</td>
+									<td class="text-right">
+										3x $52
+									</td>
+								</tr>
+								<tr class="total">
+									<td>
+										Total cost
+									</td>
+									<td class="text-right">
+										$154
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<a class="btn_full" href="cart.html">Book now</a>
+						<a class="btn_full_outline" href="#"><i class=" icon-heart"></i> Add to whislist</a>
+					</div>
+					<!--/box_style_1 -->
+				</div>
+				<!--/sticky -->
+
+			</aside>
+		</div>
+		<!--End row -->
+	</div>
+	<!--End container -->
+
+	<div id="overlay"></div>
+	<!-- Mask on input focus -->
+
+</main>
+<!-- End main -->

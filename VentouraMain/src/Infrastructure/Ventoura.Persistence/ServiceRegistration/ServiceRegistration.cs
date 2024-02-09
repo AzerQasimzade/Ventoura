@@ -31,9 +31,7 @@ namespace Ventoura.Persistence.ServiceRegistration
 
             services.AddScoped<ICityRepository, CityRepository>();
             services.AddScoped<ICityService, CityService>();
-
             services.AddScoped<IAuthService, AuthService>();
-
             return services;
         }
     }

@@ -1,7 +1,6 @@
 using Ventoura.Persistence.ServiceRegistration;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(options =>
 {
@@ -17,17 +16,15 @@ builder.Services.AddAuthentication(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddPersistenceServices(builder.Configuration);
-
 var app = builder.Build();
-app.UseCookiePolicy(new CookiePolicyOptions()
-{
-    MinimumSameSitePolicy = SameSiteMode.None
-});
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseRouting();
-
 app.UseAuthorization();
+app.UseCookiePolicy(new CookiePolicyOptions()
+{
+	MinimumSameSitePolicy = SameSiteMode.None
+});
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
@@ -38,4 +35,5 @@ app.UseEndpoints(endpoints =>
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.Run();
