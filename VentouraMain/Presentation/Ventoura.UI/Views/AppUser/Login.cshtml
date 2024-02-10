@@ -83,6 +83,7 @@
                                     <input asp-for="Password" class="form-control" placeholder="Password">
                                     <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
+                                <a asp-action="ForgotPassword" asp-controller="AppUser">Forgot Password?</a>
                                 <div class="form-group">
                                     <label asp-for="IsRemembered">Remember Me</label>
                                     <input asp-for="IsRemembered"/>

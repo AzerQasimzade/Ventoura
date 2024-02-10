@@ -74,5 +74,13 @@ namespace Ventoura.UI.Controllers
             });
             return RedirectToAction("Index", "Home"); 
         }
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM forgot)
+        {
+
+        }
     }
 }

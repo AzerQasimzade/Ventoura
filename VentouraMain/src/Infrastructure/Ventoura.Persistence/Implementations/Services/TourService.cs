@@ -19,8 +19,7 @@ namespace Ventoura.Persistence.Implementations.Services
         }
         public async Task<ICollection<TourItemVM>> GetAllAsync(int page, int take)
         {
-            ICollection<Tour> tours =await  _repository.GetAll(skip: (page - 1) * take, take: take)
-                .Include(c=>c.TourImages.Where(i=>i.IsPrimary==true))         
+            ICollection<Tour> tours =await  _repository.GetAll(null,null,false,skip: (page - 1) * take, take: take,false,nameof(Tour.TourImages))
                 .ToListAsync();
             ICollection<TourItemVM> dtos = new List<TourItemVM>();
             foreach (var tour in tours)
@@ -42,9 +41,10 @@ namespace Ventoura.Persistence.Implementations.Services
                    Includes=tour.Includes,
                    Price = tour.Price,
                    TotalPrice = tour.TotalPrice,
-                   Url=tour.TourImages.FirstOrDefault(c=>c.IsPrimary==true).Url
+				   TourImages=tour.TourImages
                 });
             }
+			
             return dtos;
         }
         public async Task Create(TourCreateVM dto)
@@ -64,7 +64,7 @@ namespace Ventoura.Persistence.Implementations.Services
                 IncludeDesc = dto.IncludeDesc,
                 Includes = dto.Includes,
                 Price = dto.Price,
-                TotalPrice = dto.TotalPrice
+                TotalPrice = dto.TotalPrice	
             });
             await _repository.SaveChangesAsync();
         }

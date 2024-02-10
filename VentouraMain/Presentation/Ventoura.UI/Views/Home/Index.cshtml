@@ -265,7 +265,7 @@
                     <div class="tour_container">
                         <div class="img_container">
                             <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">
-                                <img src="~/rev-slider-files/assets/@item.Url" width="800" height="533" class="img-fluid" alt="image">
+                                <img src="~/main/img/@item.TourImages.FirstOrDefault(c=>c.IsPrimary==true).Url" width="800" height="533" class="img-fluid" alt="image">
                                 <div class="short_info">
                                     <i class="icon_set_1_icon-44"></i>Historic Buildings<span class="price"><sup>$</sup>@item.Price</span>
                                 </div>

@@ -33,7 +33,16 @@ namespace Ventoura.Persistence.Implementations.Services
                     });
                 }
             }
-        } 
+        }
+
+        public async Task<bool> ForgotPassword(ForgotPasswordVM forgot, ModelStateDictionary modelstate)
+        {
+            if (!modelstate.IsValid)return false;
+            var user=await _userManager.FindByEmailAsync(forgot.Email);
+            if (user is null) return false;
+            
+        }
+
         public async Task<bool> Login(LoginVM loginVM, ModelStateDictionary modelstate)
         {
             if (!modelstate.IsValid)
