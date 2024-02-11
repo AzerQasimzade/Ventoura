@@ -14,6 +14,5 @@ namespace Ventoura.Application.Abstractions.Services
         Task LogOut();
         Task<bool> Login(LoginVM loginVM, ModelStateDictionary modelstate);
         Task CreateRoles();
-        Task<bool> ForgotPassword(ForgotPasswordVM forgot, ModelStateDictionary modelstate);
     }
 }

@@ -372,113 +372,39 @@
 
 					<p class="d-none d-md-block d-block d-lg-none"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a></p>
 					<!-- Map button for tablets/mobiles -->
-					<div class="col-lg-6">
-						<div class="single-product-img">
-							<div class="swiper-container single-product-slider">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide">
-										<a href="~/main/img/@Model.TourImages.FirstOrDefault(x=>x.IsPrimary==true).Url"
-										   class="single-img gallery-popup">
-											<img class="img-full"
-												 src="~/main/img/@Model.TourImages.FirstOrDefault(x=>x.IsPrimary==true).Url"
-												 alt="Product Image" />
-										</a>
-									</div>
-									<div class="swiper-slide">
-										<a href="~/assets/images/@Model.TourImages.FirstOrDefault(x=>x.IsPrimary==false).Url"
-										   class="single-img gallery-popup">
-											<img class="img-full"
-												 src="~/main/img/@Model.TourImages.FirstOrDefault(x=>x.IsPrimary==false).Url"
-												 alt="Product Image" />
-										</a>
-									</div>
-									@foreach (var item in Model.TourImages.FindAll(x => x.IsPrimary == null))
-									{
-										<div class="swiper-slide">
-											<a href="~/main/img/@item.Url"
-											   class="single-img gallery-popup">
-												<img class="img-full"
-													 src="~/main/img/@item.Url"
-													 alt="Product Image" />
-											</a>
-										</div>
-									}
-								</div>
-							</div>
-							<div class="thumbs-arrow-holder">
-								<div class="swiper-container single-product-thumbs">
-									<div class="swiper-wrapper">
-										<a class="swiper-slide">
-											<img class="img-full"
-												 src="~/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url"
-												 alt="Product Thumnail" />
-										</a>
-										<a class="swiper-slide">
-											<img class="img-full"
-												 src="~/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url"
-												 alt="Product Thumnail" />
-										</a>
-										@foreach (var item in Model.TourImages)
-										{
-											<a  class="swiper-slide">
-												<img class="img-full"
-													 src="~/main/img/@item.Tour.TourImages.FirstOrDefault(x=>x.IsPrimary==null).Url"
-													 alt="Product Thumnail" />
-											</a>
-										}
-									</div>
-									<!-- Add Arrows -->
-									<div class="thumbs-button-wrap d-none d-md-block">
-										<div class="thumbs-button-prev">
-											<i class="pe-7s-angle-left"></i>
-										</div>
-										<div class="thumbs-button-next">
-											<i class="pe-7s-angle-right"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 
-				   @*  <div id="Img_carousel" class="slider-pro">
+				     <div id="Img_carousel" class="slider-pro">
 						<div class="sp-slides">
-
-							@foreach (var item in Model.TourImages)
-							{
 								<div class="sp-slide">
-									<img alt="Image" class="sp-image" src="~/main/img/@item.Tour.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url" data-src="~/main/img/@item.Tour.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url" data-small="~/main/img/@item.Tour.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url" >
+									<img alt="Image" class="sp-image" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url" data-src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url" data-small="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url" >
 								</div>
-							} 
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="~/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url" data-src="~/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url" data-small="~/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url">
+								<div class="sp-slide">
+									<img alt="Image" class="sp-image" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url" data-src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url" data-small="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url">
+								</div> 
+							 @foreach (var item in Model.TourImages)
+							{
+
+								<div class="sp-slide">
+									<img alt="Image" class="sp-image" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url" data-src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url" data-small=/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url>
+								</div>
+							}
+							@* <div class="sp-slide">
+								<img alt="Image" class="sp-image" src="/main/css/images/blank.gif" data-src="/main/img/slider_single_tour/3_medium.jpg" data-small="/main/img/slider_single_tour/3_small.jpg" data-medium="/main/img/slider_single_tour/3_medium.jpg" data-large="/main/img/slider_single_tour/3_large.jpg" data-retina="/main/img/slider_single_tour/3_large.jpg">
 							</div>
-							 <div class="sp-slide">
-								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="~/main/img/slider_single_tour/2_medium.jpg" data-small="~/main/img/slider_single_tour/2_small.jpg" data-medium="~/main/img/slider_single_tour/2_medium.jpg" data-large="~/main/img/slider_single_tour/2_large.jpg" data-retina="~/main/img/slider_single_tour/2_large.jpg">
-							</div>
-
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="~/main/img/slider_single_tour/3_medium.jpg" data-small="~/main/img/slider_single_tour/3_small.jpg" data-medium="~/main/img/slider_single_tour/3_medium.jpg" data-large="~/main/img/slider_single_tour/3_large.jpg" data-retina="~/main/img/slider_single_tour/3_large.jpg">
-							</div>
-
-
-							 data-medium="~/main/img/slider_single_tour/1_medium.jpg" data-large="~/main/img/slider_single_tour/1_large.jpg" data-retina="~/main/img/slider_single_tour/1_large.jpg" 
-
-
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="~/main/img/slider_single_tour/4_medium.jpg" data-small="~/main/img/slider_single_tour/4_small.jpg" data-medium="~/main/img/slider_single_tour/4_medium.jpg" data-large="~/main/img/slider_single_tour/4_large.jpg" data-retina="~/main/img/slider_single_tour/4_large.jpg">
+								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="/main/img/slider_single_tour/4_medium.jpg" data-small="~/main/img/slider_single_tour/4_small.jpg" data-medium="~/main/img/slider_single_tour/4_medium.jpg" data-large="~/main/img/slider_single_tour/4_large.jpg" data-retina="~/main/img/slider_single_tour/4_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="~/main/img/slider_single_tour/5_medium.jpg" data-small="~/main/img/slider_single_tour/5_small.jpg" data-medium="~/main/img/slider_single_tour/5_medium.jpg" data-large="~/main/img/slider_single_tour/5_large.jpg" data-retina="~/main/img/slider_single_tour/5_large.jpg">
+								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="/main/img/slider_single_tour/5_medium.jpg" data-small="~/main/img/slider_single_tour/5_small.jpg" data-medium="~/main/img/slider_single_tour/5_medium.jpg" data-large="~/main/img/slider_single_tour/5_large.jpg" data-retina="~/main/img/slider_single_tour/5_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="~/main/img/slider_single_tour/6_medium.jpg" data-small="~/main/img/slider_single_tour/6_small.jpg" data-medium="~/main/img/slider_single_tour/6_medium.jpg" data-large="~/main/img/slider_single_tour/6_large.jpg" data-retina="~/main/img/slider_single_tour/6_large.jpg">
+								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="/main/img/slider_single_tour/6_medium.jpg" data-small="~/main/img/slider_single_tour/6_small.jpg" data-medium="~/main/img/slider_single_tour/6_medium.jpg" data-large="~/main/img/slider_single_tour/6_large.jpg" data-retina="~/main/img/slider_single_tour/6_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="~/main/img/slider_single_tour/7_medium.jpg" data-small="~/main/img/slider_single_tour/7_small.jpg" data-medium="~/main/img/slider_single_tour/7_medium.jpg" data-large="~/main/img/slider_single_tour/7_large.jpg" data-retina="~/main/img/slider_single_tour/7_large.jpg">
+								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="/main/img/slider_single_tour/7_medium.jpg" data-small="~/main/img/slider_single_tour/7_small.jpg" data-medium="~/main/img/slider_single_tour/7_medium.jpg" data-large="~/main/img/slider_single_tour/7_large.jpg" data-retina="~/main/img/slider_single_tour/7_large.jpg">
 							</div>
 
 							<div class="sp-slide">
@@ -487,20 +413,17 @@
 
 							<div class="sp-slide">
 								<img alt="Image" class="sp-image" src="~/main/css/images/blank.gif" data-src="~/main/img/slider_single_tour/9_medium.jpg" data-small="~/main/img/slider_single_tour/9_small.jpg" data-medium="~/main/img/slider_single_tour/9_medium.jpg" data-large="~/main/img/slider_single_tour/9_large.jpg" data-retina="~/main/img/slider_single_tour/9_large.jpg">
-							</div> 
+							</div>  *@
 						</div>
 						<div class="sp-thumbnails">
-							<img alt="Image" class="sp-thumbnail" src="~/main/img/slider_single_tour/1_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="~/main/img/slider_single_tour/2_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="~/main/img/slider_single_tour/3_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="~/main/img/slider_single_tour/4_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="~/main/img/slider_single_tour/5_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="~/main/img/slider_single_tour/6_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="~/main/img/slider_single_tour/7_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="~/main/img/slider_single_tour/8_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="~/main/img/slider_single_tour/9_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url">
+							<img alt="Image" class="sp-thumbnail" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url">
+							@foreach (var item in Model.TourImages)
+							{
+								<img alt="Image" class="sp-thumbnail" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url">
+							}
 						</div>
-					</div>   *@
+					</div>   
 					<hr>
 					<div class="row">
 						<div class="col-lg-3">
