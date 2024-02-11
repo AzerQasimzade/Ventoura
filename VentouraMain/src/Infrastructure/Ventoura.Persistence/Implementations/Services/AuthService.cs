@@ -35,11 +35,7 @@ namespace Ventoura.Persistence.Implementations.Services
             }
         }
 
-        public Task<bool> ForgotPassword(ForgotPasswordVM forgot, ModelStateDictionary modelstate)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public async Task<bool> Login(LoginVM loginVM, ModelStateDictionary modelstate)
         {
             if (!modelstate.IsValid)

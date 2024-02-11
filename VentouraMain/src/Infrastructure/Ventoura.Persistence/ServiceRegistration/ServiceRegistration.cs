@@ -25,12 +25,18 @@ namespace Ventoura.Persistence.ServiceRegistration
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<ITourService, TourService>();
+
             services.AddScoped<ICountryRepository, CountryRepository>();
             services.AddScoped<ICountryService, CountryService>();
 
             services.AddScoped<ICityRepository, CityRepository>();
             services.AddScoped<ICityService, CityService>();
+
             services.AddScoped<IAuthService, AuthService>();
+
+
+            services.AddScoped<IWishlistService, WishlistService>();
+            services.AddScoped<IWishlistRepository, WishlistRepository>();
             return services;
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -31,6 +32,7 @@ namespace Ventoura.Application.Abstractions.Repositories
            int id,
            bool isTracking = false,
            params string[] includes);
+        Task<Tour> GettingThatObject(int id);
         Task<T> GetByExpressionAsync(
            Expression<Func<T, bool>>? expression = null,
            bool isTracking = false,
@@ -40,6 +42,9 @@ namespace Ventoura.Application.Abstractions.Repositories
         void Update(T entity);
         void Delete(T entity);
         Task SaveChangesAsync();
+        Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate, bool isTracking = false, params string[] includes);
+		
 
-    }
+
+	}
 }

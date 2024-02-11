@@ -20,14 +20,14 @@ namespace Ventoura.Persistence.Implementations.Repositories
             _context = context;
             _table = context.Set<T>();
         }
-        //public IQueryable<T> GetAll(bool isTracking = false, params string[] includes)
-        //{
-        //    IQueryable<T> query = _table;
-        //    if (!isTracking) query = query.AsNoTracking();
-        //    query = _addIncludes(query, includes);
-        //    return query;
-        //} 
-        public IQueryable<T> GetAll(Expression<Func<T, 
+		public async Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate, bool isTracking = false, params string[] includes)
+		{
+			IQueryable<T> query = _table;
+			if (!isTracking) query = query.AsNoTracking();
+			query = _addIncludes(query, includes);
+			return await query.FirstOrDefaultAsync(predicate);
+		}
+		public IQueryable<T> GetAll(Expression<Func<T, 
             bool>>? expression = null, Expression<Func<T,
             object>>? orderExpression = null,
             bool isDescending = false,
@@ -118,6 +118,10 @@ namespace Ventoura.Persistence.Implementations.Repositories
             return query;
         }
 
-        
+        public async Task<Tour> GettingThatObject(int id)
+        {
+            Tour tour=await _context.Tours.FirstOrDefaultAsync(c => c.Id == id);
+            return tour;
+        }
     }
 }

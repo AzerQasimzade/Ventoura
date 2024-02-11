@@ -12,18 +12,15 @@ namespace Ventoura.UI.Controllers
         {
 			_service = service;
 		}
-        public IActionResult Index()
-		{
-			return View();
+        public async Task<IActionResult> Index()
+		{	
+			return View(await _service.Index());
 		}
-		public IActionResult AddWishlist(int id)
+		public async Task<IActionResult> AddWishlist(int id)
 		{
 			if (id == 0) return BadRequest();
-			return View(_service.AddWishlist(id));	
-		}
-		public IActionResult GetWishList()
-		{
-			return Content(Request.Cookies["Basket"]);
+			await _service.AddWishlist(id);
+			return RedirectToAction("Index", "Home");
 		}
 	}
 }

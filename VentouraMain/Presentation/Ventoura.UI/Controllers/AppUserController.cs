@@ -96,7 +96,6 @@ namespace Ventoura.UI.Controllers
             string link = Url.Action("ResetPassword", "AppUser", new { userId = user.Id, token = token }, HttpContext.Request.Scheme);
             await _mailService.SendEmailAsync(new MailRequestVM { ToEmail=forgot.Email,Subject="ResetPassword",Body=$"<a href='{link}'>ResetPassword</a>"});
             return RedirectToAction(nameof(Login));
-
         }
         public async Task<IActionResult> ResetPassword(string userId, string token)
         {
