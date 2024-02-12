@@ -1,0 +1,48 @@
+﻿@using Ventoura.Application.ViewModels.Cities;
+@model ICollection<CityItemVM>
+@{
+    int count = 0;
+}
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-6">
+                    <h4>City Table</h4>
+                </div>
+                <div class="col-6">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid basic_table">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="border-bottom-primary">
+                                    <th scope="col">No</th>
+                                    <th scope="col">City Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr class="border-bottom-secondary">
+                                        <th scope="row">@count</th>
+                                        <td>@item.Name</td>                                
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>

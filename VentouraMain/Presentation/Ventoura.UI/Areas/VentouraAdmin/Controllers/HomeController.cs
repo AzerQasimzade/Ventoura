@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Ventoura.Application.Abstractions.Services;
+using Ventoura.Application.ViewModels.Tours;
+using Ventoura.Persistence.Implementations.Services;
 
 namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
 {
@@ -8,6 +11,7 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
         public IActionResult Index()
         {
             return View();
-        }
+        } 
     }
+
 }

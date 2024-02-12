@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9S/QmjgA5mtJgbWf22XR/iJ/MDRNPSTd6Kf2DzKG6bA=",
+  "Hash": "tzPW8yYSaG0EmWor2ZQ1D678EhuVgHvTWEOyBuPCJEY=",
   "Source": "Ventoura.UI",
   "BasePath": "_content/Ventoura.UI",
   "Mode": "Default",
@@ -54995,6 +54995,23 @@
       "OriginalItemSpec": "wwwroot\\main\\img\\close_infobox.png"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\contract.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/contract.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\contract.png"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\course_1_thumb.jpg",
       "SourceId": "Ventoura.UI",
       "SourceType": "Discovered",
@@ -56132,6 +56149,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\main\\img\\icons_search\\walking.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\icons8-cancel.gif",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/icons8-cancel.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\icons8-cancel.gif"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\icons8-settings-96.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/icons8-settings-96.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\icons8-settings-96.png"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\icon-select.png",
@@ -59447,6 +59498,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\main\\img\\sprite-skin-flat.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\system-update.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/system-update.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\system-update.png"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\tag_bg.png",

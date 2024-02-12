@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Ventoura.Application.Abstractions.Repositories;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels;
@@ -19,7 +20,7 @@ namespace Ventoura.Persistence.Implementations.Services
         }
         public async Task<ICollection<TourItemVM>> GetAllAsync(int page, int take)
         {
-            ICollection<Tour> tours =await  _repository.GetAll(null,null,false,skip: (page - 1) * take, take: take,false,nameof(Tour.TourImages))
+            ICollection<Tour> tours =await  _repository.GetAll(null,null,false,skip: (page - 1) * take, take: take,false,nameof(Tour.City),nameof(Tour.Country),nameof(Tour.TourImages))
                 .ToListAsync();
             ICollection<TourItemVM> dtos = new List<TourItemVM>();
             foreach (var tour in tours)
@@ -41,7 +42,9 @@ namespace Ventoura.Persistence.Implementations.Services
                    Includes=tour.Includes,
                    Price = tour.Price,
                    TotalPrice = tour.TotalPrice,
-				   TourImages=tour.TourImages
+				   TourImages=tour.TourImages,
+                   City=tour.City,
+                   Country=tour.Country 
                 });
             }
 			
@@ -88,7 +91,8 @@ namespace Ventoura.Persistence.Implementations.Services
 				Price = tour.Price,
 				TotalPrice = tour.TotalPrice,
 				DayCount = tour.DayCount,
-				EndTime = tour.EndTime,
+				EndTime = tour.EndTime
+
 			};
 
 			// tour null değilse, diğer alanları da doldurabilirsiniz
@@ -104,36 +108,8 @@ namespace Ventoura.Persistence.Implementations.Services
 			return getVM;
 		}
 
-		//public async Task<TourGetVM> GetByIdAsync(int id)
-		//{
-		//    Tour tour = await _repository.GetByIdAsync(id,false,nameof(Tour.Country),nameof(Tour.City));
+       
+        
 
-		//    TourGetVM getVM = new TourGetVM
-		//    {
-
-		//        AdultCount = tour.AdultCount,
-		//        StartDate = tour.StartDate,
-		//        Sale = tour.Sale,
-		//        SalePrice = tour.SalePrice,
-		//        StartTime = tour.StartTime,
-		//        ChildrenCount = tour.ChildrenCount,
-		//        CityId = tour.CityId,
-		//        CountryId = tour.CountryId,
-		//        IncludeDesc = tour.IncludeDesc,
-		//        Includes = tour.Includes,
-		//        Name = tour.Name,
-		//        Description = tour.Description,
-		//        Price = tour.Price,
-		//        TotalPrice = tour.TotalPrice,
-		//        DayCount = tour.DayCount,
-		//        EndTime = tour.EndTime,
-		//    };
-		//    getVM.City.Name = tour.City.Name;
-		//    getVM.Country.Name = tour.Country.Name;
-		//    getVM.TourImages = tour.TourImages;
-		//    getVM.CityId = tour.CityId;
-		//    getVM.CountryId = tour.CountryId;
-		//    return getVM;
-		//}
-	}
+    }
 }

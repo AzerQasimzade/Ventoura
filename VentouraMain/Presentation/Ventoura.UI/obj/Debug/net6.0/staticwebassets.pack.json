@@ -12713,6 +12713,10 @@
       "PackagePath": "staticwebassets\\main\\img\\close_infobox.png"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\contract.png",
+      "PackagePath": "staticwebassets\\main\\img\\contract.png"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\course_10_thumb.jpg",
       "PackagePath": "staticwebassets\\main\\img\\course_10_thumb.jpg"
     },
@@ -12903,6 +12907,14 @@
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\icon_ccv.gif",
       "PackagePath": "staticwebassets\\main\\img\\icon_ccv.gif"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\icons8-cancel.gif",
+      "PackagePath": "staticwebassets\\main\\img\\icons8-cancel.gif"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\icons8-settings-96.png",
+      "PackagePath": "staticwebassets\\main\\img\\icons8-settings-96.png"
     },
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\icons_search\\all_restaurants.png",
@@ -13743,6 +13755,10 @@
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\sprite-skin-flat.png",
       "PackagePath": "staticwebassets\\main\\img\\sprite-skin-flat.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\system-update.png",
+      "PackagePath": "staticwebassets\\main\\img\\system-update.png"
     },
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\tag_bg.png",

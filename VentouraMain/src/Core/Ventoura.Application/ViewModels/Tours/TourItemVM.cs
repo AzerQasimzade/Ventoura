@@ -29,6 +29,8 @@ namespace Ventoura.Application.ViewModels.Tours
         public Tour Tour { get; set; }
         public int TourId { get; set; }
 		public List<TourImage> TourImages { get; set; }
+        public City? City { get; set; }
+        public Country? Country { get; set; }
 
-	}
+    }
 }

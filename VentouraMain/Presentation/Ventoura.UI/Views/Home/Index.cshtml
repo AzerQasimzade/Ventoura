@@ -261,7 +261,7 @@
         <div class="owl-carousel owl-theme list_carousel add_bottom_30">
             @foreach (var item in Model)
             {
-                <div class="item">
+                 <div class="item">
                     <div class="tour_container">
                         <div class="img_container">
                             <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">
@@ -275,7 +275,7 @@
                             <h3><strong>@item.Name</strong></h3>
                             <div class="rating">
                                 <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                            </div>
+                            </div>  
                             <div class="wishlist">
                                 <a class="tooltip_flip tooltip-effect-1" asp-action="AddWishlist" asp-controller="Wishlist" asp-route-id="@item.Id">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
                             </div>     
@@ -283,7 +283,8 @@
                         </div>
                     </div>
                     <!-- End box tour -->
-                </div>
+                </div>  
+                        
             }
 
         </div>

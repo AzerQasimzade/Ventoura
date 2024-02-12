@@ -8,7 +8,7 @@ using Ventoura.Domain.Entities;
 
 namespace Ventoura.Persistence.Implementations.Services
 {
-	public class WishlistService:IWishlistService
+	public class WishlistService : IWishlistService
 	{
 		private readonly IWishlistRepository _repository;
 		private readonly IHttpContextAccessor _accessor;
@@ -28,7 +28,7 @@ namespace Ventoura.Persistence.Implementations.Services
 				foreach (var cookie in cookies)
 				{
 
-					Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == cookie.Id,false,nameof(Tour.TourImages));
+					Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == cookie.Id, false, nameof(Tour.TourImages));
 					if (tour is not null)
 					{
 						WishlistItemVM item = new WishlistItemVM
@@ -38,10 +38,10 @@ namespace Ventoura.Persistence.Implementations.Services
 							Image = tour.TourImages.FirstOrDefault().Url,
 							Price = tour.Price,
 							Name = tour.Name,
-						    Count=cookie.Count
+							Count = cookie.Count
 						};
 						items.Add(item);
-					}		
+					}
 				}
 			}
 			return items;
@@ -49,7 +49,7 @@ namespace Ventoura.Persistence.Implementations.Services
 		public async Task AddWishlist(int id)
 		{
 			if (id <= 0) throw new Exception("Bad request");
-			Tour tour= await _repository.GetFirstOrDefaultAsync(c=>c.Id== id);
+			Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == id);
 			if (tour is null) throw new Exception("Not Found");
 			List<WishlistCookieItemVM> wishlist;
 
@@ -67,22 +67,23 @@ namespace Ventoura.Persistence.Implementations.Services
 			{
 				wishlist = JsonConvert.DeserializeObject<List<WishlistCookieItemVM>>(_accessor.HttpContext.Request.Cookies["Wishlist"]);
 				WishlistCookieItemVM existed = wishlist.FirstOrDefault(w => w.Id == id);
-                if (existed is null)
-                {
-                    WishlistCookieItemVM item = new WishlistCookieItemVM
-                    {
-                        Id = id,
-                        Count = 1,
-                    };
-                    wishlist.Add(item);
-                }
+				if (existed is null)
+				{
+					WishlistCookieItemVM item = new WishlistCookieItemVM
+					{
+						Id = id,
+						Count = 1,
+					};
+					wishlist.Add(item);
+				}
 				else
 				{
 					existed.Count++;
 				}
-            }
+			}
 			string json = JsonConvert.SerializeObject(wishlist);
-		    _accessor.HttpContext.Response.Cookies.Append("Wishlist", json);	 
-		}		
+			_accessor.HttpContext.Response.Cookies.Append("Wishlist", json);
+
+		}
 	}
 }
