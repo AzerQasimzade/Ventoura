@@ -12585,6 +12585,10 @@
       "PackagePath": "staticwebassets\\main\\img\\Wishlistfoto.jpg"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\add-button.png",
+      "PackagePath": "staticwebassets\\main\\img\\add-button.png"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\admin_top.jpg",
       "PackagePath": "staticwebassets\\main\\img\\admin_top.jpg"
     },
@@ -12771,6 +12775,10 @@
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\credit-card-icon.png",
       "PackagePath": "staticwebassets\\main\\img\\credit-card-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\delete.png",
+      "PackagePath": "staticwebassets\\main\\img\\delete.png"
     },
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\down_arrow_select.png",
@@ -12995,6 +13003,10 @@
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\img_cat_home_4.jpg",
       "PackagePath": "staticwebassets\\main\\img\\img_cat_home_4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\investigation_9855797.png",
+      "PackagePath": "staticwebassets\\main\\img\\investigation_9855797.png"
     },
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\lang_cn.png",
@@ -13289,6 +13301,10 @@
       "PackagePath": "staticwebassets\\main\\img\\products\\thumb-3.jpg"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\recycle-bin.png",
+      "PackagePath": "staticwebassets\\main\\img\\recycle-bin.png"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\restaurant_box_1.jpg",
       "PackagePath": "staticwebassets\\main\\img\\restaurant_box_1.jpg"
     },
@@ -13343,6 +13359,10 @@
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\search-bt.png",
       "PackagePath": "staticwebassets\\main\\img\\search-bt.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\search_1665703.png",
+      "PackagePath": "staticwebassets\\main\\img\\search_1665703.png"
     },
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\senna.jpg",

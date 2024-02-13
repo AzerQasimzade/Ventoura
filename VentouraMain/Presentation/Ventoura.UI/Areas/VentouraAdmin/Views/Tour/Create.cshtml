@@ -1,5 +1,115 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using Ventoura.Application.ViewModels.Tours;
+@model TourCreateVM  
+<!-- Page Sidebar Ends-->
+<div class="page-body">
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card height-equal">
+                    <div class="card-body custom-input">
+                        <form class="row g-3" method="post" enctype="multipart/form-data">
+                            @if (!ViewData.ModelState.IsValid)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @foreach (var modelState in ViewData.ModelState.Values)
+                                    {
+                                        foreach (var error in modelState.Errors)
+                                        {
+                                            @error.ErrorMessage
+                                            <br />
+                                        }
+                                    }
+                                </div>
+                            }
+                            <div class="form-group">
+                                <label asp-for="MainPhoto">Main Image</label>
+                                <input asp-for="MainPhoto" class="form-control" placeholder="MainPhoto" accept="image/*">
+                                <span class="text-danger" asp-validation-for="MainPhoto"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="HoverPhoto">Hover Image</label>
+                                <input asp-for="HoverPhoto" class="form-control" placeholder="HoverPhoto" accept="image/*">
+                                <span class="text-danger" asp-validation-for="HoverPhoto"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photos">Images</label>
+                                <input asp-for="Photos" class="form-control" placeholder="Photos" accept="image/*">
+                                <span class="text-danger" asp-validation-for="Photos"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Name" class="form-label" for="first-name">Tour Name</label>
+                                <input asp-for="Name" class="form-control" id="first-name"  aria-label="First name" required>
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="StartDate" class="form-label" for="exampleFormControlInput1">Tour StartDate</label>
+                                <input asp-for="StartDate" class="form-control" id="exampleFormControlInput1" type="date"  required>
+                                <span class="text-danger" asp-validation-for="StartDate"></span>
+
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="StartTime" class="form-label" for="exampleFormControlInput1">Tour StartTime</label>
+                                <input asp-for="StartTime" class="form-control" id="exampleFormControlInput1" type="time" required>
+                                <span asp-validation-for="StartDate"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Description" class="form-label" for="exampleFormControlTextarea1">Description</label>
+                                <textarea asp-for="Description" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                <span class="text-danger" asp-validation-for="Description"></span>
+
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Includes" class="form-label" for="exampleFormControlTextarea1">Includes</label>
+                                <textarea asp-for="Includes" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                <span class="text-danger" asp-validation-for="Includes"></span>
+
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="IncludeDesc" class="form-label" for="exampleFormControlTextarea1">Include Description</label>
+                                <textarea asp-for="IncludeDesc" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                <span class="text-danger" asp-validation-for="IncludeDesc"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Price" class="form-label" for="exampleFormControlInput1">Price</label>
+                                <input asp-for="Price" class="form-control" id="exampleFormControlInput1" required>
+                                <span class="text-danger" asp-validation-for="Price"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Sale" class="form-label" for="exampleFormControlInput1">Sale</label>
+                                <input asp-for="Sale" class="form-control" id="exampleFormControlInput1" placeholder="None">
+                                <span class ="text-danger" asp-validation-for="Sale"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CountryId">CountryId</label>
+
+                                <select asp-for="CountryId" class="form-control" asp-items="new SelectList(Model.Countries)">
+                                    <option disabled selected>Choose Country</option>
+                                </select>
+                                <span class="text-danger" asp-validation-for="CountryId"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CityId">CityId</label>
+
+                                <select asp-for="CityId" class="form-control" asp-items="new SelectList(Model.Cities,nameof())">
+                                    <option disabled selected>Choose Category</option>
+                                </select>
+                                <span class="text-danger" asp-validation-for="CityId"></span>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" id="flexSwitchCheckDefault" type="checkbox" role="switch" required>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Are you sure above information are true</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>

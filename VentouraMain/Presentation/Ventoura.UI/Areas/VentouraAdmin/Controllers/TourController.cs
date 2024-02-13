@@ -17,12 +17,17 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
             return View(await _service.GetAllAsync(page, take));
         }
         public IActionResult Create() 
-        { 
-            return View(); 
+        {
+            return View(_service.CreateGet(new TourCreateVM())); 
         }
+        [HttpPost]
         public async Task<IActionResult> Create(TourCreateVM tourCreateVM)
         {
-            return View();
+            if (!await _service.Create(tourCreateVM, ModelState))
+            {
+                return View(tourCreateVM);
+            }
+            return RedirectToAction("TourTable","Tour");
         }
 
     }

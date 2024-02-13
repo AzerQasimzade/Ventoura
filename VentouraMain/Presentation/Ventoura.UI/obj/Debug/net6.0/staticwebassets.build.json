@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tzPW8yYSaG0EmWor2ZQ1D678EhuVgHvTWEOyBuPCJEY=",
+  "Hash": "Wm8p1NbYMVEXPctyQrIwo0Xcv9DPvxc7WmPIsnNXD18=",
   "Source": "Ventoura.UI",
   "BasePath": "_content/Ventoura.UI",
   "Mode": "Default",
@@ -54451,6 +54451,23 @@
       "OriginalItemSpec": "wwwroot\\main\\img\\.DS_Store"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\add-button.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/add-button.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\add-button.png"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\admin_top.jpg",
       "SourceId": "Ventoura.UI",
       "SourceType": "Discovered",
@@ -55248,6 +55265,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\main\\img\\credit-card-icon.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\delete.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/delete.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\delete.png"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\down_arrow_select.png",
@@ -56268,6 +56302,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\main\\img\\img_cat_home_4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\investigation_9855797.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/investigation_9855797.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\investigation_9855797.png"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\lang_cn.png",
@@ -57511,6 +57562,23 @@
       "OriginalItemSpec": "wwwroot\\main\\img\\products\\thumb-3.jpg"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\recycle-bin.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/recycle-bin.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\recycle-bin.png"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\restaurant_box_1.jpg",
       "SourceId": "Ventoura.UI",
       "SourceType": "Discovered",
@@ -57730,6 +57798,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\main\\img\\ribbon_top_rated.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\search_1665703.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/search_1665703.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\search_1665703.png"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\search-bt.png",

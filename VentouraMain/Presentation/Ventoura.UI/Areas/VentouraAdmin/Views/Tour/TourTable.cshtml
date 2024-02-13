@@ -1,25 +1,47 @@
-﻿@* @using Ventoura.Application.ViewModels.Tours;
+﻿@using Ventoura.Application.ViewModels.Tours;
 @model ICollection<TourItemVM>
 @{
     int count = 0;
 }
 <style>
     .resized-image {
-        max-width: 60px; /* Maksimum genişlik */
-        max-height: 55px; /* Maksimum yükseklik */
+        max-width: 44px; /* Maksimum genişlik */
+        max-height: 44px; /* Maksimum yükseklik */
     }
-   
-</style>
 
+    .animate {
+        animation: spin 1s infinite;
+    }
+
+    .keyframes spin {
+        from
+
+    {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+    }
+
+    .action-icons {
+        display: flex;
+        gap: 11px; /* İkonlar arasındaki boşluk */
+    }
+</style>
 <div class="page-body">
     <div class="container-fluid">
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h4>Tour Table</h4>
+                    <a asp-action="Create" asp-area="VentouraAdmin" asp-controller="Tour" class="d-flex align-items-center">
+                        <h4 class="mb-0 me-2">Tour Table</h4>
+                        <img src="~/main/img/add-button.png" class="resized-image" alt="Contract Image">
+                    </a>
                 </div>
-                <div class="col-6"> 
-                </div>
+
             </div>
         </div>
     </div>
@@ -27,7 +49,7 @@
     <div class="container-fluid basic_table">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">  
+                <div class="card">
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -38,6 +60,7 @@
                                     <th scope="col">Country</th>
                                     <th scope="col">City</th>
                                     <th scope="col">Price</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,23 +69,23 @@
                                     count++;
                                     <tr class="border-bottom-secondary">
                                         <th scope="row">@count</th>
-                                        <td><img class="img-30 me-2" src="~/rev-slider-files/assets/@item.TourImages.FirstOrDefault(c=>c.IsPrimary==true).Url">@item.Name</td>
+                                        <td>
+                                            <img class="img-30 me-2 resized-image" src="~/rev-slider-files/assets/@item.TourImages.FirstOrDefault(c=>c.IsPrimary==true).Url">@item.Name
+                                        </td>
                                         <td>@item.StartDate</td>
                                         <td>@item.Country.Name</td>
                                         <td>@item.City.Name</td>
                                         <td>@item.Price</td>
-                                        <td>
+                                        <td class="action-icons">
                                             <a asp-action="Update" asp-area="VentouraAdmin" asp-controller="Tour">
                                                 <img src="~/main/img/system-update.png" class="resized-image" alt="Contract Image">
                                             </a>
-                                        </td>
-                                        <td>
-                                            <a asp-action="Update" asp-area="VentouraAdmin" asp-controller="Tour">
-                                                <img src="~/main/img/icons8-cancel.gif" class="resized-image" alt="Contract Image">
+                                            <a asp-action="Delete" asp-area="VentouraAdmin" asp-controller="Tour">
+                                                <img src="~/main/img/recycle-bin.png" class="resized-image" alt="Contract Image">
                                             </a>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-outline-info">Details</button>
+                                            <a asp-action="Details" asp-area="VentouraAdmin" asp-controller="Tour">
+                                                <img src="~/main/img/search_1665703.png" class="resized-image" alt="Contract Image">
+                                            </a>
                                         </td>
                                     </tr>
                                 }
@@ -75,105 +98,19 @@
     </div>
     <!-- Container-fluid Ends-->
 </div>
- *@
+<!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const gifs = document.querySelectorAll('.resized-image');
 
-@using Ventoura.Application.ViewModels.Tours;
-@model ICollection<TourItemVM>
-@{
-    int count = 0;
-}
-    <style>
-        .resized-image {
-            max-width: 60px; /* Maksimum genişlik */
-            max-height: 55px; /* Maksimum yükseklik */
-        }
-        .animate {
-            animation: spin 1s infinite;
-        }
-        .keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-    </style>
-    <div class="page-body">
-        <div class="container-fluid">
-            <div class="page-title">
-                <div class="row">
-                    <div class="col-6">
-                        <h4>Tour Table</h4>
-                    </div>
-                    <div class="col-6"> 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Container-fluid starts-->
-        <div class="container-fluid basic_table">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">  
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr class="border-bottom-primary">
-                                        <th scope="col">No</th>
-                                        <th scope="col">Tour Name</th>
-                                        <th scope="col">Start Time</th>
-                                        <th scope="col">Country</th>
-                                        <th scope="col">City</th>
-                                        <th scope="col">Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        count++;
-                                        <tr class="border-bottom-secondary">
-                                            <th scope="row">@count</th>
-                                            <td>
-                                                <img class="img-30 me-2 resized-image" src="~/rev-slider-files/assets/@item.TourImages.FirstOrDefault(c=>c.IsPrimary==true).Url">@item.Name
-                                            </td>
-                                            <td>@item.StartDate</td>
-                                            <td>@item.Country.Name</td>
-                                            <td>@item.City.Name</td>
-                                            <td>@item.Price</td>
-                                            <td>
-                                                <a asp-action="Update" asp-area="VentouraAdmin" asp-controller="Tour">
-                                                    <img src="~/main/img/system-update.png" class="resized-image" alt="Contract Image">
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a asp-action="Update" asp-area="VentouraAdmin" asp-controller="Tour">
-                                                    <img src="~/main/img/icons8-cancel.gif" class="resized-image animate" alt="Contract Image">
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn btn-outline-info">Details</button>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Container-fluid Ends-->
-    </div>
-    <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const gifs = document.querySelectorAll('.resized-image');
+        gifs.forEach(gif => {
+            gif.addEventListener('mouseenter', () => {
+                gif.classList.add('animate');
+            });
 
-            gifs.forEach(gif => {
-                gif.addEventListener('mouseenter', () => {
-                    gif.classList.add('animate');
-                });
-
-                gif.addEventListener('mouseleave', () => {
-                    gif.classList.remove('animate');
-                });
+            gif.addEventListener('mouseleave', () => {
+                gif.classList.remove('animate');
             });
         });
-    </script>
+    });
+</script>

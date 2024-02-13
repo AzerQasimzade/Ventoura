@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Ventoura.Application.ViewModels.Tours;
 using Ventoura.Domain.Entities;
 
 namespace Ventoura.Application.Abstractions.Repositories
@@ -43,8 +44,9 @@ namespace Ventoura.Application.Abstractions.Repositories
         void Delete(T entity);
         Task SaveChangesAsync();
         Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate, bool isTracking = false, params string[] includes);
-		
+        Task<List<Country>> GetAllCountriesAsync();
+        Task<List<City>> GetAllCityAsync();
 
 
-	}
+    }
 }
