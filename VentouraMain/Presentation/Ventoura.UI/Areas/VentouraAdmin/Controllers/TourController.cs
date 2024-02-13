@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Tours;
+using Ventoura.Domain.Entities;
 
 namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
 {
@@ -16,9 +18,9 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
         {
             return View(await _service.GetAllAsync(page, take));
         }
-        public IActionResult Create() 
+        public async Task<IActionResult> Create() 
         {
-            return View(_service.CreateGet(new TourCreateVM())); 
+            return View(await _service.CreateGet(new TourCreateVM())); 
         }
         [HttpPost]
         public async Task<IActionResult> Create(TourCreateVM tourCreateVM)
@@ -28,6 +30,14 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
                 return View(tourCreateVM);
             }
             return RedirectToAction("TourTable","Tour");
+        }
+        public async Task<IActionResult> Update(int id,TourUpdateVM vm)
+        {
+            if (id <= 0)
+            {
+                return BadRequest();
+            }
+            return View(await _service.UpdateGet(id,vm));
         }
 
     }

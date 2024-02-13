@@ -1,4 +1,7 @@
-﻿        <!-- Page Sidebar Ends-->
+﻿@using Ventoura.Application.ViewModels.Countries;
+@using Ventoura.Domain.Entities;
+@model CountryCreateVM
+<!-- Page Sidebar Ends-->
 <div class="page-body">
     <!-- Container-fluid starts-->
     <div class="container-fluid">
@@ -6,11 +9,25 @@
             <div class="col-xl-12">
                 <div class="card height-equal">
                     <div class="card-body custom-input">
-                        <form class="row g-3">
-                            <div class="col-12">
-                                <label class="form-label" for="exampleFormControlInput1">City Name</label>
-                                <input class="form-control" id="exampleFormControlInput1" required>
-                            </div>
+                        <form class="row g-3" method="post" enctype="multipart/form-data">
+                            @if (!ViewData.ModelState.IsValid)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @foreach (var modelState in ViewData.ModelState.Values)
+                                    {
+                                        foreach (var error in modelState.Errors)
+                                        {
+                                            @error.ErrorMessage
+                                            <br />
+                                        }
+                                    }
+                                </div>
+                            }
+                            <div class="form-group">
+                                <label asp-for="Name">Name</label>
+                                <input asp-for="Name" class="form-control" placeholder="Country Name" accept="image/*">
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>                  
                             <div class="col-12">
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" id="flexSwitchCheckDefault" type="checkbox" role="switch" required>

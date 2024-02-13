@@ -22,15 +22,13 @@ namespace Ventoura.Persistence.Implementations.Services
         private readonly ICityRepository _cityRepository;
         private readonly ICountryRepository _countryRepository;
         private readonly IWebHostEnvironment _env;
-        private readonly IHttpContextAccessor _accessor;
 
-        public TourService(ITourRepository repository,ICityRepository cityRepository,ICountryRepository countryRepository,IWebHostEnvironment env,IHttpContextAccessor accessor)
+        public TourService(ITourRepository repository,ICityRepository cityRepository,ICountryRepository countryRepository,IWebHostEnvironment env)
         {
             _repository = repository;
             _cityRepository = cityRepository;
             _countryRepository = countryRepository;
             _env = env;
-            _accessor = accessor;
         }
         public async Task<ICollection<TourItemVM>> GetAllAsync(int page, int take)
         {
@@ -70,7 +68,6 @@ namespace Ventoura.Persistence.Implementations.Services
             vm.Countries=await _repository.GetAllCountriesAsync();
             return vm;
         }
-
         public async Task<bool> Create(TourCreateVM dto, ModelStateDictionary modelstate)
         {
             if (!modelstate.IsValid)
@@ -143,18 +140,13 @@ namespace Ventoura.Persistence.Implementations.Services
             {
                 Name = dto.Name,
                 DayCount = dto.DayCount,
-                Sale = dto.Sale,
-                SalePrice=dto.SalePrice,
                 StartDate = dto.StartDate,
                 StartTime = dto.StartTime,
-                AdultCount = dto.AdultCount,
-                ChildrenCount = dto.ChildrenCount,
                 Description = dto.Description,
-                EndTime = dto.EndTime,
                 IncludeDesc = dto.IncludeDesc,
                 Includes = dto.Includes,
                 Price = dto.Price,
-                TotalPrice = dto.TotalPrice,
+                AdultCount=dto.AdultCount,
                 CountryId= dto.CountryId,
                 CityId= dto.CityId,
                 TourImages = new List<TourImage> { main, hover },   
@@ -178,6 +170,7 @@ namespace Ventoura.Persistence.Implementations.Services
                     Url = await photo.CreateFileAsync(_env.WebRootPath, "rev-slider-files", "assets")
                 });
             }
+            await _repository.AddAsync(tour);
             await _repository.SaveChangesAsync();
             return true;
         }
@@ -218,7 +211,35 @@ namespace Ventoura.Persistence.Implementations.Services
 			return getVM;
 		}
 
-       
+        public async Task<TourUpdateVM> UpdateGet(int id,TourUpdateVM vm)
+        {
+            Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == id, false, nameof(Tour.TourImages), nameof(Tour.Country), nameof(Tour.City));
+
+            TourUpdateVM tourVM = new TourUpdateVM
+            {
+                Name= tour.Name,
+                Price=tour.Price,
+                DayCount = tour.DayCount,
+                StartDate = tour.StartDate,
+                StartTime = tour.StartTime,
+                Description = tour.Description,
+                IncludeDesc = tour.IncludeDesc,
+                Includes = tour.Includes,
+                AdultCount = tour.AdultCount,
+                CountryId = tour.CountryId,
+                CityId = tour.CityId,
+                TourImages = tour.TourImages,
+                Cities= await _repository.GetAllCityAsync(),
+                Countries=await _repository.GetAllCountriesAsync()
+            };
+            return tourVM;
+        }
+        public Task<bool> Update(int id, TourUpdateVM tourUpdateDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        
         
 
     }

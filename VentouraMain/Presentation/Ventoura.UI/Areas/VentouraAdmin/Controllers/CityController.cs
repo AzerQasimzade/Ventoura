@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Cities;
+using Ventoura.Application.ViewModels.Tours;
 
 namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
 {
@@ -16,14 +17,18 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
         {
             return View(await _service.GetAllAsync(page, take));
         }
-        public IActionResult Create()
-        {
-            return View();
+        public async Task<IActionResult> Create()
+        { 
+            return View(await _service.CreateGet(new CityCreateVM()));
         }
         [HttpPost]
         public async Task<IActionResult> Create(CityCreateVM cityCreateVM)
         {
-            return View();
+            if(!await _service.Create(cityCreateVM, ModelState))
+            {
+                return View(cityCreateVM);
+            }
+            return RedirectToAction("CityTable", "City");
         }
     }
 }

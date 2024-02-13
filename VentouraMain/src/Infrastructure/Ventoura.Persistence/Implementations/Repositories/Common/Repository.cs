@@ -83,13 +83,13 @@ namespace Ventoura.Persistence.Implementations.Repositories
             query = _addIncludes(query, includes);
             return await query.FirstOrDefaultAsync();
         }
-        public async Task<List<Country>> GetAllCountriesAsync()
+        public  async Task<List<Country>> GetAllCountriesAsync()
         {
-            return await _context.Countries.ToListAsync();
+            return await  _context.Countries.ToListAsync();
         }
-        public async Task<List<City>> GetAllCityAsync()
+        public async  Task<List<City>> GetAllCityAsync()
         {
-            return await _context.Cities.ToListAsync();
+            return await  _context.Cities.ToListAsync();
         }
         public async Task<bool> IsExistAsync(Expression<Func<T, bool>> expression)
         {

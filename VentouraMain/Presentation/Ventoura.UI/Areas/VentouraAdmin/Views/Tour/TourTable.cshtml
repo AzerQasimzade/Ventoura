@@ -77,14 +77,14 @@
                                         <td>@item.City.Name</td>
                                         <td>@item.Price</td>
                                         <td class="action-icons">
-                                            <a asp-action="Update" asp-area="VentouraAdmin" asp-controller="Tour">
+                                            <a asp-action="Update" asp-area="VentouraAdmin" asp-controller="Tour" asp-route-id="@item.Id">
                                                 <img src="~/main/img/system-update.png" class="resized-image" alt="Contract Image">
                                             </a>
                                             <a asp-action="Delete" asp-area="VentouraAdmin" asp-controller="Tour">
                                                 <img src="~/main/img/recycle-bin.png" class="resized-image" alt="Contract Image">
                                             </a>
                                             <a asp-action="Details" asp-area="VentouraAdmin" asp-controller="Tour">
-                                                <img src="~/main/img/search_1665703.png" class="resized-image" alt="Contract Image">
+                                                <img src="~/main/img/info-sign.png" class="resized-image" alt="Contract Image">
                                             </a>
                                         </td>
                                     </tr>

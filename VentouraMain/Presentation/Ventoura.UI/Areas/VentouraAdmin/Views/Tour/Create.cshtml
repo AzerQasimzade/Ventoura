@@ -1,4 +1,5 @@
 ﻿@using Ventoura.Application.ViewModels.Tours;
+@using Ventoura.Domain.Entities;
 @model TourCreateVM  
 <!-- Page Sidebar Ends-->
 <div class="page-body">
@@ -46,28 +47,25 @@
                                 <label asp-for="StartDate" class="form-label" for="exampleFormControlInput1">Tour StartDate</label>
                                 <input asp-for="StartDate" class="form-control" id="exampleFormControlInput1" type="date"  required>
                                 <span class="text-danger" asp-validation-for="StartDate"></span>
-
                             </div>
                             <div class="col-12">
                                 <label asp-for="StartTime" class="form-label" for="exampleFormControlInput1">Tour StartTime</label>
                                 <input asp-for="StartTime" class="form-control" id="exampleFormControlInput1" type="time" required>
-                                <span asp-validation-for="StartDate"></span>
+                                <span asp-validation-for="StartTime"></span>
                             </div>
                             <div class="col-12">
-                                <label asp-for="Description" class="form-label" for="exampleFormControlTextarea1">Description</label>
-                                <textarea asp-for="Description" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                <label asp-for="Description" class="form-label" >Description</label>
+                                <input asp-for="Description" class="form-control" type="text" rows="2"/>
                                 <span class="text-danger" asp-validation-for="Description"></span>
-
                             </div>
                             <div class="col-12">
                                 <label asp-for="Includes" class="form-label" for="exampleFormControlTextarea1">Includes</label>
-                                <textarea asp-for="Includes" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                <input asp-for="Includes" class="form-control" type="text"/>
                                 <span class="text-danger" asp-validation-for="Includes"></span>
-
                             </div>
                             <div class="col-12">
                                 <label asp-for="IncludeDesc" class="form-label" for="exampleFormControlTextarea1">Include Description</label>
-                                <textarea asp-for="IncludeDesc" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                <input asp-for="IncludeDesc" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
                                 <span class="text-danger" asp-validation-for="IncludeDesc"></span>
                             </div>
                             <div class="col-12">
@@ -76,23 +74,26 @@
                                 <span class="text-danger" asp-validation-for="Price"></span>
                             </div>
                             <div class="col-12">
-                                <label asp-for="Sale" class="form-label" for="exampleFormControlInput1">Sale</label>
-                                <input asp-for="Sale" class="form-control" id="exampleFormControlInput1" placeholder="None">
-                                <span class ="text-danger" asp-validation-for="Sale"></span>
+                                <label asp-for="DayCount" class="form-label" for="exampleFormControlInput1">Day Count</label>
+                                <input asp-for="DayCount" class="form-control" id="exampleFormControlInput1" required>
+                                <span class="text-danger" asp-validation-for="DayCount"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="AdultCount" class="form-label" for="exampleFormControlInput1">Adult Count</label>
+                                <input asp-for="AdultCount" class="form-control" id="exampleFormControlInput1" required>
+                                <span class="text-danger" asp-validation-for="AdultCount"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="CountryId">CountryId</label>
-
-                                <select asp-for="CountryId" class="form-control" asp-items="new SelectList(Model.Countries)">
+                                <select asp-for="CountryId" class="form-control" asp-items="new SelectList(Model.Countries,nameof(Country.Id),nameof(Country.Name))">
                                     <option disabled selected>Choose Country</option>
                                 </select>
                                 <span class="text-danger" asp-validation-for="CountryId"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="CityId">CityId</label>
-
-                                <select asp-for="CityId" class="form-control" asp-items="new SelectList(Model.Cities,nameof())">
-                                    <option disabled selected>Choose Category</option>
+                                <select asp-for="CityId" class="form-control" asp-items="new SelectList(Model.Cities,nameof(City.Id),nameof(City.Name))">
+                                    <option disabled selected>Choose City</option>
                                 </select>
                                 <span class="text-danger" asp-validation-for="CityId"></span>
                             </div>

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using Ventoura.Application.Abstractions.Repositories;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Cities;
 using Ventoura.Application.ViewModels.Countries;
+using Ventoura.Application.ViewModels.Tours;
 using Ventoura.Domain.Entities;
 
 namespace Ventoura.Persistence.Implementations.Services
@@ -34,15 +36,23 @@ namespace Ventoura.Persistence.Implementations.Services
                 });
             }
             return dtos;
-        }
-        public async Task Create(CityCreateVM dto)
+        } 
+        public async Task<CityCreateVM> CreateGet(CityCreateVM vm)
         {
+            return vm;
+        }
+        public async Task<bool> Create(CityCreateVM vm, ModelStateDictionary modelstate)
+        {
+            if (!modelstate.IsValid)
+            {
+                return false;
+            }
             await _repository.AddAsync(new City
             {
-                Name = dto.Name,
+                Name = vm.Name,
             });
             await _repository.SaveChangesAsync();
-        }
-
+            return true;
+        }   
     }
 }
