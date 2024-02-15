@@ -38,16 +38,15 @@
                                 <label asp-for="HoverPhoto">Hover Image</label>
                                 <input asp-for="HoverPhoto" class="form-control" placeholder="HoverPhoto" accept="image/*">
                                 <span class="text-danger" asp-validation-for="HoverPhoto"></span>
-                            </div>
+                            </div>  
                             <div class="form-group d-flex">
                                 @foreach (var image in Model.TourImages.Where(p => p.IsPrimary == null))
                                 {
                                     <div class="position-relative">
                                         <img style="width=110px;height=110px" src="~/rev-slider-files/assets/@image.Url" />
                                         <input asp-for="ImageIds" type="hidden" value="@image.Id">
-                                        <button type="button" style="right:5px;top:5px;" class="cus-delete btn btn-danger position-absolute">X</button>
+                                        <button type="button" style="right:5px;top:5px;" class="cus-delete btn btn-danger position-absolute">X</button> 
                                     </div>
-
                                 }
                             </div>
                             <div class="form-group">
@@ -61,13 +60,13 @@
                                 <span class="text-danger" asp-validation-for="Name"></span>
                             </div>
                             <div class="col-12">
-                                <label asp-for="StartDate" class="form-label" for="exampleFormControlInput1">Tour StartDate</label>
-                                <input asp-for="StartDate" class="form-control" id="exampleFormControlInput1" type="date" required>
+                                <label asp-for="StartDate" class="form-label">Tour StartDate</label>
+                                <input asp-for="StartDate" class="form-control" type="date" required>
                                 <span class="text-danger" asp-validation-for="StartDate"></span>
                             </div>
                             <div class="col-12">
                                 <label asp-for="StartTime" class="form-label" for="exampleFormControlInput1">Tour StartTime</label>
-                                <input asp-for="StartTime" class="form-control" id="exampleFormControlInput1" type="time" required>
+                                <input asp-for="StartTime" class="form-control" type="time" required>
                                 <span asp-validation-for="StartTime"></span>
                             </div>
                             <div class="col-12">
@@ -76,29 +75,24 @@
                                 <span class="text-danger" asp-validation-for="Description"></span>
                             </div>
                             <div class="col-12">
-                                <label asp-for="Includes" class="form-label" for="exampleFormControlTextarea1">Includes</label>
-                                <input asp-for="Includes" class="form-control" type="text" />
+                                <label asp-for="Includes" class="form-label" >Includes</label>
+                                <input asp-for="Includes" class="form-control" type="text"/>
                                 <span class="text-danger" asp-validation-for="Includes"></span>
                             </div>
                             <div class="col-12">
                                 <label asp-for="IncludeDesc" class="form-label" for="exampleFormControlTextarea1">Include Description</label>
-                                <input asp-for="IncludeDesc" class="form-control" id="exampleFormControlTextarea1" rows="1" />
+                                <input asp-for="IncludeDesc" class="form-control" rows="1"/>
                                 <span class="text-danger" asp-validation-for="IncludeDesc"></span>
                             </div>
                             <div class="col-12">
-                                <label asp-for="Price" class="form-label" for="exampleFormControlInput1">Price</label>
-                                <input asp-for="Price" class="form-control" id="exampleFormControlInput1" required>
+                                <label asp-for="Price" class="form-label">Price</label>
+                                <input asp-for="Price" class="form-control">
                                 <span class="text-danger" asp-validation-for="Price"></span>
                             </div>
                             <div class="col-12">
-                                <label asp-for="DayCount" class="form-label" for="exampleFormControlInput1">Day Count</label>
-                                <input asp-for="DayCount" class="form-control" id="exampleFormControlInput1" required>
+                                <label asp-for="DayCount" class="form-label">Day Count</label>
+                                <input asp-for="DayCount" class="form-control" >
                                 <span class="text-danger" asp-validation-for="DayCount"></span>
-                            </div>
-                            <div class="col-12">
-                                <label asp-for="AdultCount" class="form-label" for="exampleFormControlInput1">Adult Count</label>
-                                <input asp-for="AdultCount" class="form-control" id="exampleFormControlInput1" required>
-                                <span class="text-danger" asp-validation-for="AdultCount"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="CountryId">CountryId</label>

@@ -19,8 +19,6 @@ namespace Ventoura.Domain.Entities
         public int? DayCount { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan? EndTime { get; set; }
-        public int? AdultCount { get; set; }
-        public int? ChildrenCount { get; set; }
         public List<TourImage>? TourImages { get; set; }
 
         // Relations

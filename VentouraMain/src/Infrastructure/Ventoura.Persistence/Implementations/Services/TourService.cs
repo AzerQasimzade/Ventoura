@@ -46,8 +46,6 @@ namespace Ventoura.Persistence.Implementations.Services
                    SalePrice= tour.SalePrice,
                    StartDate = tour.StartDate,
                    StartTime=tour.StartTime,
-                   AdultCount = tour.AdultCount,
-                   ChildrenCount = tour.ChildrenCount,
                    Description = tour.Description,
                    EndTime = tour.EndTime,
                    IncludeDesc = tour.IncludeDesc,
@@ -58,8 +56,7 @@ namespace Ventoura.Persistence.Implementations.Services
                    City=tour.City,
                    Country=tour.Country 
                 });
-            }
-			
+            }	
             return dtos;
         }
         public async Task<TourCreateVM> CreateGet(TourCreateVM vm)
@@ -146,7 +143,6 @@ namespace Ventoura.Persistence.Implementations.Services
                 IncludeDesc = dto.IncludeDesc,
                 Includes = dto.Includes,
                 Price = dto.Price,
-                AdultCount=dto.AdultCount,
                 CountryId= dto.CountryId,
                 CityId= dto.CityId,
                 TourImages = new List<TourImage> { main, hover },   
@@ -163,7 +159,6 @@ namespace Ventoura.Persistence.Implementations.Services
                     modelstate.AddModelError("", $"{photo.FileName} file's Size is not suitable, That's why creating file's Mission Failed");
                     continue;
                 }
-
                 tour.TourImages.Add(new TourImage
                 {
                     IsPrimary = null,
@@ -179,12 +174,10 @@ namespace Ventoura.Persistence.Implementations.Services
 			Tour tour = await _repository.GetByIdAsync(id, false, nameof(Tour.Country), nameof(Tour.City),nameof(Tour.TourImages));
 			TourGetVM getVM = new TourGetVM
 			{
-				AdultCount = tour.AdultCount,
 				StartDate = tour.StartDate,
 				Sale = tour.Sale,
 				SalePrice = tour.SalePrice,
 				StartTime = tour.StartTime,
-				ChildrenCount = tour.ChildrenCount,
 				CityId = tour.CityId,
 				CountryId = tour.CountryId,
 				IncludeDesc = tour.IncludeDesc,
@@ -225,7 +218,6 @@ namespace Ventoura.Persistence.Implementations.Services
                 Description = tour.Description,
                 IncludeDesc = tour.IncludeDesc,
                 Includes = tour.Includes,
-                AdultCount = tour.AdultCount,
                 CountryId = tour.CountryId,
                 CityId = tour.CityId,
                 TourImages = tour.TourImages,
@@ -234,13 +226,104 @@ namespace Ventoura.Persistence.Implementations.Services
             };
             return tourVM;
         }
-        public Task<bool> Update(int id, TourUpdateVM tourUpdateDto)
+        public async Task<bool> Update(int id, TourUpdateVM dto, ModelStateDictionary modelstate)
         {
-            throw new NotImplementedException();
+            Tour existed = await _repository.GetByIdAsync(id, false, nameof(Tour.Country), nameof(Tour.City), nameof(Tour.TourImages));
+            if (existed == null)
+            {
+                return false;
+            }
+            if (!modelstate.IsValid)
+            {
+                return false;
+            }
+            if (existed.Name != dto.Name)
+            {
+                if (await _repository.IsExistAsync(p => p.Name == dto.Name))
+                {
+                    modelstate.AddModelError("Name", $"there is a product with the same {dto.Name}");
+                }           
+            } 
+            if (!await _cityRepository.IsExistAsync(c => c.Id == dto.CityId))
+            {
+                dto.Countries = await _repository.GetAllCountriesAsync();
+                dto.Cities = await _repository.GetAllCityAsync();
+                modelstate.AddModelError("CityId", "We have not So City with that Id");
+                return false;
+            }
+            if (!await _countryRepository.IsExistAsync(c => c.Id == dto.CountryId))
+            {
+                dto.Countries = await _repository.GetAllCountriesAsync();
+                dto.Cities = await _repository.GetAllCityAsync();
+                modelstate.AddModelError("CountryId", "We have not So Country with that Id");
+                return false;
+            }
+            if (dto.MainPhoto is not null)
+            {
+                string filename = await dto.MainPhoto.CreateFileAsync(_env.WebRootPath, "rev-slider-files", "assets");
+                TourImage existedImg = existed.TourImages.FirstOrDefault(pi => pi.IsPrimary == true);
+                existedImg.Url.DeleteFile(_env.WebRootPath, "rev-slider-files", "assets");
+                existed.TourImages.Remove(existedImg);
+                existed.TourImages.Add(new TourImage
+                {
+                    IsPrimary = true,
+                    Url = filename
+                });
+            }
+            if (dto.HoverPhoto is not null)
+            {
+                string filename = await dto.HoverPhoto.CreateFileAsync(_env.WebRootPath, "rev-slider-files", "assets");
+                TourImage existedImg = existed.TourImages.FirstOrDefault(pi => pi.IsPrimary == false);
+                existedImg.Url.DeleteFile(_env.WebRootPath, "rev-slider-files", "assets");
+                existed.TourImages.Remove(existedImg);
+                existed.TourImages.Add(new TourImage
+                {
+                    IsPrimary = false,
+                    Url = filename
+                });
+            }
+            if (dto.ImageIds is null)
+            {
+                dto.ImageIds = new List<int>();
+            }
+            List<TourImage> removeable = existed.TourImages.Where(pi => !dto.ImageIds.Exists(imgId => imgId == pi.Id) && pi.IsPrimary == null).ToList();
+            foreach (TourImage reimg in removeable)
+            {
+                reimg.Url.DeleteFile(_env.WebRootPath, "rev-slider-files", "assets");
+                existed.TourImages.Remove(reimg);
+            }
+            foreach (IFormFile photo in dto.Photos ?? new List<IFormFile>())
+            {
+                if (!photo.ValidateFileType(FileHelper.Image))
+                {
+                    modelstate.AddModelError("", $"{photo.FileName} file's Type is not suitable, That's why creating file's Mission Failed");
+                    continue;
+                }
+                if (!photo.ValidateFileSize(SizeHelper.gb))
+                {
+                    modelstate.AddModelError("", $"{photo.FileName} file's Size is not suitable, That's why creating file's Mission Failed");
+                    continue;
+                }
+                existed.TourImages.Add(new TourImage
+                {
+                    IsPrimary = null,
+                    Url = await photo.CreateFileAsync(_env.WebRootPath, "rev-slider-files", "assets")
+                });
+            }
+            existed.Name = dto.Name;
+            existed.Price = dto.Price;
+            existed.Description = dto.Description;
+            existed.CountryId = dto.CountryId;
+            existed.CityId= dto.CityId;
+            existed.DayCount = dto.DayCount;
+            existed.StartDate = dto.StartDate;
+            existed.StartTime = dto.StartTime;
+            existed.IncludeDesc = dto.IncludeDesc;
+            existed.Includes= dto.Includes;
+            existed.TourImages= dto.TourImages;
+             _repository.Update(existed);
+            await _repository.SaveChangesAsync();
+            return true;
         }
-
-        
-        
-
     }
 }

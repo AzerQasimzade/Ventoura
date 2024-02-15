@@ -7,7 +7,6 @@ namespace Ventoura.UI.Controllers
 	public class WishListController : Controller
 	{
 		private readonly IWishlistService _service;
-
 		public WishListController(IWishlistService service)
         {
 			_service = service;

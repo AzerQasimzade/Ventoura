@@ -2,7 +2,7 @@
 
 @model List<TourItemVM>
 <main>
-    <!-- START SLIDER -->
+   @*  <!-- START SLIDER -->
     <div id="rev_slider_44_wrapper" class="rev_slider_wrapper fullscreen-container">
         <!-- Start revolution slider 5.4.8 fullscreen mode -->
         <div id="rev_slider_44" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.8">
@@ -200,7 +200,20 @@
         </div>
     </div>
     <!-- END REVOLUTION SLIDER -->
-
+ *@
+    <section class="header-video">
+        <div id="hero_video">
+            <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
+                <div class="intro_title">
+                    <h3 class="animated fadeInDown">Affordable Paris tours</h3>
+                    <p class="animated fadeInDown">City Tours / Tour Tickets / Tour Guides</p>
+                    <a href="#" class="animated fadeInUp button_intro">View Tours</a>
+                    <a href="#" class="animated fadeInUp button_intro outline hidden-sm hidden-xs">View Tickets</a>
+                </div>
+            </div>
+        </div>
+        <img src="~/main/img/video_fix.png" alt="Image" class="header-video--media" data-video-src="" data-teaser-source="/main/video/paris" data-provider="" data-video-width="854" data-video-height="480">
+    </section>
     <div class="white_bg">
         <div class="container margin_60">
             <div class="row small-gutters categories_grid">

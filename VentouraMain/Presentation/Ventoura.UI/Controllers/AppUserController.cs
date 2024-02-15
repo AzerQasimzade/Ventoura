@@ -88,7 +88,6 @@ namespace Ventoura.UI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordVM forgot)
         {
-
             if (!ModelState.IsValid) return View(forgot);
             var user = await _userManager.FindByEmailAsync(forgot.Email);
             if (user is null) return NotFound();

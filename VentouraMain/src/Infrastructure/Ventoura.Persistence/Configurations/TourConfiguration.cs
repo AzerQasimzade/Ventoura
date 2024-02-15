@@ -15,7 +15,6 @@ namespace Ventoura.Persistence.Configurations
         {
             builder.Property(t => t.Name).IsRequired().HasMaxLength(50);
             builder.Property(t => t.Price).IsRequired().HasColumnType("decimal(6,2)");
-            builder.Property(t => t.AdultCount).IsRequired();
             builder.Property(t => t.StartDate).IsRequired();
             builder.Property(t => t.Description).IsRequired().HasColumnType("text");
         }

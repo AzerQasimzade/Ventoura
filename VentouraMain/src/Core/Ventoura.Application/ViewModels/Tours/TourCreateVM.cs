@@ -16,7 +16,6 @@ namespace Ventoura.Application.ViewModels.Tours
         public string? Includes { get; set; }
         public string? IncludeDesc { get; set; }
         public decimal Price { get; set; }
-        public int AdultCount { get; set; }
         public DateTime StartDate { get; set; }
         public int? DayCount { get; set; }
         public TimeSpan StartTime { get; set; }

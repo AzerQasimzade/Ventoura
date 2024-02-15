@@ -3,19 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ventoura.Persistence.DAL;
 
 #nullable disable
 
-namespace Ventoura.Persistence.Contexts.Migrations
+namespace Ventoura.Persistence.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240205190337_AddIdentitymain")]
-    partial class AddIdentitymain
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -300,7 +298,7 @@ namespace Ventoura.Persistence.Contexts.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("Ventoura.Domain.Entities.Tour", b =>
+            modelBuilder.Entity("Ventoura.Domain.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -308,12 +306,18 @@ namespace Ventoura.Persistence.Contexts.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("AdultCount")
-                        .IsRequired()
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Ventoura.Domain.Entities.Tour", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("ChildrenCount")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CityId")
                         .HasColumnType("int");
@@ -414,6 +418,41 @@ namespace Ventoura.Persistence.Contexts.Migrations
                     b.ToTable("TourImages");
                 });
 
+            modelBuilder.Entity("Ventoura.Domain.Entities.WishlistItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("TourId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("TourId");
+
+                    b.ToTable("WishlistItems");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -495,6 +534,31 @@ namespace Ventoura.Persistence.Contexts.Migrations
                     b.Navigation("Tour");
                 });
 
+            modelBuilder.Entity("Ventoura.Domain.Entities.WishlistItem", b =>
+                {
+                    b.HasOne("Ventoura.Domain.Entities.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Ventoura.Domain.Entities.Order", "Order")
+                        .WithMany("WishlistItems")
+                        .HasForeignKey("OrderId");
+
+                    b.HasOne("Ventoura.Domain.Entities.Tour", "Tour")
+                        .WithMany()
+                        .HasForeignKey("TourId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Tour");
+                });
+
             modelBuilder.Entity("Ventoura.Domain.Entities.City", b =>
                 {
                     b.Navigation("Tours");
@@ -503,6 +567,11 @@ namespace Ventoura.Persistence.Contexts.Migrations
             modelBuilder.Entity("Ventoura.Domain.Entities.Country", b =>
                 {
                     b.Navigation("Tours");
+                });
+
+            modelBuilder.Entity("Ventoura.Domain.Entities.Order", b =>
+                {
+                    b.Navigation("WishlistItems");
                 });
 
             modelBuilder.Entity("Ventoura.Domain.Entities.Tour", b =>

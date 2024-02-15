@@ -47,6 +47,6 @@ namespace Ventoura.Application.Abstractions.Repositories
         Task<List<Country>> GetAllCountriesAsync();
         Task<List<City>> GetAllCityAsync();
 
-
+        Task AddWishlistItemAsync(WishlistItem item);
     }
 }

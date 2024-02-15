@@ -107,7 +107,6 @@ namespace Ventoura.Persistence.Implementations.Repositories
         {
             _table.Remove(entity);
         }
-
         public async Task SaveChangesAsync()
         {
            await _context.SaveChangesAsync();
@@ -129,6 +128,12 @@ namespace Ventoura.Persistence.Implementations.Repositories
         {
             Tour tour=await _context.Tours.FirstOrDefaultAsync(c => c.Id == id);
             return tour;
+        }
+
+        public async Task AddWishlistItemAsync(WishlistItem item)
+        {
+            await _context.WishlistItems.AddAsync(item);
+            await _context.SaveChangesAsync();
         }
     }
 }

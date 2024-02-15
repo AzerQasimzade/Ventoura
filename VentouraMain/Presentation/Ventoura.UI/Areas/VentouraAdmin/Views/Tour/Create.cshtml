@@ -78,11 +78,6 @@
                                 <input asp-for="DayCount" class="form-control" id="exampleFormControlInput1" required>
                                 <span class="text-danger" asp-validation-for="DayCount"></span>
                             </div>
-                            <div class="col-12">
-                                <label asp-for="AdultCount" class="form-label" for="exampleFormControlInput1">Adult Count</label>
-                                <input asp-for="AdultCount" class="form-control" id="exampleFormControlInput1" required>
-                                <span class="text-danger" asp-validation-for="AdultCount"></span>
-                            </div>
                             <div class="form-group">
                                 <label asp-for="CountryId">CountryId</label>
                                 <select asp-for="CountryId" class="form-control" asp-items="new SelectList(Model.Countries,nameof(Country.Id),nameof(Country.Name))">
