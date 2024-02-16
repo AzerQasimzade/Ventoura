@@ -62864,6 +62864,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\main\video\paris.ogv))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\main\video\TestVideo.mp4))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ventoura.UI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ventoura.UI</BasePath>
+      <RelativePath>main/video/TestVideo.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\main\video\TestVideo.mp4))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\.DS_Store))">
       <SourceType>Package</SourceType>
       <SourceId>Ventoura.UI</SourceId>
@@ -63136,6 +63152,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\2f076134-3c9a-41b1-a6b1-45bc532294ce3.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\356abea1-3f33-4d05-903c-2ca5e0f6e37fGallery11.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ventoura.UI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ventoura.UI</BasePath>
+      <RelativePath>rev-slider-files/assets/356abea1-3f33-4d05-903c-2ca5e0f6e37fGallery11.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\356abea1-3f33-4d05-903c-2ca5e0f6e37fGallery11.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\36983706-810c-4b4c-8972-9e956f2cd8f9Screenshot (172).png))">
       <SourceType>Package</SourceType>
       <SourceId>Ventoura.UI</SourceId>
@@ -63151,6 +63183,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\36983706-810c-4b4c-8972-9e956f2cd8f9Screenshot (172).png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\406ee404-e7d9-43de-8659-9c384acdf389Gallery42.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ventoura.UI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ventoura.UI</BasePath>
+      <RelativePath>rev-slider-files/assets/406ee404-e7d9-43de-8659-9c384acdf389Gallery42.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\406ee404-e7d9-43de-8659-9c384acdf389Gallery42.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\4bf34b26-e434-403f-9794-a5634fa1d4d22.jpg))">
       <SourceType>Package</SourceType>
@@ -63328,6 +63376,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\7f32a638-1824-4de4-8282-fab7d194b4d9unnamed.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\83687c10-36a6-4776-9cb8-eb7b2ae048f81_6jKMb_SfxjdCP5oV8-VT9Q.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ventoura.UI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ventoura.UI</BasePath>
+      <RelativePath>rev-slider-files/assets/83687c10-36a6-4776-9cb8-eb7b2ae048f81_6jKMb_SfxjdCP5oV8-VT9Q.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\83687c10-36a6-4776-9cb8-eb7b2ae048f81_6jKMb_SfxjdCP5oV8-VT9Q.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\8bbdcf40-699f-426a-a55c-38cb3c01ff6320221231_183516.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Ventoura.UI</SourceId>
@@ -63343,6 +63407,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\8bbdcf40-699f-426a-a55c-38cb3c01ff6320221231_183516.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\8e07c642-f0b7-4af1-8bfd-9dd36971b0d0Gallery41 (1).jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ventoura.UI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ventoura.UI</BasePath>
+      <RelativePath>rev-slider-files/assets/8e07c642-f0b7-4af1-8bfd-9dd36971b0d0Gallery41 (1).jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\8e07c642-f0b7-4af1-8bfd-9dd36971b0d0Gallery41 (1).jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\8f3400b1-d30f-4f82-bf87-a394d4ef34579919.png))">
       <SourceType>Package</SourceType>
@@ -63679,6 +63759,38 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\e945f7fa-178a-4b4f-a20b-2ca55425b7001.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\ed254c88-2314-4cf8-90b5-d7d17c630e04Gallery42.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ventoura.UI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ventoura.UI</BasePath>
+      <RelativePath>rev-slider-files/assets/ed254c88-2314-4cf8-90b5-d7d17c630e04Gallery42.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\ed254c88-2314-4cf8-90b5-d7d17c630e04Gallery42.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\ef433992-a762-4b73-93fa-2986f253506eGallery21.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Ventoura.UI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Ventoura.UI</BasePath>
+      <RelativePath>rev-slider-files/assets/ef433992-a762-4b73-93fa-2986f253506eGallery21.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\ef433992-a762-4b73-93fa-2986f253506eGallery21.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\rev-slider-files\assets\envato_market-dde916a48af7413e54aa058fe7ae6856752fca799da4bec355f00aea904bfa19.svg))">
       <SourceType>Package</SourceType>

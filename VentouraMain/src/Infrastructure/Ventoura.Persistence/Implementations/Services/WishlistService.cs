@@ -50,7 +50,6 @@ namespace Ventoura.Persistence.Implementations.Services
 			}
 			else
 			{
-
                 if (_accessor.HttpContext.Request.Cookies["Wishlist"] is not null)
                 {
                     List<WishlistCookieItemVM> cookies = JsonConvert.DeserializeObject<List<WishlistCookieItemVM>>(_accessor.HttpContext.Request.Cookies["Wishlist"]);

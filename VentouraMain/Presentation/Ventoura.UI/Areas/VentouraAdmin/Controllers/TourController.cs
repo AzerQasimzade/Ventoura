@@ -26,8 +26,7 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(TourCreateVM tourCreateVM)
         {
-            if (!await _service.Create(tourCreateVM, ModelState))return View(tourCreateVM);
-            
+            if (!await _service.Create(tourCreateVM, ModelState))return View(tourCreateVM); 
             return RedirectToAction("TourTable","Tour");
         }
         public async Task<IActionResult> Update(int id)
@@ -42,5 +41,6 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
             if (!await _service.Update(id, vm, ModelState)) return View(vm);
             return RedirectToAction("TourTable", "Tour");         
         }
+
     }
 }

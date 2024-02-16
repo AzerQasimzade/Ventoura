@@ -57,9 +57,16 @@
 					<div class="col-6"><i class="icon-phone"></i><strong>0045 043204434</strong></div>
 					<div class="col-6">
 						<ul id="top_links">
-							<li><a href="#sign-in-dialog" id="access_link">Sign in</a></li>
-							<li><a href="wishlist.html" id="wishlist_link">Wishlist</a></li>
-							<li><a href="http://themeforest.net/item/citytours-city-tours-tour-tickets-and-guides/10715647?ref=ansonika">Purchase this template</a></li>
+							@if (User.Identity.IsAuthenticated)
+							{
+								<li><a>@User.Identity.Name</a></li>
+								<li><a asp-action="LogOut" asp-controller="AppUser">Log Out</a></li>
+							}
+							else
+							{
+								<li><a asp-action="Login" asp-controller="AppUser">Sign in</a></li>
+								<li><a asp-action="Index" asp-controller="Wishlist">Wishlist</a></li>
+							}
 						</ul>
 					</div>
 				</div><!-- End row -->
@@ -69,9 +76,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-3">
-					<div id="logo">
-						<a href="index.html"><img src="~/main/img/logo.png" width="160" height="34" alt="City tours" class="logo_normal"></a>
-						<a href="index.html"><img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours" class="logo_sticky"></a>
+					<div id="logo_home">
+						<h1><a asp-action="Index" asp-controller="Home" title="City tours travel template">City Tours travel template</a></h1>
 					</div>
 				</div>
 				<nav class="col-9">
@@ -309,8 +315,7 @@
 					</ul>
 				</nav>
 			</div>
-		</div>
-		<!-- container -->
+		</div><!-- container -->
 	</header>
 	<!-- End Header -->
 
@@ -376,16 +381,16 @@
 				     <div id="Img_carousel" class="slider-pro">
 						<div class="sp-slides">
 								<div class="sp-slide">
-									<img alt="Image" class="sp-image" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url" data-src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url" data-small="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url" >
+								<img alt="Image" class="sp-image" src="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url" data-src="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url" data-small="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url">
 								</div>
 								<div class="sp-slide">
-									<img alt="Image" class="sp-image" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url" data-src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url" data-small="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url">
+								<img alt="Image" class="sp-image" src="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url" data-src="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url" data-small="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url">
 								</div> 
 							 @foreach (var item in Model.TourImages)
 							{
 
 								<div class="sp-slide">
-									<img alt="Image" class="sp-image" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url" data-src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url" data-small=/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url>
+									<img alt="Image" class="sp-image" src="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url" data-src="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url" data-small=/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url>
 								</div>
 							}
 							@* <div class="sp-slide">
@@ -416,11 +421,11 @@
 							</div>  *@
 						</div>
 						<div class="sp-thumbnails">
-							<img alt="Image" class="sp-thumbnail" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url">
-							<img alt="Image" class="sp-thumbnail" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url">
+							<img alt="Image" class="sp-thumbnail" src="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==true).Url">
+							<img alt="Image" class="sp-thumbnail" src="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==false).Url">
 							@foreach (var item in Model.TourImages)
 							{
-								<img alt="Image" class="sp-thumbnail" src="/main/img/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url">
+								<img alt="Image" class="sp-thumbnail" src="/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(p=>p.IsPrimary==null).Url">
 							}
 						</div>
 					</div>   

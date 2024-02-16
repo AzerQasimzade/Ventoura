@@ -57,9 +57,16 @@
 					<div class="col-6"><i class="icon-phone"></i><strong>0045 043204434</strong></div>
 					<div class="col-6">
 						<ul id="top_links">
-							<li><a href="#sign-in-dialog" id="access_link">Sign in</a></li>
-							<li><a href="wishlist.html" id="wishlist_link">Wishlist</a></li>
-							<li><a href="http://themeforest.net/item/citytours-city-tours-tour-tickets-and-guides/10715647?ref=ansonika">Purchase this template</a></li>
+							@if (User.Identity.IsAuthenticated)
+							{
+								<li><a>@User.Identity.Name</a></li>
+								<li><a asp-action="LogOut" asp-controller="AppUser">Log Out</a></li>
+							}
+							else
+							{
+								<li><a asp-action="Login" asp-controller="AppUser">Sign in</a></li>
+								<li><a asp-action="Index" asp-controller="Wishlist">Wishlist</a></li>
+							}
 						</ul>
 					</div>
 				</div><!-- End row -->
@@ -69,9 +76,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-3">
-					<div id="logo">
-						<a href="index.html"><img src="~/main/img/logo.png" width="160" height="34" alt="City tours" class="logo_normal"></a>
-						<a href="index.html"><img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours" class="logo_sticky"></a>
+					<div id="logo_home">
+						<h1><a asp-action="Index" asp-controller="Home" title="City tours travel template">City Tours travel template</a></h1>
 					</div>
 				</div>
 				<nav class="col-9">
@@ -306,11 +312,10 @@
 								</ul>
 							</div><!-- End dropdown-cart-->
 						</li>
-					</ul>	
-				</nav>																																																																					
+					</ul>
+				</nav>
 			</div>
-		</div>
-		<!-- container -->
+		</div><!-- container -->
 	</header>
 	<!-- End Header -->
 		
@@ -500,7 +505,7 @@
 									<div class="wishlist_close">-</div>
 									<div class="img_list">
 										<a href="single_tour.html">
-											<div class="ribbon popular"></div><img src="~/main/img/@item.Image" alt="Image">
+											<div class="ribbon popular"></div><img src="~/rev-slider-files/assets/@item.Image" alt="Image">
 											<div class="short_info"><i class="icon_set_1_icon-4"></i>Museums </div>
 										</a>
 									</div>
