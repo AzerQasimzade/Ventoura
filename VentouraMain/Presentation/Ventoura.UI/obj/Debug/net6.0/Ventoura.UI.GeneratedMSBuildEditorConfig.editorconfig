@@ -24,12 +24,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDaXR5XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/City/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDaXR5XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/City/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDaXR5XFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Country/CountryTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDb3VudHJ5XENvdW50cnlUYWJsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Country/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDb3VudHJ5XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Country/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDb3VudHJ5XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Country/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDb3VudHJ5XFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Home/Index.cshtml]
@@ -42,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Tour/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xUb3VyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Tour/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xUb3VyXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Tour/TourTable.cshtml]
@@ -76,12 +96,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwVXNlclxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Views/Basket/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Views/Home/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Views/Tour/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Views/WishList/Index.cshtml]

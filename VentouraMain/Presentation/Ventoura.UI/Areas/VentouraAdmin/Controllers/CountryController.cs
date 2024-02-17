@@ -32,5 +32,36 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
             }
             return RedirectToAction("CountryTable", "Country");
         }
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteAsync(id);
+            return RedirectToAction("CountryTable", "Country");
+        }
+        public async Task<IActionResult> Update(int id)
+        {
+            if (id <= 0) return BadRequest();
+            return View(await _service.UpdateGet(id, new CountryUpdateVM()));
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(int id, CountryUpdateVM vm)
+        {
+            if (id <= 0) return BadRequest();
+            if (!await _service.Update(id, vm, ModelState)) return View(vm);
+            return RedirectToAction("CountryTable", "Country");
+        }
+        public async Task<IActionResult> Details(int id)
+        {
+
+            if (id <= 0) return BadRequest();
+            var tour = await _service.GetByIdAsync(id);
+            if (tour == null)
+            {
+                ModelState.AddModelError(string.Empty, "The product you are looking for is no longer available");
+                return View("Error");
+            }
+            return View(await _service.GetDetail(id, new CountryDetailVM()));
+
+
+        }
     }
 }

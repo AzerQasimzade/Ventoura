@@ -36,8 +36,8 @@ namespace Ventoura.Persistence.Implementations.Services
                 });
             }
             return dtos;
-        } 
-        public async  Task<CityCreateVM> CreateGet(CityCreateVM vm)
+        }
+        public async Task<CityCreateVM> CreateGet(CityCreateVM vm)
         {
             return vm;
         }
@@ -53,6 +53,44 @@ namespace Ventoura.Persistence.Implementations.Services
             });
             await _repository.SaveChangesAsync();
             return true;
-        }   
-    }
+        }
+        public async Task DeleteAsync(int id)
+        {
+            City existed = await _repository.GetByIdAsync(id);
+            if (existed == null) throw new Exception("Product cant found");
+            _repository.Delete(existed);
+            await _repository.SaveChangesAsync();
+        }
+        public async Task<CityUpdateVM> UpdateGet(int id, CityUpdateVM vm)
+        {
+            City city = await _repository.GetByIdAsync(id);
+            CityUpdateVM cityUpdateVM = new CityUpdateVM
+            {
+                Name = city.Name,
+            };
+            return cityUpdateVM;
+        }
+        public async Task<bool> Update(int id, CityUpdateVM vm, ModelStateDictionary modelstate)
+        {
+            City existed = await _repository.GetByIdAsync(id);
+            if (!modelstate.IsValid)
+            {
+                return false;
+            }
+            existed.Name = vm.Name;
+            _repository.Update(existed);
+            await _repository.SaveChangesAsync();
+            return true;
+        }
+        public async Task<CityDetailVM> GetDetail(int id, CityDetailVM vM)
+        {
+            City city = await _repository.GetByIdAsync(id);
+            CityDetailVM getVM = new CityDetailVM
+            {
+                Name = city.Name,
+            };
+            return getVM;
+        }		
+
+	}
 }

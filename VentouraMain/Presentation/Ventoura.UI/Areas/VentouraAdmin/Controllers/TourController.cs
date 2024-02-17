@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Tours;
 using Ventoura.Domain.Entities;
+using Ventoura.Persistence.Implementations.Services;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
@@ -41,6 +42,21 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
             if (!await _service.Update(id, vm, ModelState)) return View(vm);
             return RedirectToAction("TourTable", "Tour");         
         }
-
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteAsync(id);
+            return RedirectToAction("TourTable","Tour");
+        }
+        public async Task<IActionResult> Details(int id)
+        {
+            if (id <= 0) return BadRequest();
+            var tour = await _service.GetByIdAsync(id);
+            if (tour == null)
+            {
+                ModelState.AddModelError(string.Empty, "The product you are looking for is no longer available");
+                return View("Error");
+            }
+            return View(await _service.GetDetail(id, new TourDetailVM()));
+        }
     }
 }

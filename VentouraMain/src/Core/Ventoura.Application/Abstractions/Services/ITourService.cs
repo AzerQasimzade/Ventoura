@@ -17,5 +17,8 @@ namespace Ventoura.Application.Abstractions.Services
         Task<TourCreateVM> CreateGet(TourCreateVM vm);
         Task<TourUpdateVM> UpdateGet(int id,TourUpdateVM vm);
         Task<bool> Update(int id, TourUpdateVM vm,ModelStateDictionary modelstate);
+        Task DeleteAsync(int id);
+        Task<TourDetailVM> GetDetail(int id,TourDetailVM vm);
+
     }
 }

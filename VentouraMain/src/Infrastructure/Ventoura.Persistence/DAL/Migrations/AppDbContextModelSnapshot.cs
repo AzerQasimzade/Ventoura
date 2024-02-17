@@ -236,6 +236,41 @@ namespace Ventoura.Persistence.DAL.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Ventoura.Domain.Entities.BasketItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("TourId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("TourId");
+
+                    b.ToTable("BasketItems");
+                });
+
             modelBuilder.Entity("Ventoura.Domain.Entities.City", b =>
                 {
                     b.Property<int>("Id")
@@ -504,6 +539,31 @@ namespace Ventoura.Persistence.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Ventoura.Domain.Entities.BasketItem", b =>
+                {
+                    b.HasOne("Ventoura.Domain.Entities.AppUser", "AppUser")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Ventoura.Domain.Entities.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId");
+
+                    b.HasOne("Ventoura.Domain.Entities.Tour", "Tour")
+                        .WithMany()
+                        .HasForeignKey("TourId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Tour");
+                });
+
             modelBuilder.Entity("Ventoura.Domain.Entities.Tour", b =>
                 {
                     b.HasOne("Ventoura.Domain.Entities.City", "City")
@@ -537,7 +597,7 @@ namespace Ventoura.Persistence.DAL.Migrations
             modelBuilder.Entity("Ventoura.Domain.Entities.WishlistItem", b =>
                 {
                     b.HasOne("Ventoura.Domain.Entities.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("WishlistItems")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -557,6 +617,13 @@ namespace Ventoura.Persistence.DAL.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Tour");
+                });
+
+            modelBuilder.Entity("Ventoura.Domain.Entities.AppUser", b =>
+                {
+                    b.Navigation("BasketItems");
+
+                    b.Navigation("WishlistItems");
                 });
 
             modelBuilder.Entity("Ventoura.Domain.Entities.City", b =>

@@ -21,5 +21,12 @@ namespace Ventoura.UI.Controllers
 			await _service.AddWishlist(id);
 			return RedirectToAction("Index", "Home");
 		}
-	}
+        public async Task<IActionResult> Remove(int id)
+        {
+            if (id == 0) return BadRequest();
+            await _service.Remove(id);
+            return RedirectToAction("Index", "Wishlist");
+        }
+
+    }
 }

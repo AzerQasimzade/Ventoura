@@ -135,5 +135,9 @@ namespace Ventoura.Persistence.Implementations.Repositories
             await _context.WishlistItems.AddAsync(item);
             await _context.SaveChangesAsync();
         }
+        public async Task<int> GetProductCountAsync()
+        {
+            return await _context.Tours.CountAsync();
+        }
     }
 }

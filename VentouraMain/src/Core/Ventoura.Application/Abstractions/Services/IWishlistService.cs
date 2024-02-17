@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace Ventoura.Application.Abstractions.Services
 	{
 		Task AddWishlist(int id);
 		Task<ICollection<WishlistItemVM>> Index();
-	}
+		Task Remove(int id);
+    }
 }

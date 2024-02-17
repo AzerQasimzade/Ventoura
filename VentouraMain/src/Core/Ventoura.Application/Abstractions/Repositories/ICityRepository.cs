@@ -9,5 +9,5 @@ namespace Ventoura.Application.Abstractions.Repositories
 {
     public interface ICityRepository:IRepository<City>
     {
-    }
+	}
 }

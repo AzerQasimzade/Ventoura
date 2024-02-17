@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,8 @@ namespace Ventoura.Persistence.Implementations.Repositories
     {
         public CityRepository(AppDbContext context) : base(context)
         {
-
+			
         }
-    }
+
+	}
 }

@@ -22,7 +22,6 @@ namespace Ventoura.Persistence.Implementations.Services
         {
             _repository = repository;
         }
-
         public async Task<ICollection<CountryItemVM>> GetAllAsync(int page, int take)
         {
             ICollection<Country> countries = await _repository.GetAll(skip: (page - 1) * take, take: take).ToListAsync();
@@ -54,6 +53,53 @@ namespace Ventoura.Persistence.Implementations.Services
             });
             await _repository.SaveChangesAsync();
             return true;
-        }  
+        }
+        public async Task DeleteAsync(int id)
+        {
+            Country existed = await _repository.GetByIdAsync(id);
+            if (existed == null) throw new Exception("Product cant found");
+            _repository.Delete(existed);
+            await _repository.SaveChangesAsync();
+        }
+
+        public async Task<CountryUpdateVM> UpdateGet(int id, CountryUpdateVM vm)
+        {
+            Country country=await _repository.GetByIdAsync(id);
+            CountryUpdateVM countryUpdateVM = new CountryUpdateVM
+            {
+                Name = country.Name,
+            };
+            return countryUpdateVM;
+        }
+        public async Task<bool> Update(int id, CountryUpdateVM vm, ModelStateDictionary modelstate)
+        {
+            Country existed=await _repository.GetByIdAsync(id);
+            if (!modelstate.IsValid)
+            {
+                return false;
+            }
+            existed.Name = vm.Name;
+            _repository.Update(existed);
+            await _repository.SaveChangesAsync();
+            return true;
+        }
+        public async Task<CountryDetailVM> GetDetail(int id, CountryDetailVM vm)
+        {
+            Country country = await _repository.GetByIdAsync(id);
+            CountryDetailVM getVM = new CountryDetailVM
+            {
+                Name = country.Name,
+            };
+            return getVM;
+        }
+        public async Task<CountryDetailVM> GetByIdAsync(int id)
+        {
+            Country country = await _repository.GetByIdAsync(id);
+            CountryDetailVM getVM = new CountryDetailVM
+            {
+               Name= country.Name,
+            };
+            return getVM;
+        }
     }
 }

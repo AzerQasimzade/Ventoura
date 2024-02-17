@@ -68,13 +68,13 @@
                                         <th scope="row">@count</th>
                                         <td>@item.Name</td>
                                         <td class="action-icons">
-                                            <a asp-action="Update" asp-area="VentouraAdmin" asp-controller="Tour">
+                                            <a asp-action="Update" asp-area="VentouraAdmin" asp-controller="City" asp-route-id="@item.Id">
                                                 <img src="~/main/img/system-update.png" class="resized-image" alt="Contract Image">
                                             </a>
-                                            <a asp-action="Delete" asp-area="VentouraAdmin" asp-controller="Tour">
+                                            <a asp-action="Delete" asp-area="VentouraAdmin" asp-controller="City" asp-route-id="@item.Id">
                                                 <img src="~/main/img/recycle-bin.png" class="resized-image" alt="Contract Image">
                                             </a>
-                                            <a asp-action="Details" asp-area="VentouraAdmin" asp-controller="Tour">
+                                            <a asp-action="Details" asp-area="VentouraAdmin" asp-controller="Tour" asp-route-id="@item.Id">
                                                 <img src="~/main/img/search-analysis.png" class="resized-image" alt="Contract Image">
                                             </a>
                                         </td>

@@ -30,5 +30,23 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
             }
             return RedirectToAction("CityTable", "City");
         }
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteAsync(id);
+            return RedirectToAction("CityTable", "City");
+        }
+
+        public async Task<IActionResult> Update(int id)
+        {
+            if (id <= 0) return BadRequest();
+            return View(await _service.UpdateGet(id, new CityUpdateVM()));
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(int id, CityUpdateVM vm)
+        {
+            if (id <= 0) return BadRequest();
+            if (!await _service.Update(id, vm, ModelState)) return View(vm);
+            return RedirectToAction("CityTable", "City");
+        }
     }
 }

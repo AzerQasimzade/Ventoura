@@ -1,0 +1,79 @@
+﻿@using Ventoura.Application.ViewModels.Tours;
+@using Ventoura.Domain.Entities;
+@model TourDetailVM
+<!-- Page Sidebar Ends-->
+<div class="page-body">
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card height-equal">
+                    <div class="card-body custom-input">
+                        <form class="row g-3" method="post" enctype="multipart/form-data">
+                  
+                            <div class="form-group">
+                                <img style="width=130px;height=130px" src="~/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(pi=>pi.IsPrimary==true)?.Url" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MainPhoto">Main Image</label>
+                            </div>
+                            <div class="form-group">
+                                <img style="width=130px;height=130px" src="~/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(pi=>pi.IsPrimary==null)?.Url" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="HoverPhoto">Hover Image</label>
+                            </div>
+                            <div class="form-group d-flex">
+                                @foreach (var image in Model.TourImages.Where(p => p.IsPrimary == null))
+                                {
+                                    <div class="position-relative">
+                                        <img style="width=110px;height=110px" src="~/rev-slider-files/assets/@image.Url" />
+                                        <input asp-for="ImageIds" type="hidden" value="@image.Id">
+                                    </div>
+                                }
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photos">Images</label>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Name" class="form-label" for="first-name">Tour Name:@Model.Name</label>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="StartDate" class="form-label">Tour StartDate:@Model.StartDate</label>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="StartTime" class="form-label" for="exampleFormControlInput1">Tour StartTime:@Model.StartTime</label>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Description" class="form-label">Description:@Model.Description</label>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Includes" class="form-label">Includes:@Model.Description</label>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="IncludeDesc" class="form-label">Include Description:@Model.IncludeDesc</label>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Price" class="form-label">Price:@Model.Price</label>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="DayCount" class="form-label">Day Count:@Model.DayCount</label>
+                            </div>
+                            <div class="form-group">
+                                <h1>
+                                    Country Name: @Model.Country.Name 
+                                </h1>
+                            </div>
+                            <div class="form-group">
+                               <h1>City Name:
+                                 @Model.City.Name
+                               </h1>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>

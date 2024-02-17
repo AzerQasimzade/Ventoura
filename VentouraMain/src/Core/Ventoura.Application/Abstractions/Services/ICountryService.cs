@@ -15,6 +15,11 @@ namespace Ventoura.Application.Abstractions.Services
         Task<ICollection<CountryItemVM>> GetAllAsync(int page, int take);
         Task<bool> Create(CountryCreateVM vm, ModelStateDictionary modelstate);
         Task<CountryCreateVM> CreateGet(CountryCreateVM vm);
+        Task DeleteAsync(int id);
+        Task<CountryUpdateVM> UpdateGet(int id, CountryUpdateVM vm);
+        Task<bool> Update(int id, CountryUpdateVM vm, ModelStateDictionary modelstate);
+        Task<CountryDetailVM> GetDetail(int id, CountryDetailVM vm);
+        Task<CountryDetailVM> GetByIdAsync(int id);
 
     }
 }

@@ -15,5 +15,7 @@ namespace Ventoura.Domain.Entities
         public GenderHelper Gender { get; set; }
         public bool IsActive { get; set; } = true;
         public List<WishlistItem> WishlistItems { get; set; }
+        public List<BasketItem> BasketItems { get; set; }
+
     }
 }

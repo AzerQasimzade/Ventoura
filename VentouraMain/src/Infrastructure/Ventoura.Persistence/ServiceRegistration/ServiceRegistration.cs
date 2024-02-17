@@ -34,6 +34,8 @@ namespace Ventoura.Persistence.ServiceRegistration
 
             services.AddScoped<IAuthService, AuthService>();
 
+            services.AddScoped<IBasketService, BasketService>();
+            services.AddScoped<IBasketRepository, BasketRepository>();
 
             services.AddScoped<IWishlistService, WishlistService>();
             services.AddScoped<IWishlistRepository, WishlistRepository>();

@@ -139,5 +139,20 @@ namespace Ventoura.Persistence.Implementations.Services
                 _accessor.HttpContext.Response.Cookies.Append("Wishlist", json);
             }
         }
-	}
+        public async Task Remove(int id)
+        {
+            Tour tour = await _repository.GetFirstOrDefaultAsync(p => p.Id == id);
+            List<WishlistCookieItemVM> wishlist;
+             AppUser user = await _userManager.Users
+            .Include(u => u.WishlistItems.Where(o => o.OrderId == null))
+            .FirstOrDefaultAsync(bi => bi.Id == _accessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var excisted = user.WishlistItems
+            .FirstOrDefault(x => x.TourId == tour.Id);
+            if (excisted is null) throw new Exception("existed is null");
+
+            user.WishlistItems.Remove(excisted);
+            await _repository.SaveChangesAsync();
+            
+        }
+    }
 }

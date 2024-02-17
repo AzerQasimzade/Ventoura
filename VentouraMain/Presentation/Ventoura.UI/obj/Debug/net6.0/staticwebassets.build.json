@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nA1zOvaxan/cUTQRCSUHLiZpPCanxFoWZxFz+cmGPrI=",
+  "Hash": "zKR7/fvqJmKhXwQNJqdgh6Azx6/WsK2M9w+kjmxLE14=",
   "Source": "Ventoura.UI",
   "BasePath": "_content/Ventoura.UI",
   "Mode": "Default",
@@ -68221,6 +68221,23 @@
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\406ee404-e7d9-43de-8659-9c384acdf389Gallery42.jpg"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\4543ea74-94ec-42ae-b6ba-64a169749121search.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/4543ea74-94ec-42ae-b6ba-64a169749121search.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\4543ea74-94ec-42ae-b6ba-64a169749121search.png"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\4bf34b26-e434-403f-9794-a5634fa1d4d22.jpg",
       "SourceId": "Ventoura.UI",
       "SourceType": "Discovered",
@@ -68238,6 +68255,23 @@
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\4bf34b26-e434-403f-9794-a5634fa1d4d22.jpg"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\4ce8ff5c-f336-4edf-a4e7-af1270361bb1Gallery41 (1).jpg",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/4ce8ff5c-f336-4edf-a4e7-af1270361bb1Gallery41 (1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\4ce8ff5c-f336-4edf-a4e7-af1270361bb1Gallery41 (1).jpg"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\4eca5c00-5fbc-4070-844c-7fcb9c955c37download (1).jpeg",
       "SourceId": "Ventoura.UI",
       "SourceType": "Discovered",
@@ -68253,6 +68287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\4eca5c00-5fbc-4070-844c-7fcb9c955c37download (1).jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\5be4a59f-887e-4304-bae2-32c0691cd7b3Gallery21.jpg",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/5be4a59f-887e-4304-bae2-32c0691cd7b3Gallery21.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\5be4a59f-887e-4304-bae2-32c0691cd7b3Gallery21.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\5eb6aac7-cde7-47e7-927e-8a1ef55a1d17Gallery41.jpg",
@@ -68321,6 +68372,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\744cb862-f991-4bfe-9bf6-382d1b07b4ab3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\74bde1b5-a6df-4fa8-a93e-ac9af8572e58info.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/74bde1b5-a6df-4fa8-a93e-ac9af8572e58info.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\74bde1b5-a6df-4fa8-a93e-ac9af8572e58info.png"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\7577b83b-db70-45bb-8d34-cb80b3ba88f3icons8-settings (4).gif",
@@ -68527,6 +68595,23 @@
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\98a66e6e-85b8-4f9e-b051-84dffcd6ebc4unnamed.png"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\9ab2d687-55e8-4cbc-9f46-882c85a2ed29search.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/9ab2d687-55e8-4cbc-9f46-882c85a2ed29search.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\9ab2d687-55e8-4cbc-9f46-882c85a2ed29search.png"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\9abbd011-49a1-4dd9-a1b9-07ca2abaee0dGallery11.jpg",
       "SourceId": "Ventoura.UI",
       "SourceType": "Discovered",
@@ -68610,6 +68695,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\b176642c-62ad-43f9-a2ea-add42af2f7d91.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\b69f3660-2b8a-4b59-b609-85fe23fe6d9dGallery42.jpg",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/b69f3660-2b8a-4b59-b609-85fe23fe6d9dGallery42.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\b69f3660-2b8a-4b59-b609-85fe23fe6d9dGallery42.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\b720e10f-7d39-44f3-920f-9a49c6842d0f2.jpg",
@@ -68697,6 +68799,23 @@
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\banner_bg_desktop.jpg"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\bb9d452f-fce8-44eb-b0e5-cc3cf51a6f5esearch-analysis.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/bb9d452f-fce8-44eb-b0e5-cc3cf51a6f5esearch-analysis.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\bb9d452f-fce8-44eb-b0e5-cc3cf51a6f5esearch-analysis.png"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\cdc1debd-aee0-4f3f-85ba-b8c558b8a9d8images (1).jpeg",
       "SourceId": "Ventoura.UI",
       "SourceType": "Discovered",
@@ -68712,6 +68831,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\cdc1debd-aee0-4f3f-85ba-b8c558b8a9d8images (1).jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\d18e49d1-b5d3-40c5-a9d2-094fa7f6faffthumb_cart_3.jpg",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/d18e49d1-b5d3-40c5-a9d2-094fa7f6faffthumb_cart_3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\d18e49d1-b5d3-40c5-a9d2-094fa7f6faffthumb_cart_3.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\d31e15f9-3771-4479-8c4e-f142e8cbe9951.jpg",
@@ -68780,6 +68916,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\down_arrow_select.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\e76b19eb-7c14-45f9-9134-b2e712fb98cdsearch-analysis.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/e76b19eb-7c14-45f9-9134-b2e712fb98cdsearch-analysis.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\e76b19eb-7c14-45f9-9134-b2e712fb98cdsearch-analysis.png"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\e7aaddb0-12bc-4321-a099-f59586c5057cunnamed.png",
