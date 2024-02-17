@@ -26,5 +26,18 @@ namespace Ventoura.UI.Controllers
             await _service.Remove(id);
             return RedirectToAction("Index", "Basket");
         }
+        public async Task<IActionResult> PlusBasket(int id)
+        {
+            if (id == 0) return BadRequest();
+            await _service.PlusBasket(id);
+            return RedirectToAction("Index","Basket");
+        }
+        public async Task<IActionResult> MinusBasket(int id)
+        {
+            if (id == 0) return BadRequest();
+            await _service.MinusBasket(id);
+            return RedirectToAction("Index", "Basket");
+        }
+
     }
 }

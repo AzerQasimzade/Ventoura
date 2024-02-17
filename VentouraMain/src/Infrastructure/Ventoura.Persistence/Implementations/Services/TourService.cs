@@ -13,6 +13,7 @@ using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels;
 using Ventoura.Application.ViewModels.Cities;
 using Ventoura.Application.ViewModels.Countries;
+using Ventoura.Application.ViewModels.Pagination;
 using Ventoura.Application.ViewModels.Tours;
 using Ventoura.Application.ViewModels.Wishlist;
 using Ventoura.Domain.Entities;
@@ -27,7 +28,6 @@ namespace Ventoura.Persistence.Implementations.Services
         private readonly ICityRepository _cityRepository;
         private readonly ICountryRepository _countryRepository;
         private readonly IWebHostEnvironment _env;
-
         public TourService(ITourRepository repository, ICityRepository cityRepository, ICountryRepository countryRepository, IWebHostEnvironment env)
         {
             _repository = repository;
@@ -35,11 +35,17 @@ namespace Ventoura.Persistence.Implementations.Services
             _countryRepository = countryRepository;
             _env = env;
         }
-        public async Task<ICollection<TourItemVM>> GetAllAsync(int page, int take)
+        public async Task<PaginationVM<TourItemVM>> GetAllAsync(int page, int take)
         {
-            ICollection<Tour> tours = await _repository.GetAll(null, null, false, skip: (page - 1) * take, take: take, false, nameof(Tour.City), nameof(Tour.Country), nameof(Tour.TourImages))
+            int count = await _repository.GetProductCountAsync();
+            if (page > Math.Ceiling((double)count / 6))
+            {
+                throw new Exception("Bad Request");
+            }
+            List<Tour> tours = await _repository
+                .GetAll(null, null, false, skip: (page - 1) * take, take: take, false, nameof(Tour.City), nameof(Tour.Country), nameof(Tour.TourImages))
                 .ToListAsync();
-            ICollection<TourItemVM> dtos = new List<TourItemVM>();
+            List<TourItemVM> dtos = new List<TourItemVM>();
             foreach (var tour in tours)
             {
                 dtos.Add(new TourItemVM
@@ -59,10 +65,17 @@ namespace Ventoura.Persistence.Implementations.Services
                     TotalPrice = tour.TotalPrice,
                     TourImages = tour.TourImages,
                     City = tour.City,
-                    Country = tour.Country
+                    Country = tour.Country,
+                    
                 });
             }
-            return dtos;
+            PaginationVM<TourItemVM> paginationVM = new PaginationVM<TourItemVM>
+            {
+                TotalPage = Math.Ceiling((double)count / 5),
+                CurrentPage = page,
+                Items = dtos
+            };
+            return paginationVM;
         }
         public async Task<TourCreateVM> CreateGet(TourCreateVM vm)
         {
@@ -151,6 +164,7 @@ namespace Ventoura.Persistence.Implementations.Services
                 CountryId = dto.CountryId,
                 CityId = dto.CityId,
                 TourImages = new List<TourImage> { main, hover },
+                Sale=dto.Sale
             };
             foreach (IFormFile photo in dto.Photos ?? new List<IFormFile>())
             {
@@ -226,8 +240,10 @@ namespace Ventoura.Persistence.Implementations.Services
                 CountryId = tour.CountryId,
                 CityId = tour.CityId,
                 TourImages = tour.TourImages,
+                Sale = tour.Sale,
                 Cities = await _repository.GetAllCityAsync(),
-                Countries = await _repository.GetAllCountriesAsync()
+                Countries = await _repository.GetAllCountriesAsync(),
+                
             };
             return tourVM;
         }
@@ -326,6 +342,7 @@ namespace Ventoura.Persistence.Implementations.Services
             existed.IncludeDesc = dto.IncludeDesc;
             existed.Includes = dto.Includes;
             existed.TourImages = dto.TourImages;
+            existed.Sale = dto.Sale;
             _repository.Update(existed);
             await _repository.SaveChangesAsync();
             return true;

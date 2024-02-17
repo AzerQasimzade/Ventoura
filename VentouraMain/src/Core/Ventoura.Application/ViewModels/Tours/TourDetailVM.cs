@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Ventoura.Application.ViewModels.Tours
         public string Name { get; set; }
         public string? Description { get; set; }
         public string? Includes { get; set; }
+        public string Status { get; set; }
         public string? IncludeDesc { get; set; }
         public decimal Price { get; set; }
         public DateTime StartDate { get; set; }

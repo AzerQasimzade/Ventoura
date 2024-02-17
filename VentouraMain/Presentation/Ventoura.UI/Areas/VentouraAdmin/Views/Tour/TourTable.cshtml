@@ -1,5 +1,6 @@
-﻿@using Ventoura.Application.ViewModels.Tours;
-@model ICollection<TourItemVM>
+﻿@using Ventoura.Application.ViewModels.Pagination;
+@using Ventoura.Application.ViewModels.Tours;
+@model PaginationVM<TourItemVM>
 @{
     int count = 0;
 }
@@ -64,7 +65,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model)
+                                @foreach (var item in Model.Items)
                                 {
                                     count++;
                                     <tr class="border-bottom-secondary">

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -134,6 +136,44 @@ namespace Ventoura.Persistence.Implementations.Services
             await _repository.SaveChangesAsync();
 
         }
+
+        public async Task PlusBasket(int id)
+        {
+            if (id <= 0) throw new Exception("Bad Request");
+            Tour tour = await _repository.GetFirstOrDefaultAsync(p => p.Id == id);
+            if (tour is null) throw new Exception("Not Found");
+            if (_accessor.HttpContext.User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.Users
+                    .Include(u => u.BasketItems.Where(o => o.OrderId == null)).FirstOrDefaultAsync(x => x.Id == _accessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+                if (user == null) throw new Exception("Not Found");
+                user.BasketItems.FirstOrDefault(x => x.TourId == tour.Id).Count++;
+                _repository.SaveChangesAsync();
+            }
+        }
+
+
+        public async Task MinusBasket(int id)
+        {
+            if (id <= 0) throw new Exception("Bad Request");
+            Tour tour = await _repository.GetFirstOrDefaultAsync(p => p.Id == id);
+            if (tour is null) throw new Exception("Not Found");
+            if (_accessor.HttpContext.User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.Users
+                    .Include(u => u.BasketItems.Where(o => o.OrderId == null)).FirstOrDefaultAsync(x => x.Id == _accessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+                if (user == null) throw new Exception("Not Found");
+                var excisted = user.BasketItems
+                    .FirstOrDefault(x => x.TourId == tour.Id);
+                user.BasketItems.FirstOrDefault(x => x.TourId == tour.Id).Count--;
+                if (user.BasketItems.FirstOrDefault(x => x.TourId == tour.Id).Count == 0)
+                {
+                    user.BasketItems.Remove(excisted);
+                }
+                _repository.SaveChangesAsync();
+            }
+        }
+
     }
 }
 

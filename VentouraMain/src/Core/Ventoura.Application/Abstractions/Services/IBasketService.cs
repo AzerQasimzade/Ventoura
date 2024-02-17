@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,7 @@ namespace Ventoura.Application.Abstractions.Services
         Task AddBasket(int id);
         Task<ICollection<BasketItemVM>> Index();
         Task Remove(int id);
+        Task PlusBasket(int id);
+        Task MinusBasket(int id);
     }
 }

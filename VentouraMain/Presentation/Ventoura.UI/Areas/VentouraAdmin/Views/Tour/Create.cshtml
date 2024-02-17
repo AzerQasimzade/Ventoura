@@ -69,9 +69,19 @@
                                 <span class="text-danger" asp-validation-for="IncludeDesc"></span>
                             </div>
                             <div class="col-12">
+                                <label asp-for="Status" class="form-label" for="exampleFormControlTextarea1">Status</label>
+                                <input asp-for="Status" class="form-control" id="exampleFormControlTextarea1" rows="1" />
+                                <span class="text-danger" asp-validation-for="Status"></span>
+                            </div>
+                            <div class="col-12">
                                 <label asp-for="Price" class="form-label" for="exampleFormControlInput1">Price</label>
                                 <input asp-for="Price" class="form-control" id="exampleFormControlInput1" required>
                                 <span class="text-danger" asp-validation-for="Price"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Sale" class="form-label" for="exampleFormControlInput1">Sale(Optional)</label>
+                                <input asp-for="Sale" class="form-control" id="exampleFormControlInput1" required>
+                                <span class="text-danger" asp-validation-for="Sale"></span>
                             </div>
                             <div class="col-12">
                                 <label asp-for="DayCount" class="form-label" for="exampleFormControlInput1">Day Count</label>
