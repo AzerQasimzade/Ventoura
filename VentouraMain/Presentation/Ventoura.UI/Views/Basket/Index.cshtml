@@ -1,6 +1,13 @@
 ﻿@using Ventoura.Application.ViewModels.Basket;
+@using Ventoura.Persistence.Implementations.Services;
 @{
 	Layout = null;
+}
+@inject _LayoutService service
+@{
+	Dictionary<string, string> settings = await service.GetSettingsAsync();
+	List<BasketItemVM> basket = await service.GetBasketAsync();
+	decimal total = 0;
 }
 @model List<BasketItemVM>
 <!DOCTYPE html>
@@ -58,28 +65,35 @@
 					<div class="col-6"><i class="icon-phone"></i><strong>0045 043204434</strong></div>
 					<div class="col-6">
 						<ul id="top_links">
-							<li><a href="#sign-in-dialog" id="access_link">Sign in</a></li>
-							<li><a href="wishlist.html" id="wishlist_link">Wishlist</a></li>
-							<li><a href="http://themeforest.net/item/citytours-city-tours-tour-tickets-and-guides/10715647?ref=ansonika">Purchase this template</a></li>
+							@if (User.Identity.IsAuthenticated)
+							{
+								<li><a>@User.Identity.Name</a></li>
+								<li><a asp-action="LogOut" asp-controller="AppUser">Log Out</a></li>
+								<li><a asp-action="Index" asp-controller="Wishlist">Wishlist</a></li>
+							}
+							else
+							{
+								<li><a asp-action="Login" asp-controller="AppUser">Sign in</a></li>
+								<li><a asp-action="Index" asp-controller="Wishlist">Wishlist</a></li>
+							}
 						</ul>
 					</div>
 				</div><!-- End row -->
 			</div><!-- End container-->
 		</div><!-- End top line-->
-
 		<div class="container">
 			<div class="row">
 				<div class="col-3">
 					<div id="logo">
-						<a href="index.html"><img src="~/main/img/logo.png" width="160" height="34" alt="City tours" class="logo_normal"></a>
-						<a href="index.html"><img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours" class="logo_sticky"></a>
+						<a asp-action="Index" asp-controller="Home"><img src="~/main/img/logo.png" width="160" height="34" alt="City tours" class="logo_normal"></a>
+						<a asp-action ="Index" asp-controller="Home"><img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours" class="logo_sticky"></a>
 					</div>
 				</div>
 				<nav class="col-9">
 					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
 					<div class="main-menu">
 						<div id="header_menu">
-							<img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours">
+							<img src="~/main/img/@settings["LogoLink"]" width="160" height="34" alt="City tours">
 						</div>
 						<a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
 						<ul>
@@ -282,26 +296,20 @@
 						</li>
 						<li>
 							<div class="dropdown dropdown-cart">
-								<a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>3</strong></a>
+								<a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>@basket.Count</strong></a>
 								<ul class="dropdown-menu" id="cart_items">
+									@foreach (var item in basket)
+									{
+										total += item.Price;
+										<li>
+											<div class="image"><img src="~/rev-slider-files/assets/@item.Image" alt="image"></div>
+											<strong><a asp-action="Details" asp-controller="Home">@item.Name</a>x @item.Count  $@item.Price </strong>
+											<a asp-action="remove" asp-controller="Basket" asp-route-id="@item.Id"><i class="icon-trash"></i></a>
+										</li>
+									}
 									<li>
-										<div class="image"><img src="~/main/img/thumb_cart_1.jpg" alt="image"></div>
-										<strong><a href="#">Louvre museum</a>1x $36.00 </strong>
-										<a href="#" class="action"><i class="icon-trash"></i></a>
-									</li>
-									<li>
-										<div class="image"><img src="~/main/img/thumb_cart_2.jpg" alt="image"></div>
-										<strong><a href="#">Versailles tour</a>2x $36.00 </strong>
-										<a href="#" class="action"><i class="icon-trash"></i></a>
-									</li>
-									<li>
-										<div class="image"><img src="~/main/img/thumb_cart_3.jpg" alt="image"></div>
-										<strong><a href="#">Versailles tour</a>1x $36.00 </strong>
-										<a href="#" class="action"><i class="icon-trash"></i></a>
-									</li>
-									<li>
-										<div>Total: <span>$120.00</span></div>
-										<a href="cart.html" class="button_drop">Go to cart</a>
+										<div>Total: <span>$@total</span></div>
+										<a asp-action="Index" asp-controller="Basket" class="button_drop">Go to cart</a>
 										<a href="payment.html" class="button_drop outline">Check out</a>
 									</li>
 								</ul>
@@ -315,7 +323,7 @@
 	</header>
 	<!-- End Header -->
 
-	<section id="hero_2" class="background-image" data-background="url(img/slide_hero_2.jpg)">
+	<section id="hero_2" class="background-image" data-background="url(rev-slider-files/assets/BasketBg.jpg)">
 		<div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
 			<div class="intro_title">
 				<h1>Place your order</h1>
@@ -378,9 +386,9 @@
 								<th>
 									Item
 								</th>
-								<th>
+								@* <th>
 									Quantity
-								</th>
+								</th> *@
 								<th>
 									Discount
 								</th>
@@ -388,55 +396,55 @@
 									Total
 								</th>
 								<th>
-									Actions
+									Remove
 								</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>
-									<div class="thumb_cart">
-										<img src="~/main/img/thumb_cart_1.jpg" alt="Image">
-									</div>
-									<span class="item_cart">Orly Airport Private transfer</span>
-								</td>
-								<td>
-									<div class="numbers-row">
-										<input type="text" value="0" id="quantity_1" class="qty2 form-control" name="quantity_1">
-									</div>
-								</td>
-								<td>
-									0%
-								</td>
-								<td>
-									<strong>€24,71</strong>
-								</td>
-								<td class="options">
-									<a href="#"><i class=" icon-trash"></i></a><a href="#"><i class="icon-ccw-2"></i></a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="thumb_cart">
-										<img src="~/main/img/thumb_cart_1.jpg" alt="Image">
-									</div>
-									<span class="item_cart"> Paris Disneyland Transfer</span>
-								</td>
-								<td>
-									<div class="numbers-row">
-										<input type="text" value="0" id="quantity_2" class="qty2 form-control" name="quantity_2">
-									</div>
-								</td>
-								<td>
-									0%
-								</td>
-								<td>
-									<strong>€0,0</strong>
-								</td>
-								<td class="options">
-									<a href="#"><i class=" icon-trash"></i></a><a href="#"><i class="icon-ccw-2"></i></a>
-								</td>
-							</tr>
+							@foreach (var item in Model)
+							{
+								<tr>
+									<td>
+										<div class="thumb_cart">
+										<a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id"> 
+										  <img src="~/rev-slider-files/assets/@item.Image" alt="Image">
+										</a>	
+										</div>
+										<span class="item_cart">@item.Name</span>
+									</td>
+									 @* <td>
+										<div class="numbers-row">
+											<input type="text" value="@item.Count"  id="quantity_1" class="qty2 form-control" name="quantity_1" >
+										</div>
+
+										
+									</td>  *@
+									<td>
+										@if (item.Sale is not null)
+										{
+											<span>@item.Sale%</span>
+										}
+										else
+										{
+											<span>None</span>
+										}
+									</td>
+									<td>
+										@if (item.Sale is not null)
+										{
+											<strong>$@(item.Price - (item.Price * @item.Sale) / 100)</strong>
+										}
+										else
+										{
+											<span>$@item.Price</span>
+										}
+									</td>
+									<td class="options">
+										<a asp-action="remove" asp-controller="Basket" asp-route-id="@item.Id"><i class="icon-trash"></i></a>
+									</td>
+								</tr>
+							}
+							
 						</tbody>
 					</table>
 					<table class="table table-striped options_cart">
@@ -612,7 +620,7 @@
 							</tbody>
 						</table>
 						<a class="btn_full" href="payment_transfer.html">Check out</a>
-						<a class="btn_full_outline" href="#"><i class="icon-right"></i> Continue shopping</a>
+						<a class="btn_full_outline" asp-action="Index" asp-controller="Tour"><i class="icon-right"></i> Continue shopping</a>
 					</div>
 					<div class="box_style_4">
 						<i class="icon_set_1_icon-57"></i>

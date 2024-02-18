@@ -12,7 +12,7 @@ namespace Ventoura.Application.Abstractions.Services
     public interface IBasketService
     {
         Task AddBasket(int id);
-        Task<ICollection<BasketItemVM>> Index();
+        Task<List<BasketItemVM>> Index();
         Task Remove(int id);
         Task PlusBasket(int id);
         Task MinusBasket(int id);

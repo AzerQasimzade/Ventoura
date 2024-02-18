@@ -22,14 +22,17 @@ namespace Ventoura.Application.ViewModels.Tours
         public int? DayCount { get; set; }
         public TimeSpan StartTime { get; set; }
         public List<Country>? Countries { get; set; }
+        public int CountryId { get; set; }
+
         public List<City>? Cities { get; set; }
+        public List<Category>? Categories { get; set; }
         public IFormFile MainPhoto { get; set; }
         public IFormFile HoverPhoto { get; set; }
         public List<IFormFile>? Photos { get; set; }
         // Relations
-        public int CountryId { get; set; }
         //public Country Country { get; set; }
         public int CityId { get; set; }
+        public int CategoryId { get; set; }
         //public City City { get; set; }
     }
 }

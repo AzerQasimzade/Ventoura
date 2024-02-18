@@ -46,6 +46,7 @@ namespace Ventoura.Application.Abstractions.Repositories
         Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate, bool isTracking = false, params string[] includes);
         Task<List<Country>> GetAllCountriesAsync();
         Task<List<City>> GetAllCityAsync();
+        Task<List<Category>> GetAllCategoryAsync();
 
         Task AddWishlistItemAsync(WishlistItem item);
 

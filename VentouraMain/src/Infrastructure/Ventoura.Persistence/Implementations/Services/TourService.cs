@@ -26,12 +26,14 @@ namespace Ventoura.Persistence.Implementations.Services
     {
         private readonly ITourRepository _repository;
         private readonly ICityRepository _cityRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly ICountryRepository _countryRepository;
         private readonly IWebHostEnvironment _env;
-        public TourService(ITourRepository repository, ICityRepository cityRepository, ICountryRepository countryRepository, IWebHostEnvironment env)
+        public TourService(ITourRepository repository, ICityRepository cityRepository,ICategoryRepository categoryRepository ,ICountryRepository countryRepository, IWebHostEnvironment env)
         {
             _repository = repository;
             _cityRepository = cityRepository;
+            _categoryRepository = categoryRepository;
             _countryRepository = countryRepository;
             _env = env;
         }
@@ -43,7 +45,7 @@ namespace Ventoura.Persistence.Implementations.Services
                 throw new Exception("Bad Request");
             }
             List<Tour> tours = await _repository
-                .GetAll(null, null, false, skip: (page - 1) * take, take: take, false, nameof(Tour.City), nameof(Tour.Country), nameof(Tour.TourImages))
+                .GetAll(null, null, false, skip: (page - 1) * take, take: take, false, nameof(Tour.City), nameof(Tour.Country),nameof(Tour.Category), nameof(Tour.TourImages))
                 .ToListAsync();
             List<TourItemVM> dtos = new List<TourItemVM>();
             foreach (var tour in tours)
@@ -190,7 +192,7 @@ namespace Ventoura.Persistence.Implementations.Services
         }
         public async Task<TourGetVM> GetByIdAsync(int id)
         {
-            Tour tour = await _repository.GetByIdAsync(id, false, nameof(Tour.Country), nameof(Tour.City), nameof(Tour.TourImages));
+            Tour tour = await _repository.GetByIdAsync(id, false, nameof(Tour.Country),nameof(Tour.Category),nameof(Tour.City), nameof(Tour.TourImages));
             TourGetVM getVM = new TourGetVM
             {
                 StartDate = tour.StartDate,
@@ -206,8 +208,8 @@ namespace Ventoura.Persistence.Implementations.Services
                 Price = tour.Price,
                 TotalPrice = tour.TotalPrice,
                 DayCount = tour.DayCount,
-                EndTime = tour.EndTime
-
+                EndTime = tour.EndTime,
+                CategoryId= tour.CategoryId,
             };
 
             // tour null değilse, diğer alanları da doldurabilirsiniz
@@ -219,13 +221,17 @@ namespace Ventoura.Persistence.Implementations.Services
             {
                 getVM.Country = new IncludeCountryVM { Name = tour.Country.Name }; // Country null değilse CountryViewModel'i oluştur
             }
+            if (tour.Category != null)
+            {
+                getVM.Category = new IncludeCategoryVM { Name = tour.Category.Name }; // Category null değilse CountryViewModel'i oluştur
+            }
             getVM.TourImages = tour.TourImages;
             return getVM;
         }
 
         public async Task<TourUpdateVM> UpdateGet(int id, TourUpdateVM vm)
         {
-            Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == id, false, nameof(Tour.TourImages), nameof(Tour.Country), nameof(Tour.City));
+            Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == id, false, nameof(Tour.TourImages),nameof(Tour.Category),nameof(Tour.Country), nameof(Tour.City));
 
             TourUpdateVM tourVM = new TourUpdateVM
             {
@@ -239,10 +245,12 @@ namespace Ventoura.Persistence.Implementations.Services
                 Includes = tour.Includes,
                 CountryId = tour.CountryId,
                 CityId = tour.CityId,
+                CategoryId = tour.CategoryId,
                 TourImages = tour.TourImages,
                 Sale = tour.Sale,
                 Cities = await _repository.GetAllCityAsync(),
                 Countries = await _repository.GetAllCountriesAsync(),
+                Categories=await _repository.
                 
             };
             return tourVM;

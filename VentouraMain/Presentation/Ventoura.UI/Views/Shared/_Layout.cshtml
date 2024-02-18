@@ -1,6 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using Ventoura.Application.ViewModels.Basket;
+@using Ventoura.Persistence.Implementations.Services;
+@inject _LayoutService service
+@{
+    Dictionary<string, string> settings = await service.GetSettingsAsync();
+    List<BasketItemVM> basket = await service.GetBasketAsync();
+    decimal total = 0;
+}
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,32 +15,24 @@
     <meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
     <meta name="author" content="Ansonika">
     <title>CITY TOURS - City tours and travel site template by Ansonika</title>
-
     <!-- Favicons-->
     <link rel="shortcut icon" href="~/main/img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="~/main/img/apple-touch-icon-57x57-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="~/main/img/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="~/main/img/apple-touch-icon-114x114-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="~/main/img/apple-touch-icon-144x144-precomposed.png">
-
-
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <!-- COMMON CSS -->
     <link href="~/main/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/main/css/style.css" rel="stylesheet">
     <link href="~/main/css/vendors.css" rel="stylesheet">
-
     <!-- REVOLUTION SLIDER CSS -->
-    <link rel="stylesheet" type="text/css" href="~/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="~/rev-slider-files/css/settings.css">
     <link rel="stylesheet" type="text/css" href="~/rev-slider-files/css/layers.css">
     <link rel="stylesheet" type="text/css" href="~/rev-slider-files/css/navigation.css">
-
     <!-- CUSTOM CSS -->
     <link href="~/main/css/custom.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -87,7 +86,7 @@
                     <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
                     <div class="main-menu">
                         <div id="header_menu">
-                            <img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours">
+                            <img src="~/main/img/@settings["LogoLink"]" width="160" height="34" alt="City tours">
                         </div>
                         <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                         <ul>
@@ -290,26 +289,20 @@
                         </li>
                         <li>
                             <div class="dropdown dropdown-cart">
-                                <a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>3</strong></a>
+                                <a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>@basket.Count</strong></a>
                                 <ul class="dropdown-menu" id="cart_items">
+                                    @foreach (var item in basket)
+                                    {
+                                        total += item.Price;
+                                        <li>
+                                            <div class="image"><img src="~/rev-slider-files/assets/@item.Image" alt="image"></div>
+                                            <strong><a asp-action="Details" asp-controller="Home">@item.Name</a>x @item.Count  $@item.Price </strong>
+                                            <a asp-action="remove" asp-controller="Basket" asp-route-id="@item.Id"><i class="icon-trash"></i></a>
+                                        </li>
+                                    }
                                     <li>
-                                        <div class="image"><img src="~/main/img/thumb_cart_1.jpg" alt="image"></div>
-                                        <strong><a href="#">Louvre museum</a>1x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div class="image"><img src="~/main/img/thumb_cart_2.jpg" alt="image"></div>
-                                        <strong><a href="#">Versailles tour</a>2x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div class="image"><img src="~/main/img/thumb_cart_3.jpg" alt="image"></div>
-                                        <strong><a href="#">Versailles tour</a>1x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div>Total: <span>$120.00</span></div>
-                                        <a href="cart.html" class="button_drop">Go to cart</a>
+                                        <div>Total: <span>$@total</span></div>
+                                        <a asp-action="Index" asp-controller="Basket" class="button_drop">Go to cart</a>
                                         <a href="payment.html" class="button_drop outline">Check out</a>
                                     </li>
                                 </ul>
@@ -431,7 +424,7 @@
                 </div>
                 <div class="text-center"><input type="submit" value="Log In" class="btn_login"></div>
                 <div class="text-center">
-                    Don’t have an account? <a asp-action="Register" asp-controller="AppUser">Sign up</a>
+                    Don’t have an account? <a href="javascript:void(0);">Sign up</a>
                 </div>
                 <div id="forgot_pw">
                     <div class="form-group">
@@ -446,13 +439,16 @@
         </form>
         <!--form -->
     </div>
-
-   
+    <!-- /Sign In Popup -->
     <!-- Common scripts -->
     <script src="~/main/js/jquery-3.6.0.min.js"></script>
     <script src="~/main/js/common_scripts_min.js"></script>
     <script src="~/main/js/functions.js"></script>
 
+    <!-- Common scripts -->
+    <script src="~/main/js/jquery-3.6.0.min.js"></script>
+    <script src="~/main/js/common_scripts_min.js"></script>
+    <script src="~/main/js/functions.js"></script>
     <!-- SLIDER REVOLUTION SCRIPTS  -->
     <script src="~/rev-slider-files/js/jquery.themepunch.tools.min.js"></script>
     <script src="~/rev-slider-files/js/jquery.themepunch.revolution.min.js"></script>

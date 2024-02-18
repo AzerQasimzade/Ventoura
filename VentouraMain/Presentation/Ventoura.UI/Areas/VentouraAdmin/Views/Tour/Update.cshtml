@@ -10,6 +10,7 @@
                 <div class="card height-equal">
                     <div class="card-body custom-input">
                         <form class="row g-3" method="post" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly"></div>
                             @if (!ViewData.ModelState.IsValid)
                             {
                                 <div class="alert alert-danger" role="alert">

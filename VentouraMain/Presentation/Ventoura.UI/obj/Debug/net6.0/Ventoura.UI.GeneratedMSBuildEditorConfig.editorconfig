@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Category/CategoryTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDYXRlZ29yeVxDYXRlZ29yeVRhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Category/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDYXRlZ29yeVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Category/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDYXRlZ29yeVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/Category/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDYXRlZ29yeVxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Desktop/Ventoura/VentouraMain/Presentation/Ventoura.UI/Areas/VentouraAdmin/Views/City/CityTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmVudG91cmFBZG1pblxWaWV3c1xDaXR5XENpdHlUYWJsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

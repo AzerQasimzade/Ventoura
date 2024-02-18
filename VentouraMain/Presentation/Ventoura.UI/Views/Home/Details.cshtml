@@ -1,7 +1,16 @@
-﻿@using Ventoura.Application.ViewModels.Tours;
+﻿@using Ventoura.Application.ViewModels.Basket;
+@using Ventoura.Application.ViewModels.Tours;
+@using Ventoura.Persistence.Implementations.Services;
 @model TourGetVM
 @{
 	Layout = null;
+}
+
+@inject _LayoutService service
+@{
+	Dictionary<string, string> settings = await service.GetSettingsAsync();
+	List<BasketItemVM> basket = await service.GetBasketAsync();
+	decimal total = 0;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +93,7 @@
 					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
 					<div class="main-menu">
 						<div id="header_menu">
-							<img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours">
+							<img src="~/main/img/@settings["LogoLink"]" width="160" height="34" alt="City tours">
 						</div>
 						<a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
 						<ul>
@@ -287,26 +296,20 @@
 						</li>
 						<li>
 							<div class="dropdown dropdown-cart">
-								<a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>3</strong></a>
+								<a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>@basket.Count</strong></a>
 								<ul class="dropdown-menu" id="cart_items">
+									@foreach (var item in basket)
+									{
+										total += item.Price;
+										<li>
+											<div class="image"><img src="~/rev-slider-files/assets/@item.Image" alt="image"></div>
+											<strong><a asp-action="Details" asp-controller="Home">@item.Name</a>x @item.Count  $@item.Price </strong>
+											<a asp-action="remove" asp-controller="Basket" asp-route-id="@item.Id"><i class="icon-trash"></i></a>
+										</li>
+									}
 									<li>
-										<div class="image"><img src="~/main/img/thumb_cart_1.jpg" alt="image"></div>
-										<strong><a href="#">Louvre museum</a>1x $36.00 </strong>
-										<a href="#" class="action"><i class="icon-trash"></i></a>
-									</li>
-									<li>
-										<div class="image"><img src="~/main/img/thumb_cart_2.jpg" alt="image"></div>
-										<strong><a href="#">Versailles tour</a>2x $36.00 </strong>
-										<a href="#" class="action"><i class="icon-trash"></i></a>
-									</li>
-									<li>
-										<div class="image"><img src="~/main/img/thumb_cart_3.jpg" alt="image"></div>
-										<strong><a href="#">Versailles tour</a>1x $36.00 </strong>
-										<a href="#" class="action"><i class="icon-trash"></i></a>
-									</li>
-									<li>
-										<div>Total: <span>$120.00</span></div>
-										<a href="cart.html" class="button_drop">Go to cart</a>
+										<div>Total: <span>$@total</span></div>
+										<a asp-action="Index" asp-controller="Basket" class="button_drop">Go to cart</a>
 										<a href="payment.html" class="button_drop outline">Check out</a>
 									</li>
 								</ul>
@@ -458,171 +461,7 @@
 							<!-- End row  -->
 						</div>
 					</div>
-					<hr>
-					<div class="row">
-						<div class="col-lg-3">
-							<h3>Schedule</h3>
-						</div>
-						<div class="col-lg-9">
-
-							<div class="table-responsive">
-								<table class="table table-striped">
-									<thead>
-										<tr>
-											<th colspan="2">
-												1st March to 31st October
-											</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>
-												Monday
-											</td>
-											<td>
-												10.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Tuesday
-											</td>
-											<td>
-												09.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Wednesday
-											</td>
-											<td>
-												09.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Thursday
-											</td>
-											<td>
-												<span class="label label-danger">Closed</span>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Friday
-											</td>
-											<td>
-												09.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Saturday
-											</td>
-											<td>
-												09.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Sunday
-											</td>
-											<td>
-												10.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<strong><em>Last Admission</em></strong>
-											</td>
-											<td>
-												<strong>17.00</strong>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-
-							<div class="table-responsive">
-								<table class="table table-striped">
-									<thead>
-										<tr>
-											<th colspan="2">
-												1st November to 28th February
-											</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>
-												Monday
-											</td>
-											<td>
-												10.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Tuesday
-											</td>
-											<td>
-												09.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Wednesday
-											</td>
-											<td>
-												09.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Thursday
-											</td>
-											<td>
-												<span class="label label-danger">Closed</span>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Friday
-											</td>
-											<td>
-												09.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Saturday
-											</td>
-											<td>
-												09.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Sunday
-											</td>
-											<td>
-												10.00 - 17.30
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<strong><em>Last Admission</em></strong>
-											</td>
-											<td>
-												<strong>17.00</strong>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-					<hr>
+					<hr/>
 					<div class="row">
 						<div class="col-lg-3">
 							<h3>Reviews </h3>
@@ -791,8 +630,8 @@
 									</tr>
 								</tbody>
 							</table>
-							<a class="btn_full" href="cart.html">Book now</a>
-							<a class="btn_full_outline" href="#"><i class=" icon-heart"></i> Add to whislist</a>
+							<a class="btn_full" asp-action="CheckOut" asp-controller="Basket">Book Now</a>
+							<a class="btn_full_outline" asp-action="AddWishlist" asp-controller="Wishlist" asp-route-id="@Model.Id"><i class="icon-heart"></i> Add to whislist</a>
 						</div>
 						<!--/box_style_1 -->
 					</div>
@@ -1054,7 +893,7 @@
 	<script src="~/main/assets/validate.js"></script>
 
 	<!-- Map -->
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBHHw23-neWMbjgv1CJEyNbtFNJRu25KTk"></script>
 	<script src="~/main/js/map.js"></script>
 	<script src="~/main/js/infobox.js"></script>
 

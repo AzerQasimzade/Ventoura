@@ -271,6 +271,33 @@ namespace Ventoura.Persistence.DAL.Migrations
                     b.ToTable("BasketItems");
                 });
 
+            modelBuilder.Entity("Ventoura.Domain.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Category");
+                });
+
             modelBuilder.Entity("Ventoura.Domain.Entities.City", b =>
                 {
                     b.Property<int>("Id")
@@ -346,6 +373,27 @@ namespace Ventoura.Persistence.DAL.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("Ventoura.Domain.Entities.Setting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Settings");
+                });
+
             modelBuilder.Entity("Ventoura.Domain.Entities.Tour", b =>
                 {
                     b.Property<int>("Id")
@@ -353,6 +401,9 @@ namespace Ventoura.Persistence.DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<int>("CityId")
                         .HasColumnType("int");
@@ -407,13 +458,14 @@ namespace Ventoura.Persistence.DAL.Migrations
                         .HasColumnType("time");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("CityId");
 
@@ -570,6 +622,12 @@ namespace Ventoura.Persistence.DAL.Migrations
 
             modelBuilder.Entity("Ventoura.Domain.Entities.Tour", b =>
                 {
+                    b.HasOne("Ventoura.Domain.Entities.Category", "Category")
+                        .WithMany("Tours")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Ventoura.Domain.Entities.City", "City")
                         .WithMany("Tours")
                         .HasForeignKey("CityId")
@@ -581,6 +639,8 @@ namespace Ventoura.Persistence.DAL.Migrations
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
 
                     b.Navigation("City");
 
@@ -628,6 +688,11 @@ namespace Ventoura.Persistence.DAL.Migrations
                     b.Navigation("BasketItems");
 
                     b.Navigation("WishlistItems");
+                });
+
+            modelBuilder.Entity("Ventoura.Domain.Entities.Category", b =>
+                {
+                    b.Navigation("Tours");
                 });
 
             modelBuilder.Entity("Ventoura.Domain.Entities.City", b =>

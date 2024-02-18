@@ -1,5 +1,5 @@
 ﻿@using Ventoura.Application.ViewModels.Pagination;
-@using Ventoura.Application.ViewModels.Tours;
+@using Ventoura.Application.ViewModels.Tours
 
 @model PaginationVM<TourItemVM>
 <main> 
@@ -76,7 +76,7 @@
         <div class="owl-carousel owl-theme list_carousel add_bottom_30">
             @foreach (var item in Model.Items)
             {
-                 <div class="item">
+                 <div class="item"> 
                     <div class="tour_container">
                         <div class="img_container">
                             <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">
@@ -93,30 +93,25 @@
                                 <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
                             </div>  
                             <div class="wishlist">
-                                <a class="tooltip_flip tooltip-effect-1" asp-action="AddWishlist" asp-controller="Wishlist" asp-route-id="@item.Id">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-                            </div>     
+                                <a class="tooltip_flip tooltip-effect-1" asp-action="AddBasket" asp-controller="Basket" asp-route-id="@item.Id">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to Basket</span></span></a>
+                            </div> 
                             <!-- End wish list-->
                         </div>
                     </div>
                     <!-- End box tour -->
-                </div>  
-                        
+                </div>
+                
             }
-
         </div>
         <!-- /carousel -->
-
         <p class="text-center add_bottom_30">
             <a href="all_tours_list.html" class="btn_1">View all Tours</a>
         </p>
-
         <hr class="mt-5 mb-5">
-
         <div class="main_title">
             <h2>Paris <span>Top</span> Hotels</h2>
             <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
         </div>
-
         <div class="owl-carousel owl-theme list_carousel add_bottom_30">
             <div class="item">
                 <div class="hotel_container">

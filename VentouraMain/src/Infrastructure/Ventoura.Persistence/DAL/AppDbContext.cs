@@ -22,8 +22,11 @@ namespace Ventoura.Persistence.DAL
         public DbSet<TourImage> TourImages { get; set; }
         public DbSet<WishlistItem> WishlistItems { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
+		public DbSet<Setting> Settings { get; set; }
 
-        public DbSet<Order> Orders { get; set; }
+		public DbSet<Category> Category { get; set; }
+
+		public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

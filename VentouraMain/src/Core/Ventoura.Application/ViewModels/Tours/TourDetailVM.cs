@@ -29,10 +29,12 @@ namespace Ventoura.Application.ViewModels.Tours
         public List<IFormFile>? Photos { get; set; }
         public List<int>? ImageIds { get; set; }
         public List<TourImage>? TourImages { get; set; }
-        // Relations
         public int CountryId { get; set; }
+        // Relations
         public int CityId { get; set; }
+        public int CategoryId { get; set; }
         public IncludeCityVM City { get; set; }
         public IncludeCountryVM Country { get; set; }
+        public IncludeCategoryVM Category { get; set; }
     }
 }

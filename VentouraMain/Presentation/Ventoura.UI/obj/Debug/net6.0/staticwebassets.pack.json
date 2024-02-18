@@ -15965,6 +15965,14 @@
       "PackagePath": "staticwebassets\\rev-slider-files\\assets\\Baloon.png"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\BasketBg.jpg",
+      "PackagePath": "staticwebassets\\rev-slider-files\\assets\\BasketBg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\TourIndexBg.jpg",
+      "PackagePath": "staticwebassets\\rev-slider-files\\assets\\TourIndexBg.jpg"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\TravelBg1.jpg",
       "PackagePath": "staticwebassets\\rev-slider-files\\assets\\TravelBg1.jpg"
     },
@@ -16225,8 +16233,16 @@
       "PackagePath": "staticwebassets\\rev-slider-files\\assets\\tour_box_4.jpg"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\travel-concept-with-landmarks.jpg",
+      "PackagePath": "staticwebassets\\rev-slider-files\\assets\\travel-concept-with-landmarks.jpg"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\css\\.DS_Store",
       "PackagePath": "staticwebassets\\rev-slider-files\\css\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\css\\Pe-icon-7-stroke.css",
+      "PackagePath": "staticwebassets\\rev-slider-files\\css\\Pe-icon-7-stroke.css"
     },
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\css\\closedhand.cur",

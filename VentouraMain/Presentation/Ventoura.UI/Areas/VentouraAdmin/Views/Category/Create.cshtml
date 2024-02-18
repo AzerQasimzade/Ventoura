@@ -1,0 +1,47 @@
+﻿@using Ventoura.Application.ViewModels.Cities;
+@using Ventoura.Application.ViewModels;
+@model CategoryCreateVM
+<!-- Page Sidebar Ends-->
+<div class="page-body">
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card height-equal">
+                    <div class="card-body custom-input">
+                        <form class="row g-3" method="post" enctype="multipart/form-data">
+                            @if (!ViewData.ModelState.IsValid)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @foreach (var modelState in ViewData.ModelState.Values)
+                                    {
+                                        foreach (var error in modelState.Errors)
+                                        {
+                                            @error.ErrorMessage
+                                            <br />
+                                        }
+                                    }
+                                </div>
+                            }
+                            <div class="form-group">
+                                <label asp-for="Name">Name</label>
+                                <input asp-for="Name" class="form-control" placeholder="Category Name" accept="image/*">
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" id="flexSwitchCheckDefault" type="checkbox" role="switch" required>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Are you sure above information are true</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>

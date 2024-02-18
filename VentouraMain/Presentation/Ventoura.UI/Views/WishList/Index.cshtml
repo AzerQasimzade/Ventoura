@@ -1,8 +1,16 @@
-﻿@using Ventoura.Application.ViewModels.Wishlist;
+﻿@using Ventoura.Application.ViewModels.Basket;
+@using Ventoura.Application.ViewModels.Wishlist;
+@using Ventoura.Persistence.Implementations.Services;
 @model List<WishlistItemVM>
 
 @{
 	Layout = null;
+}
+@inject _LayoutService service
+@{
+	Dictionary<string, string> settings = await service.GetSettingsAsync();
+	List<BasketItemVM> basket = await service.GetBasketAsync();
+	decimal total = 0;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +92,7 @@
 					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
 					<div class="main-menu">
 						<div id="header_menu">
-							<img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours">
+							<img src="~/main/img/@settings["LogoLink"]" width="160" height="34" alt="City tours">
 						</div>
 						<a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
 						<ul>
@@ -287,26 +295,20 @@
 						</li>
 						<li>
 							<div class="dropdown dropdown-cart">
-								<a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>3</strong></a>
+								<a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>@basket.Count</strong></a>
 								<ul class="dropdown-menu" id="cart_items">
+									@foreach (var item in basket)
+									{
+										total += item.Price;
+										<li>
+											<div class="image"><img src="~/rev-slider-files/assets/@item.Image" alt="image"></div>
+											<strong><a asp-action="Details" asp-controller="Home">@item.Name</a>x @item.Count  $@item.Price </strong>
+											<a asp-action="remove" asp-controller="Basket" asp-route-id="@item.Id"><i class="icon-trash"></i></a>
+										</li>
+									}
 									<li>
-										<div class="image"><img src="~/main/img/thumb_cart_1.jpg" alt="image"></div>
-										<strong><a href="#">Louvre museum</a>1x $36.00 </strong>
-										<a href="#" class="action"><i class="icon-trash"></i></a>
-									</li>
-									<li>
-										<div class="image"><img src="~/main/img/thumb_cart_2.jpg" alt="image"></div>
-										<strong><a href="#">Versailles tour</a>2x $36.00 </strong>
-										<a href="#" class="action"><i class="icon-trash"></i></a>
-									</li>
-									<li>
-										<div class="image"><img src="~/main/img/thumb_cart_3.jpg" alt="image"></div>
-										<strong><a href="#">Versailles tour</a>1x $36.00 </strong>
-										<a href="#" class="action"><i class="icon-trash"></i></a>
-									</li>
-									<li>
-										<div>Total: <span>$120.00</span></div>
-										<a href="cart.html" class="button_drop">Go to cart</a>
+										<div>Total: <span>$@total</span></div>
+										<a asp-action="Index" asp-controller="Basket" class="button_drop">Go to cart</a>
 										<a href="payment.html" class="button_drop outline">Check out</a>
 									</li>
 								</ul>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jMQRytRkr+WqGQQCkfEDzmlXBF6tBbd1xGuoPfeRFBw=",
+  "Hash": "Ie2BMwR5qDkkqICOUKP4Tetw5YRIhWqpCdfN9k1A8Ew=",
   "Source": "Ventoura.UI",
   "BasePath": "_content/Ventoura.UI",
   "Mode": "Default",
@@ -69139,6 +69139,23 @@
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\banner_bg_desktop.jpg"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\BasketBg.jpg",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/BasketBg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\BasketBg.jpg"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\bb9d452f-fce8-44eb-b0e5-cc3cf51a6f5esearch-analysis.png",
       "SourceId": "Ventoura.UI",
       "SourceType": "Discovered",
@@ -69972,6 +69989,23 @@
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\tour_box_4.jpg"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\TourIndexBg.jpg",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/TourIndexBg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\TourIndexBg.jpg"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\TravelBg1.jpg",
       "SourceId": "Ventoura.UI",
       "SourceType": "Discovered",
@@ -70004,6 +70038,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\TravelBg2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\assets\\travel-concept-with-landmarks.jpg",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/assets/travel-concept-with-landmarks.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\assets\\travel-concept-with-landmarks.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\css\\.DS_Store",
@@ -70344,6 +70395,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\rev-slider-files\\css\\openhand.cur"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\css\\Pe-icon-7-stroke.css",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "rev-slider-files/css/Pe-icon-7-stroke.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rev-slider-files\\css\\Pe-icon-7-stroke.css"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\rev-slider-files\\css\\settings.css",

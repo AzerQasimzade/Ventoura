@@ -16,7 +16,6 @@ namespace Ventoura.UI.Controllers
         }
         public async Task<IActionResult> AddBasket(int id)
         {
-            if (id == 0) return BadRequest();
             await _service.AddBasket(id);
             return RedirectToAction("Index", "Home");
         }

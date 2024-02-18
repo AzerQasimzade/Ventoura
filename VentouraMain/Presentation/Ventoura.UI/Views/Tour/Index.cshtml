@@ -1,7 +1,8 @@
-﻿@using Ventoura.Application.ViewModels.Pagination;
+﻿@using Ventoura.Application.ViewModels.Basket;
+@using Ventoura.Application.ViewModels.Pagination;
 @using Ventoura.Application.ViewModels.Tours;
+@using Ventoura.Persistence.Implementations.Services;
 @model PaginationVM<TourItemVM>
-
 @{
     Layout = null;
 }
@@ -11,9 +12,15 @@
 @{
     int tourCount = 0;
 }
+@inject _LayoutService service
+@{
+    Dictionary<string, string> settings = await service.GetSettingsAsync();
+    List<BasketItemVM> basket = await service.GetBasketAsync();
+    decimal total = 0;
+}
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,9 +73,17 @@
                     <div class="col-6"><i class="icon-phone"></i><strong>0045 043204434</strong></div>
                     <div class="col-6">
                         <ul id="top_links">
-                            <li><a href="#sign-in-dialog" id="access_link">Sign in</a></li>
-                            <li><a href="wishlist.html" id="wishlist_link">Wishlist</a></li>
-                            <li><a href="http://themeforest.net/item/citytours-city-tours-tour-tickets-and-guides/10715647?ref=ansonika">Purchase this template</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a>@User.Identity.Name</a></li>
+                                <li><a asp-action="LogOut" asp-controller="AppUser">Log Out</a></li>
+                                <li><a asp-action="Index" asp-controller="Wishlist">Wishlist</a></li>
+                            }
+                            else
+                            {
+                                <li><a asp-action="Login" asp-controller="AppUser">Sign in</a></li>
+                                <li><a asp-action="Index" asp-controller="Wishlist">Wishlist</a></li>
+                            }
                         </ul>
                     </div>
                 </div><!-- End row -->
@@ -79,15 +94,15 @@
             <div class="row">
                 <div class="col-3">
                     <div id="logo">
-                        <a href="index.html"><img src="~/main/img/logo.png" width="160" height="34" alt="City tours" class="logo_normal"></a>
-                        <a href="index.html"><img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours" class="logo_sticky"></a>
+                        <a asp-action="Index" asp-controller="Home"><img src="~/main/img/logo.png" width="160" height="34" alt="City tours" class="logo_normal"></a>
+                        <a asp-action="Index" asp-controller="Home"><img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours" class="logo_sticky"></a>
                     </div>
                 </div>
                 <nav class="col-9">
                     <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
                     <div class="main-menu">
                         <div id="header_menu">
-                            <img src="~/main/img/logo_sticky.png" width="160" height="34" alt="City tours">
+                            <img src="~/main/img/@settings["LogoLink"]" width="160" height="34" alt="City tours">
                         </div>
                         <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                         <ul>
@@ -290,26 +305,20 @@
                         </li>
                         <li>
                             <div class="dropdown dropdown-cart">
-                                <a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>3</strong></a>
+                                <a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>@basket.Count</strong></a>
                                 <ul class="dropdown-menu" id="cart_items">
+                                    @foreach (var item in basket)
+                                    {
+                                        total += item.Price;
+                                        <li>
+                                            <div class="image"><img src="~/rev-slider-files/assets/@item.Image" alt="image"></div>
+                                            <strong><a asp-action="Details" asp-controller="Home">@item.Name</a>x @item.Count  $@item.Price </strong>
+                                            <a asp-action="remove" asp-controller="Basket" asp-route-id="@item.Id"><i class="icon-trash"></i></a>
+                                        </li>
+                                    }
                                     <li>
-                                        <div class="image"><img src="~/main/img/thumb_cart_1.jpg" alt="image"></div>
-                                        <strong><a href="#">Louvre museum</a>1x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div class="image"><img src="~/main/img/thumb_cart_2.jpg" alt="image"></div>
-                                        <strong><a href="#">Versailles tour</a>2x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div class="image"><img src="~/main/img/thumb_cart_3.jpg" alt="image"></div>
-                                        <strong><a href="#">Versailles tour</a>1x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div>Total: <span>$120.00</span></div>
-                                        <a href="cart.html" class="button_drop">Go to cart</a>
+                                        <div>Total: <span>$@total</span></div>
+                                        <a asp-action="Index" asp-controller="Basket" class="button_drop">Go to cart</a>
                                         <a href="payment.html" class="button_drop outline">Check out</a>
                                     </li>
                                 </ul>
@@ -323,7 +332,7 @@
     </header>
     <!-- End Header -->
 
-    <section class="parallax-window" data-parallax="scroll" data-image-src="/rev-slider-files/assets/TravelBg2.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="/rev-slider-files/assets/travel-concept-with-landmarks.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1 opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
             <div class="animated fadeInDown">
                 <h1>Adventure Tours</h1>
@@ -575,9 +584,7 @@
                     <!--End filters col-->
                 </aside>
                 <!--End aside -->
-
                 <div class="col-lg-9">
-
                     <div id="tools">
                         <div class="row justify-content-between">
                             <div class="col-md-3 col-sm-4">
@@ -594,6 +601,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     @foreach (var item in Model.Items)
                     {
 
@@ -601,7 +609,7 @@
                             <div class="row">
                                 <div class="col-lg-4 col-md-4">
                                     <div class="wishlist">
-                                        <a class="tooltip_flip tooltip-effect-1" asp-action="AddWishlist" asp-controller="Wishlist" asp-route-id="@item.Id">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
+                                        <a class="tooltip_flip tooltip-effect-1" asp-action="AddBasket" asp-controller="Basket" asp-route-id="@item.Id">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to Basket</span></span></a>
                                     </div>
                                     <div class="img_list">
                                         <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">
