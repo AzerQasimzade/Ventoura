@@ -33,9 +33,7 @@ namespace Ventoura.Persistence.Implementations.Services
                     });
                 }
             }
-        }
-
-        
+        } 
         public async Task<bool> Login(LoginVM loginVM, ModelStateDictionary modelstate)
         {
             if (!modelstate.IsValid)

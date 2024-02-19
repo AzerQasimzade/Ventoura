@@ -11,10 +11,9 @@ namespace Ventoura.UI.Controllers
         {
             _service = service;
         }
-        public async Task<IActionResult> Index(int page = 1, int take = 4)
+        public async Task<IActionResult> Index(int page = 1, int take = 4,int order=1)
         {
-            return View(await _service.GetAllAsync(page, take));
-        }
-        
+            return View(await _service.GetAllAsync(page, take,order));
+        } 
 	}
 }

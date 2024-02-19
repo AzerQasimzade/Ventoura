@@ -12,9 +12,9 @@ namespace Ventoura.UI.Controllers
         {
             _tourService = tourService;
         }
-        public async Task<IActionResult> Index(int page = 1, int take = 20)
+        public async Task<IActionResult> Index()
         {
-            return View(await _tourService.GetAllAsync(page, take));
+            return View(await _tourService.GetAllAsyncForHome());
         }
         public async Task<IActionResult> Details(int id)
         {

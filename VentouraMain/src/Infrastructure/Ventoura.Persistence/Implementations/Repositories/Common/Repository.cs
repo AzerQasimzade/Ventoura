@@ -87,6 +87,10 @@ namespace Ventoura.Persistence.Implementations.Repositories
         {
             return await  _context.Countries.ToListAsync();
         }
+        public async Task<List<Category>> GetAllCategoryAsync()
+        {
+            return await _context.Category.ToListAsync();
+        }
         public async  Task<List<City>> GetAllCityAsync()
         {
             return await  _context.Cities.ToListAsync();

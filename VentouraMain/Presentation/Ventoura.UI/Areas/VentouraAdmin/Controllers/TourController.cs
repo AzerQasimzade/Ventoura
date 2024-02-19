@@ -2,10 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Tours;
-using Ventoura.Domain.Entities;
-using Ventoura.Persistence.Implementations.Services;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
 namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
 {
     [Area("VentouraAdmin")]
@@ -18,7 +14,7 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
         }
         public async Task<IActionResult> TourTable(int page = 1, int take = 20)
         {
-            return View(await _service.GetAllAsync(page, take));
+            return View(await _service.GetAllAsyncAdmin(page, take));
         }
         public async Task<IActionResult> Create() 
         {

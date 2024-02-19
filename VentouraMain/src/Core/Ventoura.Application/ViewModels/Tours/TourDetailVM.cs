@@ -24,6 +24,7 @@ namespace Ventoura.Application.ViewModels.Tours
         public TimeSpan StartTime { get; set; }
         public List<Country>? Countries { get; set; }
         public List<City>? Cities { get; set; }
+        public List<Category> Categories { get; set; }
         public IFormFile? MainPhoto { get; set; }
         public IFormFile? HoverPhoto { get; set; }
         public List<IFormFile>? Photos { get; set; }
@@ -36,5 +37,7 @@ namespace Ventoura.Application.ViewModels.Tours
         public IncludeCityVM City { get; set; }
         public IncludeCountryVM Country { get; set; }
         public IncludeCategoryVM Category { get; set; }
-    }
+		public int Capacity { get; set; } // Kontenjanı temsil eden özellik
+
+	}
 }

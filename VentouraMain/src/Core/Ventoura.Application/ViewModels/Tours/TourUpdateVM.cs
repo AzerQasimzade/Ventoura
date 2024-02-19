@@ -33,6 +33,8 @@ namespace Ventoura.Application.ViewModels.Tours
         //public Country Country { get; set; }
         public int CityId { get; set; }
         public int CategoryId { get; set; }
-        //public City City { get; set; }
-    }
+		public int Capacity { get; set; } // Kontenjanı temsil eden özellik
+
+		//public City City { get; set; }
+	}
 }

@@ -12,7 +12,9 @@ namespace Ventoura.Application.Abstractions.Services
 {
     public interface ITourService
     {
-        Task<PaginationVM<TourItemVM>> GetAllAsync(int page, int take);
+        Task<PaginationVM<TourItemVM>> GetAllAsync(int page, int take,int? order);
+        Task<PaginationVM<TourItemVM>> GetAllAsyncForHome();
+        Task<PaginationVM<TourItemVM>> GetAllAsyncAdmin(int page, int take);
         Task<TourGetVM> GetByIdAsync(int id);
         Task<bool> Create(TourCreateVM vm,ModelStateDictionary modelstate);
         Task<TourCreateVM> CreateGet(TourCreateVM vm);

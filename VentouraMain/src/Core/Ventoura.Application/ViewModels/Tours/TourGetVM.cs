@@ -26,7 +26,6 @@ namespace Ventoura.Application.ViewModels.Tours
         public TimeSpan? EndTime { get; set; }
         public string Url { get; set; }
         public bool? IsPrimary { get; set; }
-
         public Tour Tour { get; set; }
         public int TourId { get; set; }
         public List<TourImage> TourImages { get; set; }
@@ -34,12 +33,12 @@ namespace Ventoura.Application.ViewModels.Tours
         public int CountryId { get; set; }
         public int CityId { get; set;}
         public int CategoryId { get; set; }
-
         public IncludeCountryVM Country { get; set; }
         public IncludeCityVM City { get; set; }
         public IncludeCategoryVM Category { get; set; }
-
         public List<Country>? Countries { get; set; }
+		public int Capacity { get; set; } 
 
-    }
+
+	}
 }

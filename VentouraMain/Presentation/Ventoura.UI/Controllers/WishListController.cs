@@ -15,11 +15,11 @@ namespace Ventoura.UI.Controllers
 		{	
 			return View(await _service.Index());
 		}
-		public async Task<IActionResult> AddWishlist(int tourid,int id)
+		public async Task<IActionResult> AddWishlist(int id)
 		{
 			if (id == 0) return BadRequest();
-			await _service.AddWishlist(tourid);
-			return RedirectToAction("Details", "Home", new {id=id});
+			await _service.AddWishlist(id);
+			return RedirectToAction("Index", "Home");
 		}
         public async Task<IActionResult> Remove(int id)
         {

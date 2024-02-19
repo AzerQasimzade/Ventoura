@@ -23,7 +23,7 @@ namespace Ventoura.Application.ViewModels.Tours
         public TimeSpan StartTime { get; set; }
         public List<Country>? Countries { get; set; }
         public int CountryId { get; set; }
-
+        public int Capacity { get; set; }
         public List<City>? Cities { get; set; }
         public List<Category>? Categories { get; set; }
         public IFormFile MainPhoto { get; set; }

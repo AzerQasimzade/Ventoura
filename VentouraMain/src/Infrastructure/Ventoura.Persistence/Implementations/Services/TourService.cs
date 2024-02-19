@@ -29,7 +29,7 @@ namespace Ventoura.Persistence.Implementations.Services
         private readonly ICategoryRepository _categoryRepository;
         private readonly ICountryRepository _countryRepository;
         private readonly IWebHostEnvironment _env;
-        public TourService(ITourRepository repository, ICityRepository cityRepository,ICategoryRepository categoryRepository ,ICountryRepository countryRepository, IWebHostEnvironment env)
+        public TourService(ITourRepository repository, ICityRepository cityRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository, IWebHostEnvironment env)
         {
             _repository = repository;
             _cityRepository = cityRepository;
@@ -37,16 +37,17 @@ namespace Ventoura.Persistence.Implementations.Services
             _countryRepository = countryRepository;
             _env = env;
         }
-        public async Task<PaginationVM<TourItemVM>> GetAllAsync(int page, int take)
+        public async Task<PaginationVM<TourItemVM>> GetAllAsync(int page, int take, int? order)
         {
             int count = await _repository.GetProductCountAsync();
-            if (page > Math.Ceiling((double)count / 6))
+            if (page > Math.Ceiling((double)count / 4))
             {
                 throw new Exception("Bad Request");
             }
-            List<Tour> tours = await _repository
-                .GetAll(null, null, false, skip: (page - 1) * take, take: take, false, nameof(Tour.City), nameof(Tour.Country),nameof(Tour.Category), nameof(Tour.TourImages))
+            List<Tour> tours =await _repository
+                .GetAll(null, null, false, skip: (page - 1) * take, take: take, false, nameof(Tour.City), nameof(Tour.Country), nameof(Tour.Category), nameof(Tour.TourImages))
                 .ToListAsync();
+            
             List<TourItemVM> dtos = new List<TourItemVM>();
             foreach (var tour in tours)
             {
@@ -68,12 +69,13 @@ namespace Ventoura.Persistence.Implementations.Services
                     TourImages = tour.TourImages,
                     City = tour.City,
                     Country = tour.Country,
-                    
+                    Category = tour.Category,
+                    Capacity= tour.Capacity
                 });
             }
             PaginationVM<TourItemVM> paginationVM = new PaginationVM<TourItemVM>
             {
-                TotalPage = Math.Ceiling((double)count / 5),
+                TotalPage = Math.Ceiling((double)count / 4),
                 CurrentPage = page,
                 Items = dtos
             };
@@ -83,6 +85,7 @@ namespace Ventoura.Persistence.Implementations.Services
         {
             vm.Cities = await _repository.GetAllCityAsync();
             vm.Countries = await _repository.GetAllCountriesAsync();
+            vm.Categories = await _repository.GetAllCategoryAsync();
             return vm;
         }
         public async Task<bool> Create(TourCreateVM dto, ModelStateDictionary modelstate)
@@ -93,6 +96,7 @@ namespace Ventoura.Persistence.Implementations.Services
             }
             if (await _repository.IsExistAsync(p => p.Name == dto.Name))
             {
+                dto.Categories = await _repository.GetAllCategoryAsync();
                 dto.Countries = await _repository.GetAllCountriesAsync();
                 dto.Cities = await _repository.GetAllCityAsync();
                 modelstate.AddModelError("Name", "We have same tour name ");
@@ -100,6 +104,7 @@ namespace Ventoura.Persistence.Implementations.Services
             }
             if (!await _cityRepository.IsExistAsync(c => c.Id == dto.CityId))
             {
+                dto.Categories = await _repository.GetAllCategoryAsync();
                 dto.Countries = await _repository.GetAllCountriesAsync();
                 dto.Cities = await _repository.GetAllCityAsync();
                 modelstate.AddModelError("CityId", "We have not So City with that Id");
@@ -107,14 +112,23 @@ namespace Ventoura.Persistence.Implementations.Services
             }
             if (!await _countryRepository.IsExistAsync(c => c.Id == dto.CountryId))
             {
+                dto.Categories = await _repository.GetAllCategoryAsync();
                 dto.Countries = await _repository.GetAllCountriesAsync();
                 dto.Cities = await _repository.GetAllCityAsync();
                 modelstate.AddModelError("CountryId", "We have not So Country with that Id");
                 return false;
             }
-
+            if (!await _categoryRepository.IsExistAsync(c => c.Id == dto.CategoryId))
+            {
+                dto.Categories = await _repository.GetAllCategoryAsync();
+                dto.Countries = await _repository.GetAllCountriesAsync();
+                dto.Cities = await _repository.GetAllCityAsync();
+                modelstate.AddModelError("CategoryId", "We have not So Country with that Id");
+                return false;
+            }
             if (!dto.MainPhoto.ValidateFileType(FileHelper.Image))
             {
+                dto.Categories = await _repository.GetAllCategoryAsync();
                 dto.Countries = await _repository.GetAllCountriesAsync();
                 dto.Cities = await _repository.GetAllCityAsync();
                 modelstate.AddModelError("MainPhoto", $"The file type of {dto.MainPhoto.FileName} is not supported. Please upload an image file.");
@@ -122,6 +136,7 @@ namespace Ventoura.Persistence.Implementations.Services
             }
             if (!dto.MainPhoto.ValidateFileSize(SizeHelper.mb))
             {
+                dto.Categories = await _repository.GetAllCategoryAsync();
                 dto.Countries = await _repository.GetAllCountriesAsync();
                 dto.Cities = await _repository.GetAllCityAsync();
                 modelstate.AddModelError("MainPhoto", $"The file size of {dto.MainPhoto.FileName} is too large. Please upload a file smaller than {SizeHelper.mb}.");
@@ -130,6 +145,7 @@ namespace Ventoura.Persistence.Implementations.Services
             //---------------HOVER PHOTO CHECKING------------------
             if (!dto.HoverPhoto.ValidateFileType(FileHelper.Image))
             {
+                dto.Categories = await _repository.GetAllCategoryAsync();
                 dto.Countries = await _repository.GetAllCountriesAsync();
                 dto.Cities = await _repository.GetAllCityAsync();
                 modelstate.AddModelError("HoverPhoto", $"The file type of {dto.MainPhoto.FileName} is not supported. Please upload an image file.");
@@ -137,6 +153,7 @@ namespace Ventoura.Persistence.Implementations.Services
             }
             if (!dto.HoverPhoto.ValidateFileSize(SizeHelper.mb))
             {
+                dto.Categories = await _repository.GetAllCategoryAsync();
                 dto.Countries = await _repository.GetAllCountriesAsync();
                 dto.Cities = await _repository.GetAllCityAsync();
                 modelstate.AddModelError("HoverPhoto", $"The file size of {dto.MainPhoto.FileName} is too large. Please upload a file smaller than {SizeHelper.mb}.");
@@ -165,8 +182,10 @@ namespace Ventoura.Persistence.Implementations.Services
                 Price = dto.Price,
                 CountryId = dto.CountryId,
                 CityId = dto.CityId,
+                CategoryId = dto.CategoryId,
                 TourImages = new List<TourImage> { main, hover },
-                Sale=dto.Sale
+                Sale = dto.Sale,
+                Capacity=dto.Capacity
             };
             foreach (IFormFile photo in dto.Photos ?? new List<IFormFile>())
             {
@@ -192,7 +211,7 @@ namespace Ventoura.Persistence.Implementations.Services
         }
         public async Task<TourGetVM> GetByIdAsync(int id)
         {
-            Tour tour = await _repository.GetByIdAsync(id, false, nameof(Tour.Country),nameof(Tour.Category),nameof(Tour.City), nameof(Tour.TourImages));
+            Tour tour = await _repository.GetByIdAsync(id, false, nameof(Tour.Country), nameof(Tour.Category), nameof(Tour.City), nameof(Tour.TourImages));
             TourGetVM getVM = new TourGetVM
             {
                 StartDate = tour.StartDate,
@@ -209,7 +228,8 @@ namespace Ventoura.Persistence.Implementations.Services
                 TotalPrice = tour.TotalPrice,
                 DayCount = tour.DayCount,
                 EndTime = tour.EndTime,
-                CategoryId= tour.CategoryId,
+                CategoryId = tour.CategoryId,
+                Capacity=tour.Capacity
             };
 
             // tour null değilse, diğer alanları da doldurabilirsiniz
@@ -231,7 +251,7 @@ namespace Ventoura.Persistence.Implementations.Services
 
         public async Task<TourUpdateVM> UpdateGet(int id, TourUpdateVM vm)
         {
-            Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == id, false, nameof(Tour.TourImages),nameof(Tour.Category),nameof(Tour.Country), nameof(Tour.City));
+            Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == id, false, nameof(Tour.TourImages), nameof(Tour.Category), nameof(Tour.Country), nameof(Tour.City));
 
             TourUpdateVM tourVM = new TourUpdateVM
             {
@@ -248,10 +268,11 @@ namespace Ventoura.Persistence.Implementations.Services
                 CategoryId = tour.CategoryId,
                 TourImages = tour.TourImages,
                 Sale = tour.Sale,
+                Capacity=tour.Capacity,
                 Cities = await _repository.GetAllCityAsync(),
                 Countries = await _repository.GetAllCountriesAsync(),
-                Categories=await _repository.
-                
+                Categories = await _repository.GetAllCategoryAsync(),
+
             };
             return tourVM;
         }
@@ -277,12 +298,14 @@ namespace Ventoura.Persistence.Implementations.Services
             {
                 dto.Countries = await _repository.GetAllCountriesAsync();
                 dto.Cities = await _repository.GetAllCityAsync();
+                dto.Categories = await _repository.GetAllCategoryAsync();
                 modelstate.AddModelError("CityId", "We have not So City with that Id");
                 return false;
             }
             if (!await _countryRepository.IsExistAsync(c => c.Id == dto.CountryId))
             {
                 dto.Countries = await _repository.GetAllCountriesAsync();
+                dto.Categories = await _repository.GetAllCategoryAsync();
                 dto.Cities = await _repository.GetAllCityAsync();
                 modelstate.AddModelError("CountryId", "We have not So Country with that Id");
                 return false;
@@ -351,6 +374,8 @@ namespace Ventoura.Persistence.Implementations.Services
             existed.Includes = dto.Includes;
             existed.TourImages = dto.TourImages;
             existed.Sale = dto.Sale;
+            existed.CategoryId = dto.CategoryId;
+            existed.Capacity = dto.Capacity;
             _repository.Update(existed);
             await _repository.SaveChangesAsync();
             return true;
@@ -358,7 +383,7 @@ namespace Ventoura.Persistence.Implementations.Services
 
         public async Task DeleteAsync(int id)
         {
-            Tour existed = await _repository.GetByIdAsync(id, false, nameof(Tour.Country), nameof(Tour.City), nameof(Tour.TourImages));
+            Tour existed = await _repository.GetByIdAsync(id, false, nameof(Tour.Category), nameof(Tour.Country), nameof(Tour.City), nameof(Tour.TourImages));
             if (existed == null) throw new Exception("Product cant found");
             _repository.Delete(existed);
             await _repository.SaveChangesAsync();
@@ -366,13 +391,14 @@ namespace Ventoura.Persistence.Implementations.Services
 
         public async Task<TourDetailVM> GetDetail(int id, TourDetailVM vM)
         {
-            Tour tour = await _repository.GetByIdAsync(id, false, nameof(Tour.Country), nameof(Tour.City), nameof(Tour.TourImages));
+            Tour tour = await _repository.GetByIdAsync(id, false, nameof(Tour.Category), nameof(Tour.Country), nameof(Tour.City), nameof(Tour.TourImages));
             TourDetailVM getVM = new TourDetailVM
             {
                 StartDate = tour.StartDate,
                 StartTime = tour.StartTime,
                 CityId = tour.CityId,
                 CountryId = tour.CountryId,
+                CategoryId = tour.CategoryId,
                 IncludeDesc = tour.IncludeDesc,
                 Includes = tour.Includes,
                 Name = tour.Name,
@@ -380,8 +406,10 @@ namespace Ventoura.Persistence.Implementations.Services
                 Price = tour.Price,
                 DayCount = tour.DayCount,
                 TourImages = tour.TourImages,
+                Capacity = tour.Capacity,
                 Cities = await _repository.GetAllCityAsync(),
-                Countries = await _repository.GetAllCountriesAsync()
+                Countries = await _repository.GetAllCountriesAsync(),
+                Categories = await _repository.GetAllCategoryAsync(),
             };
 
             // tour null değilse, diğer alanları da doldurabilirsiniz
@@ -393,9 +421,90 @@ namespace Ventoura.Persistence.Implementations.Services
             {
                 getVM.Country = new IncludeCountryVM { Name = tour.Country.Name }; // Country null değilse CountryViewModel'i oluştur
             }
+
+            if (tour.Category != null)
+            {
+                getVM.Category = new IncludeCategoryVM { Name = tour.Category.Name }; // Country null değilse CountryViewModel'i oluştur
+            }
             getVM.TourImages = tour.TourImages;
             return getVM;
         }
-        
+
+        public async Task<PaginationVM<TourItemVM>> GetAllAsyncForHome()
+        {
+
+            List<Tour> tours = await _repository
+                .GetAll(null, null, false, 0, 0, false, nameof(Tour.City), nameof(Tour.Country), nameof(Tour.Category), nameof(Tour.TourImages))
+                .ToListAsync();
+
+            List<TourItemVM> dtos = new List<TourItemVM>();
+            foreach (var tour in tours)
+            {
+                dtos.Add(new TourItemVM
+                {
+                    Id = tour.Id,
+                    Name = tour.Name,
+                    DayCount = tour.DayCount,
+                    Sale = tour.Sale,
+                    SalePrice = tour.SalePrice,
+                    StartDate = tour.StartDate,
+                    StartTime = tour.StartTime,
+                    Description = tour.Description,
+                    EndTime = tour.EndTime,
+                    IncludeDesc = tour.IncludeDesc,
+                    Includes = tour.Includes,
+                    Price = tour.Price,
+                    TotalPrice = tour.TotalPrice,
+                    TourImages = tour.TourImages,
+                    City = tour.City,
+                    Country = tour.Country,
+                    Category = tour.Category,
+                    Capacity = tour.Capacity
+
+                });
+            }
+            PaginationVM<TourItemVM> paginationVM = new PaginationVM<TourItemVM>
+            {
+                Items = dtos
+            };
+            return paginationVM;
+        }
+
+        public async Task<PaginationVM<TourItemVM>> GetAllAsyncAdmin(int page, int take)
+        {
+            List<Tour> tours =await _repository
+               .GetAll(null, null, false, skip: (page - 1) * take, take: take, false, nameof(Tour.City), nameof(Tour.Country), nameof(Tour.Category), nameof(Tour.TourImages))
+               .ToListAsync();
+            List<TourItemVM> dtos = new List<TourItemVM>();
+            foreach (var tour in tours)
+            {
+                dtos.Add(new TourItemVM
+                {
+                    Id = tour.Id,
+                    Name = tour.Name,
+                    DayCount = tour.DayCount,
+                    Sale = tour.Sale,
+                    SalePrice = tour.SalePrice,
+                    StartDate = tour.StartDate,
+                    StartTime = tour.StartTime,
+                    Description = tour.Description,
+                    EndTime = tour.EndTime,
+                    IncludeDesc = tour.IncludeDesc,
+                    Includes = tour.Includes,
+                    Price = tour.Price,
+                    TotalPrice = tour.TotalPrice,
+                    TourImages = tour.TourImages,
+                    City = tour.City,
+                    Country = tour.Country,
+                    Category = tour.Category,
+                    Capacity= tour.Capacity
+                });
+            }
+            PaginationVM<TourItemVM> paginationVM = new PaginationVM<TourItemVM>
+            {
+                Items = dtos
+            };
+            return paginationVM;
+        }
     }
 }

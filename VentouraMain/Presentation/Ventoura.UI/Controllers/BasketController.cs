@@ -6,9 +6,12 @@ namespace Ventoura.UI.Controllers
     public class BasketController : Controller
     {
         private readonly IBasketService _service;
-        public BasketController(IBasketService service)
+        private readonly IHttpContextAccessor _accessor;
+
+        public BasketController(IBasketService service,IHttpContextAccessor accessor)
         {
             _service = service;
+            _accessor = accessor;
         }
         public async Task<IActionResult> Index()
         {
@@ -16,8 +19,15 @@ namespace Ventoura.UI.Controllers
         }
         public async Task<IActionResult> AddBasket(int id)
         {
-            await _service.AddBasket(id);
-            return RedirectToAction("Index", "Home");
+            if (!_accessor.HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "AppUser");
+            }
+            else
+            {
+                await _service.AddBasket(id);
+                return RedirectToAction("Index", "Home");
+            } 
         }
         public async Task<IActionResult> Remove(int id)
         {
@@ -37,6 +47,8 @@ namespace Ventoura.UI.Controllers
             await _service.MinusBasket(id);
             return RedirectToAction("Index", "Basket");
         }
+
+
 
     }
 }

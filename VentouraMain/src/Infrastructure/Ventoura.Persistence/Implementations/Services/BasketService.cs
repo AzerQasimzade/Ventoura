@@ -60,6 +60,7 @@ namespace Ventoura.Persistence.Implementations.Services
             if (id <= 0) throw new Exception("Bad request");
             Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == id);
             if (tour is null) throw new Exception("Not Found");
+            
             if (_accessor.HttpContext.User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.Users

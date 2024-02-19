@@ -26,12 +26,16 @@ namespace Ventoura.Application.ViewModels.Tours
         public int? ChildrenCount { get; set; }
         public string Url { get; set; }
         public bool? IsPrimary { get; set; }
-        public string Status { get; set; }
+        public string? Status { get; set; }
         public Tour Tour { get; set; }
         public int TourId { get; set; }
 		public List<TourImage> TourImages { get; set; }
         public City? City { get; set; }
         public Country? Country { get; set; }
+        public Category? Category { get; set; }
+		public int Capacity { get; set; } 
 
-    }
+
+
+	}
 }

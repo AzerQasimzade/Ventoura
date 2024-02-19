@@ -7,7 +7,7 @@
     Layout = null;
 }
 @{
-    int count = (Model.CurrentPage - 1) * 5;
+    int count = (Model.CurrentPage - 1) * 4;
 }
 @{
     int tourCount = 0;
@@ -18,7 +18,6 @@
     List<BasketItemVM> basket = await service.GetBasketAsync();
     decimal total = 0;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -373,30 +372,9 @@
                     <div class="box_style_cat">
                         <ul id="cat_nav">
                             <li>
-                                <a asp-action="Index" asp-controller="Home">
-                                    <i class="icon_set_1_icon-51"></i>All tours <span>
-                                        @foreach (var item in Model.Items)
-                                        {
-                                            tourCount++;
-                                        }
-                                        @tourCount
-                                    </span>
+                                <a asp-action="Index" asp-controller="Tour">
+                                    <i class="icon_set_1_icon-51"></i>All tours
                                 </a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon_set_1_icon-3"></i>City sightseeing <span>(20)</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon_set_1_icon-4"></i>Museum tours <span>(16)</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon_set_1_icon-44"></i>Historic Buildings <span>(12)</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon_set_1_icon-37"></i>Walking tours <span>(11)</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon_set_1_icon-28"></i>Skyline tours <span>(11)</span></a>
                             </li>
                         </ul>
                     </div>
@@ -589,11 +567,14 @@
                         <div class="row justify-content-between">
                             <div class="col-md-3 col-sm-4">
                                 <div class="styled-select-filters">
-                                    <select name="sort_price" id="sort_price" data-filter-group="sort_price">
-                                        <option value="*" data-filter-value="" selected="">Show all</option>
-                                        <option value="lower_price" data-filter-value=".lower_price">Lowest price</option>
-                                        <option value="higher_price" data-filter-value=".higher_price">Higher price</option>
-                                    </select>
+                                    <form asp-action="Index" asp-controller="Tour">
+                                        <select onchange="this.form.submit()">
+                                            <option value="2">Lowest price</option>
+                                            <option value="4">Higher price</option>
+                                            <option value="1">Sort By Name</option>
+                                            <option value="3">Sort by DateTime</option>
+                                        </select>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-4 d-none d-sm-block text-right">
@@ -601,10 +582,9 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     @foreach (var item in Model.Items)
                     {
-
                         <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                             <div class="row">
                                 <div class="col-lg-4 col-md-4">
@@ -643,7 +623,6 @@
                                             else
                                             {
                                                 <span>$@item.Price</span>
-
                                             }
                                             <p>
                                                 <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id" class="btn_1">Details</a>

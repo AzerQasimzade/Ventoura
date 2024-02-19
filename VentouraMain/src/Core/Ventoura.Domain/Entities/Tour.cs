@@ -28,7 +28,9 @@ namespace Ventoura.Domain.Entities
         public City City { get; set; }
         public Category Category { get; set; }
         public int CategoryId { get; set;}
+		public int Capacity { get; set; }
 
 
-    }
+
+	}
 }

@@ -26,7 +26,6 @@ namespace Ventoura.Persistence.Implementations.Services
 		public async Task<ICollection<WishlistItemVM>> Index()
 		{
 			List<WishlistItemVM> items = new List<WishlistItemVM>();
-
 			if (_accessor.HttpContext.User.Identity.IsAuthenticated)
 			{
                 AppUser user = await _userManager.Users
@@ -45,6 +44,7 @@ namespace Ventoura.Persistence.Implementations.Services
                         Name = wishlistItem.Tour.Name,
                         SalePrice = wishlistItem.Tour.SalePrice,
                         Image = wishlistItem.Tour.TourImages.FirstOrDefault()?.Url
+                        
                     });
                 }
 			}
@@ -66,7 +66,8 @@ namespace Ventoura.Persistence.Implementations.Services
                                 Image = tour.TourImages.FirstOrDefault().Url,
                                 Price = tour.Price,
                                 Name = tour.Name,
-                                Count = cookie.Count
+                                Count = cookie.Count,
+                               
                             };
                             items.Add(item);
                         }

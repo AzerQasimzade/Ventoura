@@ -9,8 +9,7 @@
             <div class="col-xl-12">
                 <div class="card height-equal">
                     <div class="card-body custom-input">
-                        <form class="row g-3" method="post" enctype="multipart/form-data">
-                  
+                        <form class="row g-3" method="post" enctype="multipart/form-data">                  
                             <div class="form-group">
                                 <img style="width=130px;height=130px" src="~/rev-slider-files/assets/@Model.TourImages.FirstOrDefault(pi=>pi.IsPrimary==true)?.Url" />
                             </div>
@@ -62,15 +61,20 @@
                             <div class="col-12">
                                 <label asp-for="DayCount" class="form-label">Day Count:@Model.DayCount</label>
                             </div>
+                            <div class="col-12">
+                                <label asp-for="Capacity" class="form-label">Capacity:@Model.Capacity</label>
+                            </div>
                             <div class="form-group">
                                 <h1>
                                     Country Name: @Model.Country.Name 
                                 </h1>
                             </div>
+
                             <div class="form-group">
-                               <h1>City Name:
-                                 @Model.City.Name
-                               </h1>
+                                <h1>
+                                    Category Name:
+                                    @Model.Category.Name
+                                </h1>
                             </div>
                         </form>
                     </div>
