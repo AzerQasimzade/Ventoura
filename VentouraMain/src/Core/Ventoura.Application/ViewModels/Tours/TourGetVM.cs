@@ -37,8 +37,9 @@ namespace Ventoura.Application.ViewModels.Tours
         public IncludeCityVM City { get; set; }
         public IncludeCategoryVM Category { get; set; }
         public List<Country>? Countries { get; set; }
-		public int Capacity { get; set; } 
+		public int Capacity { get; set; }
+		public int MemberCount { get; set; }
+        public string Email { get; set; }
 
-
-	}
+    }
 }

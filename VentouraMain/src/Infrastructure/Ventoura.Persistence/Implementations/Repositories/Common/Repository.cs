@@ -115,7 +115,6 @@ namespace Ventoura.Persistence.Implementations.Repositories
         {
            await _context.SaveChangesAsync();
         }
-
         private IQueryable<T> _addIncludes(IQueryable<T> query, params string[] includes)
         {
             if (includes is not null)
@@ -127,7 +126,6 @@ namespace Ventoura.Persistence.Implementations.Repositories
             }
             return query;
         }
-
         public async Task<Tour> GettingThatObject(int id)
         {
             Tour tour=await _context.Tours.FirstOrDefaultAsync(c => c.Id == id);

@@ -512,6 +512,48 @@ namespace Ventoura.Persistence.DAL.Migrations
                     b.ToTable("TourImages");
                 });
 
+            modelBuilder.Entity("Ventoura.Domain.Entities.UserReservationInfo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MemberCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TourId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TourId");
+
+                    b.ToTable("UserReservationInfos");
+                });
+
             modelBuilder.Entity("Ventoura.Domain.Entities.WishlistItem", b =>
                 {
                     b.Property<int>("Id")
@@ -654,6 +696,17 @@ namespace Ventoura.Persistence.DAL.Migrations
                 {
                     b.HasOne("Ventoura.Domain.Entities.Tour", "Tour")
                         .WithMany("TourImages")
+                        .HasForeignKey("TourId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tour");
+                });
+
+            modelBuilder.Entity("Ventoura.Domain.Entities.UserReservationInfo", b =>
+                {
+                    b.HasOne("Ventoura.Domain.Entities.Tour", "Tour")
+                        .WithMany()
                         .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

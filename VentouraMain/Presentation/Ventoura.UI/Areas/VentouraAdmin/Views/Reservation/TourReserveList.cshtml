@@ -36,13 +36,6 @@
     <div class="container-fluid">
         <div class="page-title">
             <div class="row">
-                <div class="col-6">
-                    <a asp-action="Create" asp-area="VentouraAdmin" asp-controller="Tour" class="d-flex align-items-center">
-                        <h4 class="mb-0 me-2">Tour Table</h4>
-                        <img src="~/main/img/add-button.png" class="resized-image" alt="Contract Image">
-                    </a>
-                </div>
-
             </div>
         </div>
     </div>
@@ -56,7 +49,7 @@
                             <thead>
                                 <tr class="border-bottom-primary">
                                     <th scope="col">No</th>
-                                    <th scope="col">Tour</th>
+                                    <th scope="col">Tour Name</th>
                                     <th scope="col">Member Count</th>
                                     <th scope="col">Tour Capacity</th>
                                     <th scope="col">Member's Email</th>
@@ -70,17 +63,11 @@
                                     <tr class="border-bottom-secondary">
                                         <th scope="row">@count</th>
                                         <td>
-                                            <img class="img-30 me-2 resized-image" src="~/rev-slider-files/assets/@item.TourImages.FirstOrDefault(c=>c.IsPrimary==true).Url">@item.Name
+                                          @item.Name
                                         </td>
                                         <td>@item.MemberCount</td>
                                         <td>@item.Capacity</td>
                                         <td class="action-icons">
-                                            <a asp-action="Update" asp-area="VentouraAdmin" asp-controller="Tour" asp-route-id="@item.Id">
-                                                <img src="~/main/img/system-update.png" class="resized-image" alt="Contract Image">
-                                            </a>
-                                            <a asp-action="Delete" asp-area="VentouraAdmin" asp-controller="Tour" asp-route-id="@item.Id">
-                                                <img src="~/main/img/recycle-bin.png" class="resized-image" alt="Contract Image">
-                                            </a>
                                             <a asp-action="Details" asp-area="VentouraAdmin" asp-controller="Tour" asp-route-id="@item.Id">
                                                 <img src="~/main/img/info-sign.png" class="resized-image" alt="Contract Image">
                                             </a>

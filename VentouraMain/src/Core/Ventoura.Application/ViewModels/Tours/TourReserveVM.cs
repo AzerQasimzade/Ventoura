@@ -9,6 +9,7 @@ namespace Ventoura.Application.ViewModels.Tours
 {
     public class TourReserveVM
     {
+        public string Name { get; set; }
         public int Id { get; set; }
         public int MemberCount { get; set; }
         public Tour Tour { get; set; }
@@ -16,6 +17,7 @@ namespace Ventoura.Application.ViewModels.Tours
         public int Capacity { get; set; }
         public List<TourImage> TourImages { get; set; }
 
+        public string Email { get; set; }
 
     }
 }

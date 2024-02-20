@@ -1,12 +1,10 @@
 using Ventoura.Persistence.ServiceRegistration;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Configuration;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Ventoura.Domain.Entities;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Persistence.Implementations.Services;
+using Ventoura.UI.MiddleWares;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(options =>
@@ -26,7 +24,8 @@ builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IMailService,MailService>();
 
-var app = builder.Build();
+var app = builder.Build();  
+app.UseMiddleware<GlobalExceptionHandlerMiddleWare>();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseRouting();

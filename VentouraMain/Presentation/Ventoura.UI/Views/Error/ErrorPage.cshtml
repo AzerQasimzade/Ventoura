@@ -1,0 +1,608 @@
+﻿@using Ventoura.Application.ViewModels.Basket;
+@using Ventoura.Persistence.Implementations.Services;
+<!--
+    Item Name: Erratum - 404 Error pages
+    Author: Ashish Maraviya
+    Version: 2.1
+    Copyright 2021-2022
+-->
+@inject _LayoutService service
+@{
+    Dictionary<string, string> settings = await service.GetSettingsAsync();
+    List<BasketItemVM> basket = await service.GetBasketAsync();
+    decimal total = 0;
+}
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Erratum – Multi purpose error page template for Service, corporate, agency, Consulting, startup.">
+    <meta name="keywords" content="Error page 404, page not found design, wrong url">
+    <meta name="author" content="Ashishmaraviya">
+    <link rel="icon" href="~/error/assets/images/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="~/error/assets/images/favicon.png" type="image/x-icon" />
+    <title>404 - Error page pack all in one</title>
+    <!--Google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="~/error/assets/css/bootstrap.css">
+    <!-- Theme css -->
+    <link rel="stylesheet" type="text/css" href="~/error/assets/css/error-page.css">
+    <link rel="stylesheet" type="text/css" href="~/error/assets/css/error-page-responsive.css">
+    <link rel="shortcut icon" href="~/main/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="~/main/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="~/main/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="~/main/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="~/main/img/apple-touch-icon-144x144-precomposed.png">
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- COMMON CSS -->
+    <link href="~/main/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/main/css/style.css" rel="stylesheet">
+    <link href="~/main/css/vendors.css" rel="stylesheet">
+    <!-- REVOLUTION SLIDER CSS -->
+    <link rel="stylesheet" type="text/css" href="~/rev-slider-files/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="~/rev-slider-files/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="~/rev-slider-files/css/navigation.css">
+    <!-- CUSTOM CSS -->
+    <link href="~/main/css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-spinner sk-spinner-wave">
+            <div class="sk-rect1"></div>
+            <div class="sk-rect2"></div>
+            <div class="sk-rect3"></div>
+            <div class="sk-rect4"></div>
+            <div class="sk-rect5"></div>
+        </div>
+    </div>
+    <!-- End Preload -->
+
+    <div class="layer"></div>
+    <!-- Mobile menu overlay mask -->
+    <!-- Header================================================== -->
+    <header>
+        <div id="top_line">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6"><i class="icon-phone"></i><strong>0045 043204434</strong></div>
+                    <div class="col-6">
+                        <ul id="top_links">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a>@User.Identity.Name</a></li>
+                                <li><a asp-action="LogOut" asp-controller="AppUser">Log Out</a></li>
+                                <li><a asp-action="Index" asp-controller="Wishlist">Wishlist</a></li>
+                            }
+                            else
+                            {
+                                <li><a asp-action="Login" asp-controller="AppUser">Sign in</a></li>
+                                <li><a asp-action="Index" asp-controller="Wishlist">Wishlist</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div><!-- End row -->
+            </div><!-- End container-->
+        </div><!-- End top line-->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div id="logo_home">
+                        <h1><a asp-action="Index" asp-controller="Home" title="City tours travel template">City Tours travel template</a></h1>
+                    </div>
+                </div>
+                <nav class="col-9">
+                    <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+                    <div class="main-menu">
+                        <div id="header_menu">
+                            <img src="~/main/img/@settings["LogoLink"]" width="160" height="34" alt="City tours">
+                        </div>
+                        <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
+                        <ul>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Home <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="index.html">Owl Carousel Slider</a></li>
+                                    <li><a href="index_22.html">Home items with Carousel</a></li>
+                                    <li><a href="index_23.html">Home with Search V2</a></li>
+                                    <li class="third-level">
+                                        <a href="javascript:void(0);">Revolution slider <strong class="badge badge-danger">New!</strong></a>
+                                        <ul>
+                                            <li><a href="index_24.html">Default slider</a></li>
+                                            <li><a href="index_20.html">Basic slider</a></li>
+                                            <li><a href="index_14.html">Youtube Hero</a></li>
+                                            <li><a href="index_15.html">Vimeo Hero</a></li>
+                                            <li><a href="index_17.html">Full Screen <strong class="badge badge-danger">New!</strong></a></li>
+                                            <li><a href="index_21.html">Full Screen Slicey <strong class="badge badge-danger">New!</strong></a></li>
+                                            <li><a href="index_16.html">Carousel</a></li>
+                                            <li><a href="index_19.html">Mailchimp Newsletter</a></li>
+                                            <li><a href="index_18.html">Fixed Caption</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="index_12.html">Layer slider</a></li>
+                                    <li><a href="index_2.html">With Only tours</a></li>
+                                    <li><a href="index_3.html">Single image</a></li>
+                                    <li><a href="index_4.html">Header video</a></li>
+                                    <li><a href="index_7.html">With search panel</a></li>
+                                    <li><a href="index_13.html">With tabs</a></li>
+                                    <li><a href="index_5.html">With map</a></li>
+                                    <li><a href="index_6.html">With search bar</a></li>
+                                    <li><a href="index_8.html">Search bar + Video</a></li>
+                                    <li><a href="index_9.html">With Text Rotator</a></li>
+                                    <li><a href="index_10.html">With Cookie Bar (EU law)</a></li>
+                                    <li><a href="index_11.html">Popup Advertising</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Tours <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="all_tours_list.html">All tours list</a></li>
+                                    <li><a href="all_tours_grid.html">All tours grid</a></li>
+                                    <li><a href="all_tours_grid_masonry.html">All tours Sort Masonry</a></li>
+                                    <li><a href="all_tours_map_listing.html">All tours map listing</a></li>
+                                    <li><a href="single_tour.html">Single tour page</a></li>
+                                    <li><a href="single_tour_with_gallery.html">Single tour with gallery</a></li>
+                                    <li class="third-level">
+                                        <a href="javascript:void(0);">Single tour fixed sidebar</a>
+                                        <ul>
+                                            <li><a href="single_tour_fixed_sidebar.html">Single tour fixed sidebar</a></li>
+                                            <li><a href="single_tour_with_gallery_fixed_sidebar.html">Single tour 2 Fixed Sidebar</a></li>
+                                            <li><a href="cart_fixed_sidebar.html">Cart Fixed Sidebar</a></li>
+                                            <li><a href="payment_fixed_sidebar.html">Payment Fixed Sidebar</a></li>
+                                            <li><a href="confirmation_fixed_sidebar.html">Confirmation Fixed Sidebar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="single_tour_working_booking.php">Single tour working booking</a></li>
+                                    <li><a href="cart.html">Single tour cart</a></li>
+                                    <li><a href="payment.html">Single tour booking</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Hotels <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="all_hotels_list.html">All hotels list</a></li>
+                                    <li><a href="all_hotels_grid.html">All hotels grid</a></li>
+                                    <li><a href="all_hotels_grid_masonry.html">All hotels Sort Masonry</a></li>
+                                    <li><a href="all_hotels_map_listing.html">All hotels map listing</a></li>
+                                    <li><a href="single_hotel.html">Single hotel page</a></li>
+                                    <li><a href="single_hotel_working_booking.php">Single hotel working booking</a></li>
+                                    <li><a href="single_hotel_contact.php">Single hotel contact working</a></li>
+                                    <li><a href="cart_hotel.html">Cart hotel</a></li>
+                                    <li><a href="payment_hotel.html">Booking hotel</a></li>
+                                    <li><a href="confirmation_hotel.html">Confirmation hotel</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Transfers <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="all_transfer_list.html">All transfers list</a></li>
+                                    <li><a href="all_transfer_grid.html">All transfers grid</a></li>
+                                    <li><a href="all_transfer_grid_masonry.html">All transfers Sort Masonry</a></li>
+                                    <li><a href="single_transfer.html">Single transfer page</a></li>
+                                    <li><a href="cart_transfer.html">Cart transfers</a></li>
+                                    <li><a href="payment_transfer.html">Booking transfers</a></li>
+                                    <li><a href="confirmation_transfer.html">Confirmation transfers</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Restaurants <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="all_restaurants_list.html">All restaurants list</a></li>
+                                    <li><a href="all_restaurants_grid.html">All restaurants grid</a></li>
+                                    <li><a href="all_restaurants_grid_masonry.html">All restaurants Sort Masonry</a></li>
+                                    <li><a href="all_restaurants_map_listing.html">All restaurants map listing</a></li>
+                                    <li><a href="single_restaurant.html">Single restaurant page</a></li>
+                                    <li><a href="payment_restaurant.html">Booking restaurant</a></li>
+                                    <li><a href="confirmation_restaurant.html">Confirmation restaurant</a></li>
+                                </ul>
+                            </li>
+                            <li class="megamenu submenu">
+                                <a href="javascript:void(0);" class="show-submenu-mega">Bonus<i class="icon-down-open-mini"></i></a>
+                                <div class="menu-wrapper">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <h3>Header styles</h3>
+                                            <ul>
+                                                <li><a href="index.html">Default transparent</a></li>
+                                                <li><a href="header_2.html">Plain color</a></li>
+                                                <li><a href="header_3.html">Plain color on scroll</a></li>
+                                                <li><a href="header_4.html">With socials on top</a></li>
+                                                <li><a href="header_5.html">With language selection</a></li>
+                                                <li><a href="header_6.html">With lang and conversion</a></li>
+                                                <li><a href="header_7.html">With full horizontal menu</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <h3>Footer styles</h3>
+                                            <ul>
+                                                <li><a href="index.html">Footer default</a></li>
+                                                <li><a href="footer_2.html">Footer style 2</a></li>
+                                                <li><a href="footer_3.html">Footer style 3</a></li>
+                                                <li><a href="footer_4.html">Footer style 4</a></li>
+                                                <li><a href="footer_5.html">Footer style 5</a></li>
+                                                <li><a href="footer_6.html">Footer style 6</a></li>
+                                                <li><a href="footer_7.html">Footer style 7</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <h3>Shop section</h3>
+                                            <ul>
+                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="shop-single.html">Shop single</a></li>
+                                                <li><a href="shopping-cart.html">Shop cart</a></li>
+                                                <li><a href="checkout.html">Shop Checkout</a></li>
+                                            </ul>
+                                        </div>
+                                    </div><!-- End row -->
+                                </div><!-- End menu-wrapper -->
+                            </li>
+                            <li class="megamenu submenu">
+                                <a href="javascript:void(0);" class="show-submenu-mega">Pages<i class="icon-down-open-mini"></i></a>
+                                <div class="menu-wrapper">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <h3>Pages</h3>
+                                            <ul>
+                                                <li><a href="about.html">About us</a></li>
+                                                <li><a href="general_page.html">General page</a></li>
+                                                <li><a href="tourist_guide.html">Tourist guide</a></li>
+                                                <li><a href="wishlist.html">Wishlist page</a></li>
+                                                <li><a href="faq.html">Faq</a></li>
+                                                <li><a href="faq_2.html">Faq smooth scroll</a></li>
+                                                <li><a href="pricing_tables.html">Pricing tables</a></li>
+                                                <li><a href="gallery_3_columns.html">Gallery 3 columns</a></li>
+                                                <li><a href="gallery_4_columns.html">Gallery 4 columns</a></li>
+                                                <li><a href="grid_gallery_1.html">Grid gallery</a></li>
+                                                <li><a href="grid_gallery_2.html">Grid gallery with filters</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <h3>Pages</h3>
+                                            <ul>
+                                                <li><a href="contact_us_1.html">Contact us 1</a></li>
+                                                <li><a href="contact_us_2.html">Contact us 2</a></li>
+                                                <li><a href="blog_right_sidebar.html">Blog</a></li>
+                                                <li><a href="blog.html">Blog left sidebar</a></li>
+                                                <li><a href="login.html">Login</a></li>
+                                                <li><a href="register.html">Register</a></li>
+                                                <li><a href="invoice.html" target="_blank">Invoice</a></li>
+                                                <li><a href="404.html">404 Error page</a></li>
+                                                <li><a href="site_launch/index.html">Site launch / Coming soon</a></li>
+                                                <li><a href="timeline.html">Tour timeline</a></li>
+                                                <li><a href="page_with_map.html"><i class="icon-map"></i>  Full screen map</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <h3>Elements</h3>
+                                            <ul>
+                                                <li><a href="footer_2.html"><i class="icon-columns"></i> Footer with working newsletter</a></li>
+                                                <li><a href="footer_5.html"><i class="icon-columns"></i> Footer with Twitter feed</a></li>
+                                                <li><a href="icon_pack_1.html"><i class="icon-inbox-alt"></i> Icon pack 1 (1900)</a></li>
+                                                <li><a href="icon_pack_2.html"><i class="icon-inbox-alt"></i> Icon pack 2 (100)</a></li>
+                                                <li><a href="icon_pack_3.html"><i class="icon-inbox-alt"></i> Icon pack 3 (30)</a></li>
+                                                <li><a href="icon_pack_4.html"><i class="icon-inbox-alt"></i> Icon pack 4 (200)</a></li>
+                                                <li><a href="icon_pack_5.html"><i class="icon-inbox-alt"></i> Icon pack 5 (360)</a></li>
+                                                <li><a href="shortcodes.html"><i class="icon-tools"></i> Shortcodes</a></li>
+                                                <li><a href="newsletter_template/newsletter.html" target="blank"><i class=" icon-mail"></i> Responsive email template</a></li>
+                                                <li><a href="admin.html"><i class="icon-cog-1"></i>  Admin area</a></li>
+                                            </ul>
+                                        </div>
+                                    </div><!-- End row -->
+                                </div><!-- End menu-wrapper -->
+                            </li>
+                        </ul>
+                    </div><!-- End main-menu -->
+                    <ul id="top_tools">
+                        <li>
+                            <a href="javascript:void(0);" class="search-overlay-menu-btn"><i class="icon_search"></i></a>
+                        </li>
+                        <li>
+                            <div class="dropdown dropdown-cart">
+                                <a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>@basket.Count</strong></a>
+                                <ul class="dropdown-menu" id="cart_items">
+                                    @foreach (var item in basket)
+                                    {
+                                        total += item.Price;
+                                        <li>
+                                            <div class="image"><img src="~/rev-slider-files/assets/@item.Image" alt="image"></div>
+                                            <strong><a asp-action="Details" asp-controller="Home">@item.Name</a>x @item.Count  $@item.Price </strong>
+                                            <a asp-action="remove" asp-controller="Basket" asp-route-id="@item.Id"><i class="icon-trash"></i></a>
+                                        </li>
+                                    }
+                                    <li>
+                                        <div>Total: <span>$@total</span></div>
+                                        <a asp-action="Index" asp-controller="Basket" class="button_drop">Go to cart</a>
+                                        <a href="payment.html" class="button_drop outline">Check out</a>
+                                    </li>
+                                </ul>
+                            </div><!-- End dropdown-cart-->
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div><!-- container -->
+    </header><!-- End Header -->
+    <!-- 01 Preloader -->
+    <div class="loader-wrapper" id="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+    <!-- Preloader end -->
+    <!-- 02 Main page -->
+    <section class="page-section">
+        <div class="full-width-screen">
+            <div class="container-fluid p-0">
+                <div class="particles-bg" id="particles-js">
+                    <div class="content-detail">
+                        <h1 class="global-title"><span>4</span><span>0</span><span>4</span></h1>
+
+                        <h4 class="sub-title">Oops!</h4>
+
+                        <p class="detail-text">We're sorry,<br> The page you were looking for doesn't exist anymore.</p>
+
+                        <div class="back-btn">
+                            <a asp-action="Index" asp-controller="Home" class="btn">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- latest jquery-->
+    <script src="~/error/assets/js/jquery-3.5.1.min.js"></script>
+    <!-- theme particles script -->
+    <script src="~/error/assets/js/particles.min.js"></script>
+    <script src="~/error/assets/js/app.js"></script>
+    <!-- Theme js-->
+    <script src="~/error/assets/js/script.js"></script>
+    <footer class="revealed">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    
+                </div>
+                <div class="col-md-3">
+                    
+                </div>
+                <div class="col-md-3">
+                    
+                </div>
+                <div class="col-md-2">
+           
+                    <div class="styled-select">
+                        <select name="lang" id="lang">
+                            <option value="English" selected>English</option>
+                            <option value="French">French</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Russian">Russian</option>
+                        </select>
+                    </div>
+                    <div class="styled-select">
+                        <select name="currency" id="currency">
+                            <option value="USD" selected>USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="RUB">RUB</option>
+                        </select>
+                    </div>
+                </div>
+            </div><!-- End row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="social_footer">
+                        <ul>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-google"></i></a></li>
+                            <li><a href="#"><i class="icon-instagram"></i></a></li>
+                            <li><a href="#"><i class="icon-pinterest"></i></a></li>
+                            <li><a href="#"><i class="icon-vimeo"></i></a></li>
+                            <li><a href="#"><i class="icon-youtube-play"></i></a></li>
+                        </ul>
+                        <p>© Citytours 2021</p>
+                    </div>
+                </div>
+            </div><!-- End row -->
+        </div><!-- End container -->
+    </footer><!-- End footer -->
+
+    <div id="toTop"></div><!-- Back to top button -->
+    <!-- Search Menu -->
+    <div class="search-overlay-menu">
+        <span class="search-overlay-close"><i class="icon_set_1_icon-77"></i></span>
+        <form role="search" id="searchform" method="get">
+            <input value="" name="q" type="search" placeholder="Search..." />
+            <button type="submit">
+                <i class="icon_set_1_icon-78"></i>
+            </button>
+        </form>
+    </div><!-- End Search Menu -->
+    <!-- Sign In Popup -->
+    <div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+        <div class="small-dialog-header">
+            <h3>Sign In</h3>
+        </div>
+        <form>
+            <div class="sign-in-wrapper">
+                <a href="#0" class="social_bt facebook">Login with Facebook</a>
+                <a href="#0" class="social_bt google">Login with Google</a>
+                <div class="divider"><span>Or</span></div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" id="email">
+                    <i class="icon_mail_alt"></i>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" id="password" value="">
+                    <i class="icon_lock_alt"></i>
+                </div>
+                <div class="clearfix add_bottom_15">
+                    <div class="checkboxes float-left">
+                        <label class="container_check">
+                            Remember me
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="float-right"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
+                </div>
+                <div class="text-center"><input type="submit" value="Log In" class="btn_login"></div>
+                <div class="text-center">
+                    Don’t have an account? <a href="javascript:void(0);">Sign up</a>
+                </div>
+                <div id="forgot_pw">
+                    <div class="form-group">
+                        <label>Please confirm login email below</label>
+                        <input type="email" class="form-control" name="email_forgot" id="email_forgot">
+                        <i class="icon_mail_alt"></i>
+                    </div>
+                    <p>You will receive an email containing a link allowing you to reset your password to a new preferred one.</p>
+                    <div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
+                </div>
+            </div>
+        </form>
+        <!--form -->
+    </div>
+    <!-- /Sign In Popup -->
+    <!-- Common scripts -->
+    <script src="~/main/js/jquery-3.6.0.min.js"></script>
+    <script src="~/main/js/common_scripts_min.js"></script>
+    <script src="~/main/js/functions.js"></script>
+
+    <!-- Common scripts -->
+    <script src="~/main/js/jquery-3.6.0.min.js"></script>
+    <script src="~/main/js/common_scripts_min.js"></script>
+    <script src="~/main/js/functions.js"></script>
+    <!-- SLIDER REVOLUTION SCRIPTS  -->
+    <script src="~/rev-slider-files/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/rev-slider-files/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/rev-slider-files/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/rev-slider-files/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="~/rev-slider-files/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/rev-slider-files/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/rev-slider-files/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/rev-slider-files/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/rev-slider-files/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="~/rev-slider-files/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
+
+    <script>
+        var tpj = jQuery;
+
+        var revapi44;
+        tpj(document).ready(function () {
+            if (tpj("#rev_slider_44").revolution == undefined) {
+                revslider_showDoubleJqueryError("#rev_slider_44");
+            } else {
+                revapi44 = tpj("#rev_slider_44").show().revolution({
+                    sliderType: "standard",
+                    jsFileLocation: "revolution-slider/js/",
+                    sliderLayout: "fullscreen",
+                    dottedOverlay: "none",
+                    delay: 4500,
+                    navigation: {
+                        keyboardNavigation: "on",
+                        keyboard_direction: "horizontal",
+                        mouseScrollNavigation: "off",
+                        mouseScrollReverse: "default",
+                        onHoverStop: "off",
+                        touch: {
+                            touchenabled: "on",
+                            touchOnDesktop: "on",
+                            swipe_threshold: 75,
+                            swipe_min_touches: 1,
+                            swipe_direction: "horizontal",
+                            drag_block_vertical: false
+                        },
+                        arrows: {
+                            enable: true,
+                            style: 'erinyen',
+                            tmp: '',
+                            rtl: false,
+                            hide_onleave: true,
+                            hide_onmobile: true,
+                            hide_under: 767,
+                            hide_over: 9999,
+                            hide_delay: 0,
+                            hide_delay_mobile: 0,
+
+                            left: {
+                                container: 'slider',
+                                h_align: 'left',
+                                v_align: 'center',
+                                h_offset: 60,
+                                v_offset: 0
+                            },
+
+                            right: {
+                                container: 'slider',
+                                h_align: 'right',
+                                v_align: 'center',
+                                h_offset: 60,
+                                v_offset: 0
+                            }
+                        },
+                        bullets: {
+                            enable: true,
+                            style: 'zeus',
+                            direction: 'horizontal',
+                            rtl: false,
+
+                            container: 'slider',
+                            h_align: 'center',
+                            v_align: 'bottom',
+                            h_offset: 0,
+                            v_offset: 30,
+                            space: 7,
+
+                            hide_onleave: false,
+                            hide_onmobile: false,
+                            hide_under: 0,
+                            hide_over: 767,
+                            hide_delay: 200,
+                            hide_delay_mobile: 1200
+                        },
+                    },
+                    responsiveLevels: [1240, 1025, 778, 480],
+                    visibilityLevels: [1920, 1500, 1025, 768],
+                    gridwidth: [1200, 991, 778, 480],
+                    gridheight: [1025, 1366, 1025, 868],
+                    lazyType: "none",
+                    shadow: 0,
+                    spinner: "spinner4",
+                    stopLoop: "off",
+                    stopAfterLoops: -1,
+                    stopAtSlide: -1,
+                    shuffle: "off",
+                    autoHeight: "on",
+                    fullScreenAutoWidth: "on",
+                    fullScreenAlignForce: "off",
+                    fullScreenOffsetContainer: "",
+                    disableProgressBar: "on",
+                    hideThumbsOnMobile: "on",
+                    hideSliderAtLimit: 0,
+                    hideCaptionAtLimit: 0,
+                    hideAllCaptionAtLimit: 0,
+                    debugMode: false,
+                    fallbacks: {
+                        simplifyAll: "off",
+                        nextSlideOnWindowFocus: "off",
+                        disableFocusListener: false,
+                    }
+                });
+            }
+        });
+        </script>
+</body>
+</html>
+
+
+
