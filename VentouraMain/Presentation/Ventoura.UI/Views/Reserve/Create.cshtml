@@ -1,0 +1,64 @@
+﻿@using Ventoura.Application.ViewModels.Tours;
+@model TourGetVM
+
+<aside class="col-lg-6" id="sidebar">
+    <form method="post">
+        <p class="d-none d-xl-block d-lg-block d-xl-none">
+            <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
+        </p>
+        <div class="theiaStickySidebar">
+            <div class="box_style_1 expose" id="booking_box">
+                <h3 class="inner">- Booking -</h3>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group scroll-fix">
+                            <label><i class="icon-calendar-7"></i> Tour's Start Date</label>
+                            <hr>
+                            <span>@Model.StartDate</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group scroll-fix-time">
+                            <label><i class=" icon-clock"></i> Empty Member</label>
+                            <hr>
+                            <span>@Model.Capacity</span>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <table class="table table_summary">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>
+                                    <label asp-for="MemberCount" class="form-label">Please Input Member Count</label>
+                                    <input asp-for="MemberCount" class="form-control" />
+                                    <span class="text-danger" asp-validation-for="MemberCount"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <label asp-for="Email" class="form-label">Please Input Your Email</label>
+                                    <input asp-for="Email" class="form-control" />
+                                    <span class="text-danger" asp-validation-for="Email"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="total">
+                            <td>
+                                Total cost
+                            </td>
+                            <td class="text-right">
+                                Per Member/$@Model.Price
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="submit">Send Query</button>
+                <a class="btn_full_outline" asp-action="AddWishlist" asp-controller="Wishlist" asp-route-id="@Model.Id"><i class="icon-heart"></i> Add to whislist</a>
+            </div>
+            <!--/box_style_1 -->
+        </div>
+        <!--/sticky -->
+    </form>
+</aside>

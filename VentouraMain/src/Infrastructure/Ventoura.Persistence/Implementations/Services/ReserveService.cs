@@ -25,8 +25,12 @@ namespace Ventoura.Persistence.Implementations.Services
         {
             _repository = repository;
         }
-        
-        public async Task<bool> Create(TourReserveVM dto, ModelStateDictionary modelstate)
+
+        public async Task<TourGetVM> CreateGet(TourGetVM vm)
+        {
+            return vm;
+        }
+        public async Task<bool> Create(TourGetVM dto, ModelStateDictionary modelstate)
         {
             if (!modelstate.IsValid)
             {
@@ -44,7 +48,6 @@ namespace Ventoura.Persistence.Implementations.Services
             await _repository.SaveChangesAsync();
             return true;
         }
-
         public async Task<List<TourReserveVM>> GetAllAsyncForReserve()
         { 
             List<UserReservationInfo> tours = await _repository

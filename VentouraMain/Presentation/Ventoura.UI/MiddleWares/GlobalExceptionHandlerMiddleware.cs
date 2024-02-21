@@ -16,7 +16,7 @@
             }
             catch (Exception e)
             {
-                context.Response.Redirect($"/home/errorpage?error={e.Message}");
+                context.Response.Redirect($"/error/errorpage?error={e.Message}");
             }
 
         }

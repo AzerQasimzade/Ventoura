@@ -54,7 +54,6 @@
 </head>
 
 <body>
-
     <div id="preloader">
         <div class="sk-spinner sk-spinner-wave">
             <div class="sk-rect1"></div>
@@ -65,7 +64,6 @@
         </div>
     </div>
     <!-- End Preload -->
-
     <div class="layer"></div>
     <!-- Mobile menu overlay mask -->
     <!-- Header================================================== -->
@@ -331,7 +329,6 @@
         </div><!-- container -->
     </header>
     <!-- End Header -->
-
     <section class="parallax-window" data-parallax="scroll" data-image-src="/main/img/single_tour_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-2">
             <div class="container">
@@ -535,92 +532,10 @@
                     </div>
                 </div>
                 <!--End  single_tour_desc-->
-                
+               
                     <aside class="col-lg-4" id="sidebar">
-                        <form method="post">
-                        <p class="d-none d-xl-block d-lg-block d-xl-none">
-                            <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
-                        </p>
-                        <div class="theiaStickySidebar">
-                            <div class="box_style_1 expose" id="booking_box">
-                                <h3 class="inner">- Booking -</h3>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group scroll-fix">
-                                            <label><i class="icon-calendar-7"></i> Tour's Start Date</label>
-                                            <hr>
-                                            <span>@Model.StartDate</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group scroll-fix-time">
-                                            <label><i class=" icon-clock"></i> Empty Member</label>
-                                            <hr>
-                                            <span>@Model.Capacity</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                @*  <div class="row">
-                                <div class="col-6">
-                                <div class="form-group">
-                                <label>Adults</label>
-                                <div class="input-group quantity-selector quantity-selector-sm">
-                                <input type="number" id="inputQuantitySelectorSm" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="0" min="0" max="10" step="1" data-bs-round="0" aria-label="Quantity selector">
-                                <button type="button" class="btn btn-icon btn-secondary btn-sm" aria-describedby="inputQuantitySelectorSm" data-bs-step="down">
-                                <span class="visually-hidden">Step down</span>
-                                </button>
-                                <button type="button" class="btn btn-icon btn-secondary btn-sm" aria-describedby="inputQuantitySelectorSm" data-bs-step="up">
-                                <span class="visually-hidden">Step up</span>
-                                </button>
-                                </div>
-                                </div>
-                                </div>
-                                <div class="col-6">
-                                <div class="form-group">
-                                <label>Children</label>
-                                <div class="numbers-row">
-                                <input type="text" value="0" id="children" class="qty2 form-control" name="quantity">
-                                </div>
-                                </div>
-                                </div>
-                                </div>  *@
-                                <br>
-                                <table class="table table_summary">
-                                    <tbody>
-                                        <tr>                                
-                                            <td>                                         
-                                                <div>
-                                                    <label asp-for="MemberCount" class="form-label">Please Input Member Count</label>
-                                                    <input asp-for="MemberCount" class="form-control"/>
-                                                    <span class="text-danger" asp-validation-for="MemberCount"></span>
-                                                </div>                            
-                                            </td> 
-                                            <td>
-                                                <div>
-                                                    <label asp-for="Email" class="form-label">Please Input Your Email</label>
-                                                    <input asp-for="Email" class="form-control" />
-                                                    <span class="text-danger" asp-validation-for="Email"></span>
-                                                </div>
-                                            </td>                                        
-                                        </tr>                                  
-                                        <tr class="total">
-                                            <td>
-                                                Total cost
-                                            </td>
-                                            <td class="text-right">
-                                               Per Member/$@Model.Price
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <a class="btn_full" asp-action="Create" asp-controller="Reservation" asp-area="VentouraAdmin">Book Now</a>
-                                <a class="btn_full_outline" asp-action="AddWishlist" asp-controller="Wishlist" asp-route-id="@Model.Id"><i class="icon-heart"></i> Add to whislist</a>
-                            </div>
-                            <!--/box_style_1 -->
-                        </div>
-                        <!--/sticky -->
-                    </form>
-                    </aside> 
+                    <a class="btn_full" asp-action="Create" asp-controller="Reserve" asp-route-id="@Model.Id">Book Now</a>
+                </aside> 
             </div>
             <!--End row -->
         </div>

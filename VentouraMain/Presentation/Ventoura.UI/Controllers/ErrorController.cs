@@ -10,7 +10,7 @@ namespace Ventoura.UI.Controllers
         }
         public IActionResult ErrorPage(string error)
         {
-            return View();
+            return View(model:error);
         }
     }
 }

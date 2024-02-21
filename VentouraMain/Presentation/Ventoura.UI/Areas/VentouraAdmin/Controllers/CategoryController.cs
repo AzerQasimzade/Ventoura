@@ -2,6 +2,7 @@
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels;
 using Ventoura.Application.ViewModels.Cities;
+using Ventoura.Domain.Exceptions;
 
 namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
 {
@@ -16,6 +17,7 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
 		}
 		public async Task<IActionResult> CategoryTable(int page = 1, int take = 20)
 		{
+			if (page<=0 && take<=0)throw new WrongRequestException("Bad request. Please provide a valid request"); 
 			return View(await _service.GetAllAsync(page, take));
 		}
 		public async Task<IActionResult> Create()
@@ -33,20 +35,20 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
 		}
 		public async Task<IActionResult> Delete(int id)
 		{
-			await _service.DeleteAsync(id);
+			if (id<=0) throw new WrongRequestException("Bad request. Please provide a valid request");
+            await _service.DeleteAsync(id);
 			return RedirectToAction("CategoryTable", "Category");
 		}
-
 		public async Task<IActionResult> Update(int id)
 		{
-			if (id <= 0) return BadRequest();
-			return View(await _service.UpdateGet(id, new CategoryUpdateVM()));
+			if (id <= 0) throw new WrongRequestException("Bad request. Please provide a valid request");
+            return View(await _service.UpdateGet(id, new CategoryUpdateVM()));
 		}
 		[HttpPost]
 		public async Task<IActionResult> Update(int id, CategoryUpdateVM vm)
 		{
-			if (id <= 0) return BadRequest();
-			if (!await _service.Update(id, vm, ModelState)) return View(vm);
+			if (id <= 0) throw new WrongRequestException("Bad request. Please provide a valid request");
+            if (!await _service.Update(id, vm, ModelState)) return View(vm);
 			return RedirectToAction("CategoryTable", "City");
 		}
 	}

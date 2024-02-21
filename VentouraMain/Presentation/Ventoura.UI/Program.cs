@@ -25,7 +25,7 @@ builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailS
 builder.Services.AddTransient<IMailService,MailService>();
 
 var app = builder.Build();  
-app.UseMiddleware<GlobalExceptionHandlerMiddleWare>();
+//app.UseMiddleware<GlobalExceptionHandlerMiddleWare>();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseRouting();

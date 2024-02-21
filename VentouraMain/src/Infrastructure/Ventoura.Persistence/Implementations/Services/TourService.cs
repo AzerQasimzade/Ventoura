@@ -18,6 +18,7 @@ using Ventoura.Application.ViewModels.Tours;
 using Ventoura.Application.ViewModels.Wishlist;
 using Ventoura.Domain.Entities;
 using Ventoura.Domain.Enums;
+using Ventoura.Domain.Exceptions;
 using Ventoura.Domain.Extensions;
 
 namespace Ventoura.Persistence.Implementations.Services
@@ -42,7 +43,7 @@ namespace Ventoura.Persistence.Implementations.Services
             int count = await _repository.GetProductCountAsync();
             if (page > Math.Ceiling((double)count / 4))
             {
-                throw new Exception("Bad Request");
+                throw new WrongRequestException("Bad request. Please provide a valid request");
             }
             List<Tour> tours =await _repository
                 .GetAll(null, null, false, skip: (page - 1) * take, take: take, false, nameof(Tour.City), nameof(Tour.Country), nameof(Tour.Category), nameof(Tour.TourImages))
@@ -384,7 +385,7 @@ namespace Ventoura.Persistence.Implementations.Services
         public async Task DeleteAsync(int id)
         {
             Tour existed = await _repository.GetByIdAsync(id, false, nameof(Tour.Category), nameof(Tour.Country), nameof(Tour.City), nameof(Tour.TourImages));
-            if (existed == null) throw new Exception("Product cant found");
+            if (existed == null) throw new NotFoundException("Tour cannot found. Please check the URL and try again");
             _repository.Delete(existed);
             await _repository.SaveChangesAsync();
         }
@@ -506,5 +507,6 @@ namespace Ventoura.Persistence.Implementations.Services
             };
             return paginationVM;
         }
+
     }
 }

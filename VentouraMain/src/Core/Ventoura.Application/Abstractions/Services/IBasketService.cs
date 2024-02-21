@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ventoura.Application.ViewModels.Basket;
 using Ventoura.Application.ViewModels.Wishlist;
+using Ventoura.Domain.Entities;
 
 namespace Ventoura.Application.Abstractions.Services
 {
@@ -16,5 +17,7 @@ namespace Ventoura.Application.Abstractions.Services
         Task Remove(int id);
         Task PlusBasket(int id);
         Task MinusBasket(int id);
+        Task<decimal> CalculateTotalPrice(AdditionalOptions options);
+        Task CheckOut();
     }
 }

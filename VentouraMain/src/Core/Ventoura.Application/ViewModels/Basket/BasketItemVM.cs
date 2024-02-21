@@ -15,5 +15,8 @@ namespace Ventoura.Application.ViewModels.Basket
         public decimal Price { get; set; }
         public string Name { get; set; }
         public int Count { get; set; }
+        public decimal Subtotal { get; set; }
+        public decimal? SubtotalforDiscount { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

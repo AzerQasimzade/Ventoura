@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Tours;
+using Ventoura.Domain.Exceptions;
+
 namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
 {
     [Area("VentouraAdmin")]
@@ -14,6 +16,7 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
         }
         public async Task<IActionResult> TourTable(int page = 1, int take = 20)
         {
+            if (page <= 0 && take <= 0) throw new WrongRequestException("Bad request. Please provide a valid request");
             return View(await _service.GetAllAsyncAdmin(page, take));
         }
         public async Task<IActionResult> Create() 
@@ -27,25 +30,26 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
             return RedirectToAction("TourTable","Tour");
         }
         public async Task<IActionResult> Update(int id)
-        {
-            if (id <= 0)return BadRequest(); 
+        {   
+            if (id <= 0) throw new WrongRequestException("Bad request. Please provide a valid request");
             return View(await _service.UpdateGet(id,new TourUpdateVM()));
         }
         [HttpPost]
         public async Task<IActionResult> Update(int id, TourUpdateVM vm)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("Bad request. Please provide a valid request");
             if (!await _service.Update(id, vm, ModelState)) return View(vm);
             return RedirectToAction("TourTable", "Tour");         
         }
         public async Task<IActionResult> Delete(int id)
         {
+            if (id <= 0) throw new WrongRequestException("Bad request. Please provide a valid request");
             await _service.DeleteAsync(id);
             return RedirectToAction("TourTable","Tour");
         }
         public async Task<IActionResult> Details(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0)throw new WrongRequestException("Bad request. Please provide a valid request");
             var tour = await _service.GetByIdAsync(id);
             if (tour == null)
             {

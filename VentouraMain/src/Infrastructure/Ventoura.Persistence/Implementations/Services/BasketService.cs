@@ -13,7 +13,9 @@ using System.Threading.Tasks;
 using Ventoura.Application.Abstractions.Repositories;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Basket;
+using Ventoura.Application.ViewModels.Wishlist;
 using Ventoura.Domain.Entities;
+using Ventoura.Domain.Exceptions;
 
 namespace Ventoura.Persistence.Implementations.Services
 {
@@ -49,18 +51,21 @@ namespace Ventoura.Persistence.Implementations.Services
                         Count = wishlistItem.Count,
                         Name = wishlistItem.Tour.Name,
                         Sale = wishlistItem.Tour.Sale,
-                        Image = wishlistItem.Tour.TourImages.FirstOrDefault()?.Url
+						Subtotal = wishlistItem.Count * wishlistItem.Tour.Price,	
+						SubtotalforDiscount = wishlistItem.Count*(wishlistItem.Tour.Price-((wishlistItem.Tour.Price*wishlistItem.Tour.Sale)/100)),
+						Image = wishlistItem.Tour.TourImages.FirstOrDefault()?.Url
                     });
                 }
+                
             }
             return items;
         }
         public async Task AddBasket(int id)
         {
-            if (id <= 0) throw new Exception("Bad request");
+            if (id <= 0) throw new WrongRequestException("Bad request. Please provide a valid request");
             Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == id);
-            if (tour is null) throw new Exception("Not Found");
-            
+            if (tour is null) throw new NotFoundException("Page not found. Please check the URL and try again");
+
             if (_accessor.HttpContext.User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.Users
@@ -74,8 +79,8 @@ namespace Ventoura.Persistence.Implementations.Services
                         AppUserId = user.Id,
                         TourId = tour.Id,
                         Count = 1,
-                        Price = tour.Price,
-                    };
+						Price = tour.Price,
+					};
                     user.BasketItems.Add(item);
                 }
                 else
@@ -135,28 +140,28 @@ namespace Ventoura.Persistence.Implementations.Services
         }
         public async Task PlusBasket(int id)
         {
-            if (id <= 0) throw new Exception("Bad Request");
+            if (id <= 0) throw new WrongRequestException("Bad request. Please provide a valid request");
             Tour tour = await _repository.GetFirstOrDefaultAsync(p => p.Id == id);
-            if (tour is null) throw new Exception("Not Found");
+            if (tour is null) throw new NotFoundException("Page not found. Please check the URL and try again");
             if (_accessor.HttpContext.User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.Users
                     .Include(u => u.BasketItems.Where(o => o.OrderId == null)).FirstOrDefaultAsync(x => x.Id == _accessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
-                if (user == null) throw new Exception("Not Found");
+                if (user == null) throw new NotFoundException("Page not found. Please check the URL and try again");
                 user.BasketItems.FirstOrDefault(x => x.TourId == tour.Id).Count++;
                 _repository.SaveChangesAsync();
             }
         }
         public async Task MinusBasket(int id)
         {
-            if (id <= 0) throw new Exception("Bad Request");
+            if (id <= 0) throw new WrongRequestException("Bad request. Please provide a valid request");
             Tour tour = await _repository.GetFirstOrDefaultAsync(p => p.Id == id);
-            if (tour is null) throw new Exception("Not Found");
+            if (tour is null) throw new NotFoundException("Page not found. Please check the URL and try again");
             if (_accessor.HttpContext.User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.Users
                     .Include(u => u.BasketItems.Where(o => o.OrderId == null)).FirstOrDefaultAsync(x => x.Id == _accessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
-                if (user == null) throw new Exception("Not Found");
+                if (user == null) throw new NotFoundException("Page not found. Please check the URL and try again");
                 var excisted = user.BasketItems
                     .FirstOrDefault(x => x.TourId == tour.Id);
                 user.BasketItems.FirstOrDefault(x => x.TourId == tour.Id).Count--;
@@ -167,7 +172,29 @@ namespace Ventoura.Persistence.Implementations.Services
                 _repository.SaveChangesAsync();
             }
         }
+        public async Task<decimal> CalculateTotalPrice(AdditionalOptions options)
+        {
+            decimal totalPrice = 0;
 
+            if (options.DedicatedTourGuide)
+            {
+                totalPrice += 34; // Örnek fiyat
+            }
+            if (options.Insurance)
+            {
+                totalPrice += 15; // Örnek fiyat
+            }
+            if (options.CoffeeBreak)
+            {
+                totalPrice += 10; // Örnek fiyat
+            }
+            return totalPrice;
+        }
+
+        public async Task CheckOut()
+        {
+            
+        }
     }
 }
 

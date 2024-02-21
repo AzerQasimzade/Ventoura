@@ -26,7 +26,6 @@ namespace Ventoura.Persistence.DAL
 		public DbSet<Category> Category { get; set; }
 		public DbSet<Order> Orders { get; set; }
         public DbSet<UserReservationInfo> UserReservationInfos { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

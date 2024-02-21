@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Ventoura.Application.Abstractions.Services;
+using Ventoura.Domain.Exceptions;
 
 namespace Ventoura.UI.Controllers
 {
@@ -18,8 +19,8 @@ namespace Ventoura.UI.Controllers
         }
         public async Task<IActionResult> Details(int id)
         {
-			if (id <= 0) return BadRequest();
-			var tour = await _tourService.GetByIdAsync(id);
+			if (id <= 0) throw new WrongRequestException("Invalid request. Please provide a valid request");
+            var tour = await _tourService.GetByIdAsync(id);
 			if (tour == null)
 			{
 				ModelState.AddModelError(string.Empty, "The product you are looking for is no longer available");
@@ -27,6 +28,8 @@ namespace Ventoura.UI.Controllers
 			}
             return View(await _tourService.GetByIdAsync(id)); 
         }
+
+
 
        
     }

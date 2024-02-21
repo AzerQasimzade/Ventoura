@@ -11,6 +11,7 @@ using Ventoura.Application.ViewModels.Cities;
 using Ventoura.Application.ViewModels.Countries;
 using Ventoura.Application.ViewModels.Tours;
 using Ventoura.Domain.Entities;
+using Ventoura.Domain.Exceptions;
 
 namespace Ventoura.Persistence.Implementations.Services
 {
@@ -57,7 +58,7 @@ namespace Ventoura.Persistence.Implementations.Services
         public async Task DeleteAsync(int id)
         {
             City existed = await _repository.GetByIdAsync(id);
-            if (existed == null) throw new Exception("Product cant found");
+            if (existed == null) throw new NotFoundException("City cannot found. Please check the URL and try again");
             _repository.Delete(existed);
             await _repository.SaveChangesAsync();
         }

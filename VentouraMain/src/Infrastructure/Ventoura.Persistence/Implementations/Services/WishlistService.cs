@@ -8,6 +8,7 @@ using Ventoura.Application.Abstractions.Repositories;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Wishlist;
 using Ventoura.Domain.Entities;
+using Ventoura.Domain.Exceptions;
 
 namespace Ventoura.Persistence.Implementations.Services
 {
@@ -78,10 +79,10 @@ namespace Ventoura.Persistence.Implementations.Services
 		}
 		public async Task AddWishlist(int id)
 		{
-			if (id <= 0) throw new Exception("Bad request");
-			Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == id);
-			if (tour is null) throw new Exception("Not Found");
-			if (_accessor.HttpContext.User.Identity.IsAuthenticated)
+			if (id <= 0) throw new WrongRequestException("Bad request. Please provide a valid request");
+            Tour tour = await _repository.GetFirstOrDefaultAsync(c => c.Id == id);
+			if (tour is null) throw new NotFoundException("Tour cannot found. Please check the URL and try again");
+            if (_accessor.HttpContext.User.Identity.IsAuthenticated)
 			{
 				AppUser user = await _userManager.Users
 					.Include(u => u.WishlistItems)

@@ -28,7 +28,17 @@
 	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="~/main/img/apple-touch-icon-72x72-precomposed.png">
 	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="~/main/img/apple-touch-icon-114x114-precomposed.png">
 	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="~/main/img/apple-touch-icon-144x144-precomposed.png">
+	<link rel="stylesheet" href="~/basket/assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/basket/assets/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="~/basket/assets/css/Pe-icon-7-stroke.css" />
+	<link rel="stylesheet" href="~/basket/assets/css/animate.min.css" />
+	<link rel="stylesheet" href="~/basket/assets/css/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="~/basket/assets/css/nice-select.css" />
+	<link rel="stylesheet" href="~/basket/assets/css/magnific-popup.min.css" />
+	<link rel="stylesheet" href="~/basket/assets/css/ion.rangeSlider.min.css" />
 
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="~/basket/assets/css/style.css" />
 	<!-- GOOGLE WEB FONT -->
 	<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -195,7 +205,7 @@
 								</ul>
 							</li>
 							<li class="megamenu submenu">
-								<a href="javascript:void(0);" class="show-submenu-mega">Bonus<i class="icon-down-open-mini"></i></a>
+								
 								<div class="menu-wrapper">
 									<div class="row">
 										<div class="col-lg-4">
@@ -235,7 +245,6 @@
 								</div><!-- End menu-wrapper -->
 							</li>
 							<li class="megamenu submenu">
-								<a href="javascript:void(0);" class="show-submenu-mega">Pages<i class="icon-down-open-mini"></i></a>
 								<div class="menu-wrapper">
 									<div class="row">
 										<div class="col-lg-4">
@@ -362,33 +371,19 @@
 	<!-- End Section hero_2 -->
 
 	<main>
-		<div id="position">
-			<div class="container">
-				<ul>
-					<li>
-						<a href="#">Home</a>
-					</li>
-					<li>
-						<a href="#">Category</a>
-					</li>
-					<li>Page active</li>
-				</ul>
-			</div>
-		</div>
+		
 		<!-- End position -->
 
 		<div class="container margin_60">
 			<div class="row">
 				<div class="col-lg-8">
-					<table class="table table-striped cart-list add_bottom_30">
+					@* <table class="table table-striped cart-list add_bottom_30">
 						<thead>
 							<tr>
 								<th>
 									Item
 								</th>
-								@* <th>
-									Quantity
-								</th> *@
+						
 								<th>
 									Discount
 								</th>
@@ -411,14 +406,7 @@
 										</a>	
 										</div>
 										<span class="item_cart">@item.Name</span>
-									</td>
-									 @* <td>
-										<div class="numbers-row">
-											<input type="text" value="@item.Count"  id="quantity_1" class="qty2 form-control" name="quantity_1" >
-										</div>
-
-										
-									</td>  *@
+									</td>	
 									<td>
 										@if (item.Sale is not null)
 										{
@@ -446,7 +434,86 @@
 							}
 							
 						</tbody>
+					</table> *@
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="product_remove">remove</th>
+								<th class="product-thumbnail">Photo</th>
+								<th class="product-thumbnail">Tour Name</th>
+								<th class="product-price">Discount</th>
+								<th class="product-price">Quantity</th>
+								<th class="product-quantity">Member Count</th>
+								<th class="product-subtotal">SubTotal</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model)
+							{
+								total += item.Subtotal;
+								<tr>
+									<td class="options">
+										<a asp-action="remove" asp-controller="Basket" asp-route-id="@item.Id"><i class="icon-trash"></i></a>
+									</td>
+									<td>
+										<div class="thumb_cart">
+											<a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">
+												<img src="~/rev-slider-files/assets/@item.Image" alt="Image">
+											</a>
+										</div>
+									</td>
+									<td>	
+										<span class="item_cart">@item.Name</span>
+									</td>	
+									<td>
+										@if (item.Sale is not null)
+										{
+											<span>@item.Sale%</span>
+										}
+										else
+										{
+											<span>None</span>
+										}
+									</td>
+									<td>
+										@if (item.Sale is not null)
+										{
+											<strong>$@(item.Price - (item.Price * @item.Sale) / 100)</strong>
+										}
+										else
+										{
+											<span>$@item.Price</span>
+										}
+									</td>
+									<td class="quantity">
+										<div>
+											<input class="cart-plus-minus-box"
+												   value="@item.Count"
+												   type="text" />
+											<div class="dec qtybutton">
+												<a asp-action="minusbasket" asp-controller="basket" asp-route-id="@item.Id"><i class="fa fa-minus"></i></a>
+											</div>
+											<div class="inc qtybutton">
+												<a asp-action="plusbasket" asp-controller="basket" asp-route-id="@item.Id"> <i class="fa fa-plus"></i></a>
+											</div>
+										</div>
+									</td>
+									<td class="product-subtotal">
+										<span class="amount">$@if (item.Sale is not null)
+											{
+												@item.SubtotalforDiscount
+											}
+											else
+											{
+												@item.Subtotal
+											}
+										</span>
+									</td>
+								</tr>		
+							}
+						</tbody>
 					</table>
+
 					<table class="table table-striped options_cart">
 						<thead>
 							<tr>
@@ -467,8 +534,8 @@
 									<label class="switch-light switch-ios float-right">
 										<input type="checkbox" name="option_1" id="option_1" checked value="">
 										<span>
-											<span>No</span>
-											<span>Yes</span>
+											<a>No</a>
+											<a>Yes</a>
 										</span>
 										<a></a>
 									</label>
@@ -553,8 +620,19 @@
 						<small>* Prices for person.</small>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-5 ml-auto">
+						<div class="cart-page-total">
+							<h2>Cart totals</h2>
+							<ul>
+								<li>Total <span>$@total</span></li>
+							</ul>
+							<a href="#">Proceed to checkout</a>
+						</div>
+					</div>
+				</div>
 				<!-- End col-lg -->
-
+@* 
 				<aside class="col-lg-4">
 					<div class="box_style_1">
 						<h3 class="inner">- Summary -</h3>
@@ -628,7 +706,7 @@
 						<a href="tel://004542344599" class="phone">+45 423 445 99</a>
 						<small>Monday to Friday 9.00am - 7.30pm</small>
 					</div>
-				</aside>
+				</aside> *@
 				<!-- End aside -->
 
 			</div>
@@ -767,6 +845,24 @@
 	<script src="~/main/js/jquery-3.6.0.min.js"></script>
 	<script src="~/main/js/common_scripts_min.js"></script>
 	<script src="~/main/js/functions.js"></script>
+	<script src="~/basket/assets/js/vendor/bootstrap.bundle.min.js"></script>
+	<script src="~/basket/assets/js/vendor/jquery-3.6.0.min.js"></script>
+	<script src="~/basket/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+	<script src="~/basket/assets/js/vendor/jquery.waypoints.js"></script>
+	<script src="~/basket/assets/js/vendor/modernizr-3.11.2.min.js"></script>
+	<script src="~/basket/assets/js/plugins/wow.min.js"></script>
+	<script src="~/basket/assets/js/plugins/swiper-bundle.min.js"></script>
+	<script src="~/basket/assets/js/plugins/jquery.nice-select.js"></script>
+	<script src="~/basket/assets/js/plugins/parallax.min.js"></script>
+	<script src="~/basket/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+	<script src="~/basket/assets/js/plugins/tippy.min.js"></script>
+	<script src="~/basket/assets/js/plugins/ion.rangeSlider.min.js"></script>
+	<script src="~/basket/assets/js/plugins/mailchimp-ajax.js"></script>
+	<script src="~/basket/assets/js/plugins/jquery.counterup.js"></script>
+
+	<!--Main JS (Common Activation Codes)-->
+	<script src="~/assets/js/main.js"></script>
+	
 
 
 </body>

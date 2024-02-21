@@ -6,6 +6,7 @@
     Version: 2.1
     Copyright 2021-2022
 -->
+@model string
 @inject _LayoutService service
 @{
     Dictionary<string, string> settings = await service.GetSettingsAsync();
@@ -341,11 +342,10 @@
             <div class="container-fluid p-0">
                 <div class="particles-bg" id="particles-js">
                     <div class="content-detail">
-                        <h1 class="global-title"><span>4</span><span>0</span><span>4</span></h1>
 
-                        <h4 class="sub-title">Oops!</h4>
+                        <h1 class="sub-title">Oops!</h1>
 
-                        <p class="detail-text">We're sorry,<br> The page you were looking for doesn't exist anymore.</p>
+                        <p class="detail-text">We're sorry,<br>@Model</p>
 
                         <div class="back-btn">
                             <a asp-action="Index" asp-controller="Home" class="btn">Back to Home</a>
@@ -398,13 +398,9 @@
                 <div class="col-md-12">
                     <div id="social_footer">
                         <ul>
-                            <li><a href="#"><i class="icon-facebook"></i></a></li>
-                            <li><a href="#"><i class="icon-twitter"></i></a></li>
-                            <li><a href="#"><i class="icon-google"></i></a></li>
-                            <li><a href="#"><i class="icon-instagram"></i></a></li>
-                            <li><a href="#"><i class="icon-pinterest"></i></a></li>
-                            <li><a href="#"><i class="icon-vimeo"></i></a></li>
-                            <li><a href="#"><i class="icon-youtube-play"></i></a></li>
+                            <li><a href="@settings["FacebookLink"]"><i class="icon-facebook"></i></a></li>
+                            <li><a href="@settings["InstagramLink"]"><i class="icon-instagram"></i></a></li>
+                            <li><a href="@settings["YoutubeLink"]"><i class="icon-youtube-play"></i></a></li>
                         </ul>
                         <p>© Citytours 2021</p>
                     </div>

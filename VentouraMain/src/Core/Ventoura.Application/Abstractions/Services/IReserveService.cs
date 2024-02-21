@@ -11,7 +11,8 @@ namespace Ventoura.Application.Abstractions.Services
 {
     public interface IReserveService
     {
-        Task<bool> Create(TourReserveVM vm, ModelStateDictionary modelstate);
+        Task<TourGetVM> CreateGet(TourGetVM vm);
+        Task<bool> Create(TourGetVM vm, ModelStateDictionary modelstate);
         Task<List<TourReserveVM>> GetAllAsyncForReserve();
 
         //Task<TourUpdateVM> UpdateGet(int id, TourUpdateVM vm);

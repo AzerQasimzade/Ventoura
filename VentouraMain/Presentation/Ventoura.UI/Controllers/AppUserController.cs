@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Users;
 using Ventoura.Domain.Entities;
+using Ventoura.Domain.Exceptions;
 
 namespace Ventoura.UI.Controllers
 {
@@ -88,7 +89,7 @@ namespace Ventoura.UI.Controllers
         {
             if (!ModelState.IsValid) return View(forgot);
             var user = await _userManager.FindByEmailAsync(forgot.Email);
-            if (user is null) return NotFound();
+            if (user is null) throw new NotFoundException("Page not found. Please check the URL and try again");
             string token = await _userManager.GeneratePasswordResetTokenAsync(user);
             string link = Url.Action("ResetPassword", "AppUser", new { userId = user.Id, token = token }, HttpContext.Request.Scheme);
             await _mailService.SendEmailAsync(new MailRequestVM { ToEmail=forgot.Email,Subject="ResetPassword",Body=$"<a href='{link}'>ResetPassword</a>"});

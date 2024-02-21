@@ -18,11 +18,6 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
         {
             return View(await _service.GetAllAsyncForReserve());
         }
-        public async Task<IActionResult> Create(TourReserveVM tourReserveVM)
-        {
-            if (!await _service.Create(tourReserveVM, ModelState)) return View(tourReserveVM);
-            return RedirectToAction("Index", "Home");
-        }
-
+        
     }
 }
