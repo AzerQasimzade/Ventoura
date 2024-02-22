@@ -14265,6 +14265,10 @@
       "PackagePath": "staticwebassets\\main\\img\\credit-card-icon.png"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\decline.png",
+      "PackagePath": "staticwebassets\\main\\img\\decline.png"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\delete.png",
       "PackagePath": "staticwebassets\\main\\img\\delete.png"
     },
@@ -15591,6 +15595,10 @@
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\twitter_icon.svg",
       "PackagePath": "staticwebassets\\main\\img\\twitter_icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\verify.png",
+      "PackagePath": "staticwebassets\\main\\img\\verify.png"
     },
     {
       "Id": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\versailles.jpg",

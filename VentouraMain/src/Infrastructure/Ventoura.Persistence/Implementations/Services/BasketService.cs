@@ -1,17 +1,21 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Ventoura.Application.Abstractions.Repositories;
 using Ventoura.Application.Abstractions.Services;
+using Ventoura.Application.ViewModels;
 using Ventoura.Application.ViewModels.Basket;
 using Ventoura.Application.ViewModels.Wishlist;
 using Ventoura.Domain.Entities;
@@ -191,10 +195,130 @@ namespace Ventoura.Persistence.Implementations.Services
             return totalPrice;
         }
 
-        public async Task CheckOut()
-        {
-            
-        }
+        //public async Task<OrderVM> CheckOut()
+        //{
+        //    AppUser user=await _userManager.Users
+        //        .Include(u=>u.BasketItems)
+        //        .ThenInclude(u=>u.Tour)
+        //        .FirstOrDefaultAsync(u=>u.Id==_accessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+        //    OrderVM orderVM = new OrderVM
+        //    {
+        //        BasketItems = user.BasketItems
+        //    };
+
+        //    Order order=new Order
+        //    {
+        //        Status=null,
+        //        Address=orderVM.Address,
+        //        AppUserId=user.Id,
+        //        PurchasedAt=DateTime.Now,
+
+
+        //    }
+        //    return orderVM;
+        //}
+        //public async Task<bool> CheckOut(OrderCreateVm orderVM, ModelStateDictionary modelstate, ITempDataDictionary tempdata, string stripeEmail, string stripeToken)
+        //{
+        //    if (_accessor.HttpContext.User.Identity.IsAuthenticated)
+        //    {
+        //        AppUser user = await _autentication.GetUserAsync(_accessor.HttpContext.User.Identity.Name);
+
+        //        if (!modelstate.IsValid)
+        //        {
+        //            return false;
+
+        //        }
+
+        //        Order order = new Order
+        //        {
+        //            AppUserId = user.Id,
+        //            Status = OrderStatus.Pending,
+        //            Address = orderVM.UserAddress,
+        //            UserName = orderVM.UserName,
+        //            UserSurname = orderVM.UserSurname,
+        //            UserEmail = orderVM.UserEmail,
+        //            UserPhone = orderVM.UserPhoneNumber,
+        //            NoteForRestaurant = orderVM.NotesForRestaurant,
+        //            CreatedAt = DateTime.Now,
+        //            PurchasedAt = DateTime.Now,
+        //            TotalPrice = 0,
+        //            IsDeleted = false,
+        //            OrderItems = new List<OrderItem>()
+        //        };
+        //        decimal total = 0;
+        //        foreach (var item in user.BasketItems)
+        //        {
+        //            Meal meal = await _mealRepository.GetByIdAsync(item.MealId, isDeleted: false);
+
+        //            total += item.Count * meal.Price;
+
+
+        //            if (meal is not null)
+        //            {
+        //                order.OrderItems.Add(new OrderItem
+        //                {
+        //                    Count = item.Count,
+        //                    Price = meal.Price,
+        //                    MealName = meal.Name,
+        //                    MealId = meal.Id,
+        //                    OrderId = order.Id
+        //                });
+        //            }
+        //        }
+        //        ICollection<int> restaurantcount = new List<int>();
+        //        if (order.OrderItems.Count != 0)
+        //        {
+        //            for (int i = 0; i < order.OrderItems.Count; i++)
+        //            {
+        //                Meal meal = await _mealRepository.GetByIdAsync(order.OrderItems[i].MealId, isDeleted: false);
+        //                if (meal == null) throw new Exception("Meal not Found");
+        //                if (!restaurantcount.Any(x => x == meal.RestaurantId))
+        //                {
+        //                    restaurantcount.Add(meal.RestaurantId);
+        //                }
+        //            }
+        //        }
+        //        total = restaurantcount.Count * 10 + total;
+        //        var optionCust = new CustomerCreateOptions
+        //        {
+        //            Email = stripeEmail,
+        //            Name = user.Name + " " + user.Surname,
+        //            Phone = order.UserPhone
+        //        };
+        //        var serviceCust = new CustomerService();
+        //        Customer customer = serviceCust.Create(optionCust);
+
+        //        total = total * 100;
+        //        var optionsCharge = new ChargeCreateOptions
+        //        {
+
+        //            Amount = (long)total,
+        //            Currency = "USD",
+        //            Description = "Product Selling amount",
+        //            Source = stripeToken,
+        //            ReceiptEmail = stripeEmail
+
+
+        //        };
+        //        var serviceCharge = new ChargeService();
+        //        Charge charge = serviceCharge.Create(optionsCharge);
+
+        //        if (charge.Status != "succeeded")
+        //        {
+        //            modelstate.AddModelError("Address", "Odenishde problem var");
+        //            return false;
+        //        }
+
+
+        //        order.TotalPrice = total;
+        //        await _repository.AddAsync(order);
+        //        user.BasketItems = new List<BasketItem>();
+        //        await _repository.SaveChangesAsync();
+        //        _accessor.HttpContext.Session.SetInt32("OrderId", order.Id);
+        //        //tempdata["OrderId"]=order.Id;
+        //    }
+        //    return true;
+        //}
     }
 }
 

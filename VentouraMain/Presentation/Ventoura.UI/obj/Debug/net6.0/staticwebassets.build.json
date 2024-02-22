@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Htws6vIPltq8ON1Js7t08C5aZXM4XFHQ1C3iUwIZa7A=",
+  "Hash": "85soxf3LcHEl2TLVB22a8XPK+lVV0wNNusHzR2ptkO4=",
   "Source": "Ventoura.UI",
   "BasePath": "_content/Ventoura.UI",
   "Mode": "Default",
@@ -61591,6 +61591,23 @@
       "OriginalItemSpec": "wwwroot\\main\\img\\credit-card-icon.png"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\decline.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/decline.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\decline.png"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\delete.png",
       "SourceId": "Ventoura.UI",
       "SourceType": "Discovered",
@@ -67301,6 +67318,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\main\\img\\twitter_icon.svg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\verify.png",
+      "SourceId": "Ventoura.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\",
+      "BasePath": "_content/Ventoura.UI",
+      "RelativePath": "main/img/verify.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main\\img\\verify.png"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Ventoura\\VentouraMain\\Presentation\\Ventoura.UI\\wwwroot\\main\\img\\versailles.jpg",

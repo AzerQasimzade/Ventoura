@@ -1,5 +1,6 @@
 ﻿@using Ventoura.Application.ViewModels.Pagination;
 @using Ventoura.Application.ViewModels.Tours;
+@using Ventoura.Domain.Entities;
 @model List<TourReserveVM>
 @{
     int count = 0;
@@ -67,9 +68,13 @@
                                         </td>
                                         <td>@item.MemberCount</td>
                                         <td>@item.Capacity</td>
+                                        <td>@item.Email</td>
                                         <td class="action-icons">
-                                            <a asp-action="Details" asp-area="VentouraAdmin" asp-controller="Tour" asp-route-id="@item.Id">
-                                                <img src="~/main/img/info-sign.png" class="resized-image" alt="Contract Image">
+                                            <a asp-action="Submit" asp-area="VentouraAdmin" asp-controller="Tour" asp-route-id="@item.Id">
+                                                <img src="~/main/img/verify.png" class="resized-image" alt="Contract Image">
+                                            </a>
+                                            <a asp-action="Reject" asp-area="VentouraAdmin" asp-controller="Tour" asp-route-id="@item.Id">
+                                                <img src="~/main/img/decline.png" class="resized-image" alt="Contract Image">
                                             </a>
                                         </td>
                                     </tr>

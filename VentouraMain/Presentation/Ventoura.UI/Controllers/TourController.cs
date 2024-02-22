@@ -6,7 +6,6 @@ namespace Ventoura.UI.Controllers
     public class TourController : Controller
     {
         private readonly ITourService _service;
-
         public TourController(ITourService service)
         {
             _service = service;

@@ -215,6 +215,7 @@ namespace Ventoura.Persistence.Implementations.Services
             Tour tour = await _repository.GetByIdAsync(id, false, nameof(Tour.Country), nameof(Tour.Category), nameof(Tour.City), nameof(Tour.TourImages));
             TourGetVM getVM = new TourGetVM
             {
+                Id=tour.Id,
                 StartDate = tour.StartDate,
                 Sale = tour.Sale,
                 SalePrice = tour.SalePrice,

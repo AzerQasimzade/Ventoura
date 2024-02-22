@@ -20,37 +20,47 @@ namespace Ventoura.Persistence.Implementations.Services
     public class ReserveService : IReserveService
     {
         private readonly IReserveRepository _repository;
+        private readonly ITourRepository _tourRepository;
 
-        public ReserveService(IReserveRepository repository)
+        public ReserveService(IReserveRepository repository,ITourRepository tourRepository)
         {
             _repository = repository;
+            _tourRepository = tourRepository;
         }
-
-        public async Task<TourGetVM> CreateGet(TourGetVM vm)
+        public async Task<TourReserveVM> CreateGet(int id,TourReserveVM vm)
         {
+            Tour tour = await _tourRepository.GetByIdAsync(id);
+            vm.Tour = tour;
+            vm.TourId=tour.Id;
+            vm.Capacity = tour.Capacity;
+            vm.Name=tour.Name;
+            vm.StartDate = tour.StartDate;             
             return vm;
         }
-        public async Task<bool> Create(TourGetVM dto, ModelStateDictionary modelstate)
+        public async Task<bool> Create(int id,TourReserveVM dto, ModelStateDictionary modelstate)
         {
             if (!modelstate.IsValid)
             {
                 return false;
             }
-            UserReservationInfo tour = new UserReservationInfo
+            Tour tour = await _tourRepository.GetByIdAsync(id);
+            UserReservationInfo tourinfo = new UserReservationInfo
             {
-                Capacity = dto.Capacity,
+                TourId= tour.Id,
+                StartDate = dto.StartDate,
+                Capacity = tour.Capacity,
                 MemberCount = dto.MemberCount,
                 Email = dto.Email, 
-                Name = dto.Name,
-              
+                Name = tour.Name      
             };
-            await _repository.AddAsync(tour);
+            await _repository.AddAsync(tourinfo);
             await _repository.SaveChangesAsync();
             return true;
         }
         public async Task<List<TourReserveVM>> GetAllAsyncForReserve()
         { 
             List<UserReservationInfo> tours = await _repository
+
                 .GetAll(null, null, false,0,0, false)
                 .ToListAsync();
             List<TourReserveVM> dtos = new List<TourReserveVM>();
@@ -58,11 +68,11 @@ namespace Ventoura.Persistence.Implementations.Services
             {
                 dtos.Add(new TourReserveVM
                 {
-                    Id = tour.Id,
+                    StartDate=tour.StartDate,
                     Capacity = tour.Capacity,
                     Email = tour.Email,
                     MemberCount= tour.MemberCount,
-                    Name = tour.Name,     
+                    Name = tour.Name,    
                 });
             } 
             return dtos;

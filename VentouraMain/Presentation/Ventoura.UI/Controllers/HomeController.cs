@@ -27,10 +27,6 @@ namespace Ventoura.UI.Controllers
 				return View("Error");
 			}
             return View(await _tourService.GetByIdAsync(id)); 
-        }
-
-
-
-       
+        } 
     }
 }

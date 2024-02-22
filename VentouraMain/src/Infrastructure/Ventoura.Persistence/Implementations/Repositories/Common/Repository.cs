@@ -95,6 +95,10 @@ namespace Ventoura.Persistence.Implementations.Repositories
         {
             return await  _context.Cities.ToListAsync();
         }
+        public async Task<List<Tour>> GetAllTourAsync()
+        {
+            return await _context.Tours.ToListAsync();
+        }
         public async Task<bool> IsExistAsync(Expression<Func<T, bool>> expression)
         {
             return await _table.AnyAsync(expression);

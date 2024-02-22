@@ -15,5 +15,7 @@ namespace Ventoura.Domain.Entities
         public int MemberCount { get; set; }
         public string Email { get; set; }
         public int Capacity { get; set; }
+        public DateTime StartDate { get; set; }
+
     }
 }

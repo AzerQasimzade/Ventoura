@@ -272,7 +272,7 @@
                                     <li>
                                         <div>Total: <span>$@total</span></div>
                                         <a asp-action="Index" asp-controller="Basket" class="button_drop">Go to cart</a>
-                                        <a href="payment.html" class="button_drop outline">Check out</a>
+                                        <a asp-action="CheckOut" asp-controller="Basket" class="button_drop outline">Check out</a>
                                     </li>
                                 </ul>
                             </div><!-- End dropdown-cart-->
@@ -552,9 +552,8 @@
                 });
             }
         });
-
     </script>
-   
+    @RenderSection("Scripts", required: false)
 </body>
 
 </html>

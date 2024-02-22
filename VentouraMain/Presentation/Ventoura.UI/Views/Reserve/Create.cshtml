@@ -1,64 +1,175 @@
 ﻿@using Ventoura.Application.ViewModels.Tours;
-@model TourGetVM
+@model TourReserveVM
 
-<aside class="col-lg-6" id="sidebar">
-    <form method="post">
-        <p class="d-none d-xl-block d-lg-block d-xl-none">
-            <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
-        </p>
-        <div class="theiaStickySidebar">
-            <div class="box_style_1 expose" id="booking_box">
-                <h3 class="inner">- Booking -</h3>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group scroll-fix">
-                            <label><i class="icon-calendar-7"></i> Tour's Start Date</label>
-                            <hr>
-                            <span>@Model.StartDate</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group scroll-fix-time">
-                            <label><i class=" icon-clock"></i> Empty Member</label>
-                            <hr>
-                            <span>@Model.Capacity</span>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <table class="table table_summary">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div>
-                                    <label asp-for="MemberCount" class="form-label">Please Input Member Count</label>
-                                    <input asp-for="MemberCount" class="form-control" />
-                                    <span class="text-danger" asp-validation-for="MemberCount"></span>
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <label asp-for="Email" class="form-label">Please Input Your Email</label>
-                                    <input asp-for="Email" class="form-control" />
-                                    <span class="text-danger" asp-validation-for="Email"></span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="total">
-                            <td>
-                                Total cost
-                            </td>
-                            <td class="text-right">
-                                Per Member/$@Model.Price
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button type="submit">Send Query</button>
-                <a class="btn_full_outline" asp-action="AddWishlist" asp-controller="Wishlist" asp-route-id="@Model.Id"><i class="icon-heart"></i> Add to whislist</a>
-            </div>
-            <!--/box_style_1 -->
+<main>
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Category</a>
+                </li>
+                <li>Page active</li>
+            </ul>
         </div>
-        <!--/sticky -->
-    </form>
-</aside>
+    </div>
+    <!-- End Position -->
+
+    <div class="collapse" id="collapseMap">
+        <div id="map" class="map"></div>
+    </div>
+    <!-- End Map -->
+
+    <div class="container margin_60">
+        <div class="row">
+            <div class="col-lg-8" id="single_tour_desc">
+                <div id="single_tour_feat">
+                    <ul>
+                        <li><i class="icon_set_1_icon-4"></i>Museum</li>
+                        <li><i class="icon_set_1_icon-83"></i>3 Hours</li>
+                        <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
+                        <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
+                        <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
+                        <li><i class="icon_set_1_icon-97"></i>Audio guide</li>
+                        <li><i class="icon_set_1_icon-29"></i>Tour guide</li>
+                    </ul>
+                </div>
+
+                <p class="d-none d-md-block d-block d-lg-none"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a></p>
+                <!-- Map button for tablets/mobiles -->
+
+
+                <hr>
+
+                <hr />
+
+            </div>
+            <!--End  single_tour_desc-->
+
+            <aside class="col-lg-10" id="sidebar">
+                <form method="post">
+                    <p class="d-none d-xl-block d-lg-block d-xl-none">
+                        <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
+                    </p>
+                    <div class="theiaStickySidebar">
+                        <div class="box_style_1 expose" id="booking_box">
+                            <h3 class="inner">- Booking -</h3>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group scroll-fix">
+                                        <label><i class="icon-calendar-7"></i> Tour's Start Date</label>
+                                        <hr>
+                                        <span>@Model.Tour.StartDate</span>
+                                    </div> 
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group scroll-fix">
+                                        <label><i class="icon-calendar-7"></i> Tour's Name</label>
+                                        <hr>
+                                        <span>@Model.Tour.Name</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group scroll-fix-time">
+                                        <label><i class=" icon-clock"></i> Empty Member</label>
+                                        <hr>
+                                        <span>@Model.Capacity</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <table class="table table_summary">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label asp-for="MemberCount" class="form-label">Please Input Member Count</label>
+                                                <input asp-for="MemberCount" class="form-control" />
+                                                <span class="text-danger" asp-validation-for="MemberCount"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label asp-for="Email" class="form-label">Please Input Your Email</label>
+                                                <input asp-for="Email" class="form-control" />
+                                                <span class="text-danger" asp-validation-for="Email"></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="total">
+                                        <td>
+                                            Total cost
+                                        </td>
+                                        <td class="text-right">
+                                            Per Member/$@Model.Tour.Price
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="col-12">
+                                <button id="okButton" class="btn btn-primary" type="submit">Create</button>
+                            </div>
+                            <a class="btn_full_outline" asp-action="AddWishlist" asp-controller="Wishlist" asp-route-id="@Model.Id"><i class="icon-heart"></i> Add to whislist</a>
+                        </div>
+                        <!--/box_style_1 -->
+                    </div>
+                    <!--/sticky -->
+                </form>
+            </aside>
+        </div>
+        <!--End row -->
+    </div>
+    <!--End container -->
+    <div id="overlay"></div>
+    <!-- Mask on input focus -->
+</main>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">Sorgu Kabul Edildi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span class="badge badge-success">V</span> <!-- Onay işareti -->
+                <p>Sorgunuz kabul edildi.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("Index", "Home")'">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script>
+        // Document ready function
+        $(document).ready(function () {
+            // Create button click event handler
+            $('#okButton').click(function (e) {
+                // Prevent default form submission
+                e.preventDefault();
+
+                // Show the confirmation modal
+                $('#confirmationModal').modal('show');
+            });
+
+            // Ok button click event handler
+            $('#confirmOkButton').click(function () {
+                // Redirect to the index page
+                window.location.href = '@Url.Action("Index", "Home")';
+            });
+        });
+    </script>
+}
+
+
+
+

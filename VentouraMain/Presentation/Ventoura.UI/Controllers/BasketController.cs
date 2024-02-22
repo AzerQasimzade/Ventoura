@@ -9,7 +9,6 @@ namespace Ventoura.UI.Controllers
     {
         private readonly IBasketService _service;
         private readonly IHttpContextAccessor _accessor;
-
         public BasketController(IBasketService service, IHttpContextAccessor accessor)
         {
             _service = service;
@@ -54,11 +53,10 @@ namespace Ventoura.UI.Controllers
             await _service.CalculateTotalPrice(options);
             return RedirectToAction("Index", "Basket");
         }
-        public async Task<IActionResult> CheckOut()
-        {
-
-            return View();  
-        }
+        //public async Task<IActionResult> CheckOut()
+        //{ 
+        //    return View(await _service.CheckOut());  
+        //}
 
     }
 }

@@ -12,16 +12,19 @@ namespace Ventoura.UI.Controllers
         {
             _service = service;
         }
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(int id)
         {
-            return View(await _service.CreateGet(new TourGetVM()));
+            return View(await _service.CreateGet(id,new TourReserveVM()));
         }
         [HttpPost]
-        public async Task<IActionResult> Create(TourGetVM tourReserveVM)
+        public async Task<IActionResult> Create(int id,TourReserveVM tourReserveVM)
         {
-            if (!await _service.Create(tourReserveVM, ModelState)) return View(tourReserveVM);
+            if (!await _service.Create(id,tourReserveVM, ModelState))
+            {
+                return View(await _service.CreateGet(id, tourReserveVM));
+            }
             return RedirectToAction("Index", "Home");
         }
-
+       
     }
 }

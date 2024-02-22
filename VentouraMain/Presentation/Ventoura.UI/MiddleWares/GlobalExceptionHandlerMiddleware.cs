@@ -18,7 +18,6 @@
             {
                 context.Response.Redirect($"/error/errorpage?error={e.Message}");
             }
-
         }
     }
 }
