@@ -47,6 +47,7 @@ namespace Ventoura.Persistence.ServiceRegistration
             services.AddScoped<IReserveRepository, ReserveRepository>();
             services.AddScoped<IReserveService, ReserveService>();
 
+            services.AddScoped<ITourImageRepository,TourImageRepository>();
             services.AddScoped<_LayoutService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             return services;

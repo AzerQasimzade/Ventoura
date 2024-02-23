@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Ventoura.Application.Abstractions.Repositories;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Application.ViewModels.Tours;
 using Ventoura.Domain.Exceptions;
@@ -10,6 +11,8 @@ namespace Ventoura.UI.Areas.VentouraAdmin.Controllers
     public class TourController : Controller
     {
         private readonly ITourService _service;
+
+
         public TourController(ITourService service)
         {
             _service = service;

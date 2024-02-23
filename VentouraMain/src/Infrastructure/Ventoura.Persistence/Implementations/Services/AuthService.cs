@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Ventoura.Application.Abstractions.Services;
+using Ventoura.Application.ViewModels.MyProfile;
 using Ventoura.Application.ViewModels.Users;
 using Ventoura.Domain.Entities;
 using Ventoura.Domain.Enums;
@@ -136,7 +137,66 @@ namespace Ventoura.Persistence.Implementations.Services
             return true;
         }
 
-        
 
+        public async Task<AppUser> GetUserAsync(string userName)
+        {
+            return await _userManager.Users.Include(x => x).Include(x => x.BasketItems).FirstOrDefaultAsync(x => x.UserName == userName);
+        }
+        public async Task<ProfileUpdateVM> Updated(string username, ProfileUpdateVM vm)
+        {
+            if (username == null) throw new Exception("Bad Request");
+            AppUser user = await GetUserAsync(username);
+            if (user == null) throw new Exception("Not Found");
+            vm.Name = user.Name;
+            vm.Surname = user.Surname;
+            vm.UserName = user.UserName;
+            return vm;
+        }
+
+        public async Task<bool> LoginWith(string userName, ModelStateDictionary modelState)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(userName);
+            if (user is null)
+            {
+                user = await _userManager.FindByNameAsync(userName);
+                if (user is null)
+                {
+                    modelState.AddModelError(string.Empty, "UserName , email or password is not true");
+                }
+
+            }
+            await _signInManager.SignInAsync(user, true);
+            return true;
+        }
+
+        public async Task<bool> Update(string username, ProfileUpdateVM vm, ModelStateDictionary modelState)
+        {
+            if (!modelState.IsValid) return false;
+            if (username == null) throw new Exception("Bad Request");
+            AppUser existed = await GetUserAsync(username);
+            if (existed == null) throw new Exception("Not Found");
+            if (existed.UserName != vm.UserName)
+            {
+                if (await _userManager.Users.AnyAsync(x => x.UserName == vm.UserName))
+                {
+                    modelState.AddModelError("UserName", "This username is exis");
+                    return false;
+                }
+
+            }
+            existed.Name = vm.Name;
+            existed.Surname = vm.Surname;
+            existed.UserName = vm.UserName;
+            var result = await _userManager.UpdateAsync(existed);
+            if (!result.Succeeded)
+            {
+                foreach (var item in result.Errors)
+                {
+                    modelState.AddModelError(string.Empty, item.Description);
+                }
+                return false;
+            }
+            return true;
+        }
     }
 }

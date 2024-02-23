@@ -43,7 +43,7 @@ namespace Ventoura.Domain.Extensions
             string path = root;
             for (int i = 0; i < folders.Length; i++)
             {
-                Path.Combine(path,folders[i]);
+               path= Path.Combine(path,folders[i]);
             }
             path = Path.Combine(path, filename);
             if (File.Exists(path))

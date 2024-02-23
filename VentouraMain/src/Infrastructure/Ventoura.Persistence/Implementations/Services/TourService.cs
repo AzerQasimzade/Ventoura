@@ -26,13 +26,15 @@ namespace Ventoura.Persistence.Implementations.Services
     public class TourService : ITourService
     {
         private readonly ITourRepository _repository;
+        private readonly ITourImageRepository _tourImageRepository;
         private readonly ICityRepository _cityRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly ICountryRepository _countryRepository;
         private readonly IWebHostEnvironment _env;
-        public TourService(ITourRepository repository, ICityRepository cityRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository, IWebHostEnvironment env)
+        public TourService(ITourRepository repository,ITourImageRepository tourImageRepository,ICityRepository cityRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository, IWebHostEnvironment env)
         {
             _repository = repository;
+            _tourImageRepository = tourImageRepository;
             _cityRepository = cityRepository;
             _categoryRepository = categoryRepository;
             _countryRepository = countryRepository;
@@ -233,7 +235,6 @@ namespace Ventoura.Persistence.Implementations.Services
                 CategoryId = tour.CategoryId,
                 Capacity=tour.Capacity
             };
-
             // tour null değilse, diğer alanları da doldurabilirsiniz
             if (tour.City != null)
             {
@@ -280,7 +281,7 @@ namespace Ventoura.Persistence.Implementations.Services
         }
         public async Task<bool> Update(int id, TourUpdateVM dto, ModelStateDictionary modelstate)
         {
-            Tour existed = await _repository.GetByIdAsync(id, false, nameof(Tour.Country), nameof(Tour.City), nameof(Tour.TourImages));
+            Tour existed = await _repository.GetByIdAsync(id, true, nameof(Tour.Country), nameof(Tour.City), nameof(Tour.TourImages));
             if (existed == null)
             {
                 return false;
@@ -317,6 +318,7 @@ namespace Ventoura.Persistence.Implementations.Services
                 string filename = await dto.MainPhoto.CreateFileAsync(_env.WebRootPath, "rev-slider-files", "assets");
                 TourImage existedImg = existed.TourImages.FirstOrDefault(pi => pi.IsPrimary == true);
                 existedImg.Url.DeleteFile(_env.WebRootPath, "rev-slider-files", "assets");
+            
                 existed.TourImages.Remove(existedImg);
                 existed.TourImages.Add(new TourImage
                 {
@@ -335,6 +337,7 @@ namespace Ventoura.Persistence.Implementations.Services
                     IsPrimary = false,
                     Url = filename
                 });
+                
             }
             if (dto.ImageIds is null)
             {
@@ -345,6 +348,8 @@ namespace Ventoura.Persistence.Implementations.Services
             {
                 reimg.Url.DeleteFile(_env.WebRootPath, "rev-slider-files", "assets");
                 existed.TourImages.Remove(reimg);
+                
+
             }
             foreach (IFormFile photo in dto.Photos ?? new List<IFormFile>())
             {
@@ -362,7 +367,9 @@ namespace Ventoura.Persistence.Implementations.Services
                 {
                     IsPrimary = null,
                     Url = await photo.CreateFileAsync(_env.WebRootPath, "rev-slider-files", "assets")
+
                 });
+          
             }
             existed.Name = dto.Name;
             existed.Price = dto.Price;
@@ -374,15 +381,14 @@ namespace Ventoura.Persistence.Implementations.Services
             existed.StartTime = dto.StartTime;
             existed.IncludeDesc = dto.IncludeDesc;
             existed.Includes = dto.Includes;
-            existed.TourImages = dto.TourImages;
+
             existed.Sale = dto.Sale;
             existed.CategoryId = dto.CategoryId;
             existed.Capacity = dto.Capacity;
-            _repository.Update(existed);
+            //_repository.Update(existed);
             await _repository.SaveChangesAsync();
             return true;
         }
-
         public async Task DeleteAsync(int id)
         {
             Tour existed = await _repository.GetByIdAsync(id, false, nameof(Tour.Category), nameof(Tour.Country), nameof(Tour.City), nameof(Tour.TourImages));
