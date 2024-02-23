@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +18,7 @@ namespace Ventoura.Application.Abstractions.Services
         Task PlusBasket(int id);
         Task MinusBasket(int id);
         Task<decimal> CalculateTotalPrice(AdditionalOptions options);
-        //Task<OrderVM> CheckOut();
+        Task<OrderVM> CheckOut(int reservationId);
+        Task<bool> CheckOut(int reservationId,OrderVM orderVM,string stripeEmail,string stripeToken, ModelStateDictionary modelstate);
     }
 }

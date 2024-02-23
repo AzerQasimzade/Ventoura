@@ -24,7 +24,8 @@ namespace Ventoura.UI.Controllers
                 return View(await _service.CreateGet(id, tourReserveVM));
             }
             return RedirectToAction("Index", "Home");
-        }
-       
+        } 
+
+
     }
 }

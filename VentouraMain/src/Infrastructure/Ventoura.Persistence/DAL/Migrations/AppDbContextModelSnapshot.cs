@@ -373,14 +373,9 @@ namespace Ventoura.Persistence.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CompanyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -400,8 +395,9 @@ namespace Ventoura.Persistence.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("PurchasedAt")
                         .HasColumnType("datetime2");
@@ -412,12 +408,17 @@ namespace Ventoura.Persistence.DAL.Migrations
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("TourId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
+
+                    b.HasIndex("TourId");
 
                     b.ToTable("Orders");
                 });
@@ -721,11 +722,17 @@ namespace Ventoura.Persistence.DAL.Migrations
                 {
                     b.HasOne("Ventoura.Domain.Entities.AppUser", "AppUser")
                         .WithMany()
-                        .HasForeignKey("AppUserId")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("Ventoura.Domain.Entities.Tour", "Tour")
+                        .WithMany()
+                        .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AppUser");
+
+                    b.Navigation("Tour");
                 });
 
             modelBuilder.Entity("Ventoura.Domain.Entities.Tour", b =>
@@ -786,7 +793,7 @@ namespace Ventoura.Persistence.DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("Ventoura.Domain.Entities.Order", "Order")
-                        .WithMany("WishlistItems")
+                        .WithMany()
                         .HasForeignKey("OrderId");
 
                     b.HasOne("Ventoura.Domain.Entities.Tour", "Tour")
@@ -822,11 +829,6 @@ namespace Ventoura.Persistence.DAL.Migrations
             modelBuilder.Entity("Ventoura.Domain.Entities.Country", b =>
                 {
                     b.Navigation("Tours");
-                });
-
-            modelBuilder.Entity("Ventoura.Domain.Entities.Order", b =>
-                {
-                    b.Navigation("WishlistItems");
                 });
 
             modelBuilder.Entity("Ventoura.Domain.Entities.Tour", b =>

@@ -1,6 +1,17 @@
-﻿﻿ <!-- Page Body Start-->
+﻿@using Ventoura.Application.ViewModels.Tours;
+﻿ <!-- Page Body Start-->
     <!-- Page Sidebar Start-->
+  
     
+@model TourGetVM
+@{
+    int count = 0;
+}
+
+@* @foreach (var item in Model)
+{
+    count++;
+} *@
     <!-- Page Sidebar Ends-->
     <div class="page-body">
         <div class="container-fluid">
@@ -85,7 +96,7 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <h4>10,000</h4><span class="f-light">Purchase</span>
+                                            <h4>@count</h4><span class="f-light">Purchase</span>
                                         </div>
                                     </div>
                                     <div class="font-secondary f-w-500"><i class="icon-arrow-up icon-rotate me-1"></i><span>+50%</span></div>

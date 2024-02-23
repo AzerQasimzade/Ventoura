@@ -17,7 +17,6 @@ namespace Ventoura.Persistence.Implementations.Services
         {
             _mailSettings = mailSettings.Value;
         }
-
         public async Task SendEmailAsync(MailRequestVM mailRequest)
         {
             var email = new MimeMessage();

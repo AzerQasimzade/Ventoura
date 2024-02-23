@@ -70,10 +70,10 @@
                                         <td>@item.Capacity</td>
                                         <td>@item.Email</td>
                                         <td class="action-icons">
-                                            <a asp-action="Submit" asp-area="VentouraAdmin" asp-controller="Tour" asp-route-id="@item.Id">
+                                            <a asp-action="ConfirmReservation" asp-area="VentouraAdmin" asp-controller="Reservation" asp-route-reservationId="@item.Id">
                                                 <img src="~/main/img/verify.png" class="resized-image" alt="Contract Image">
                                             </a>
-                                            <a asp-action="Reject" asp-area="VentouraAdmin" asp-controller="Tour" asp-route-id="@item.Id">
+                                            <a asp-action="RejectReservation" asp-area="VentouraAdmin" asp-controller="Reservation" asp-route-reservationId="@item.Id">
                                                 <img src="~/main/img/decline.png" class="resized-image" alt="Contract Image">
                                             </a>
                                         </td>

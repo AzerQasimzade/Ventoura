@@ -16,6 +16,7 @@
           "Microsoft.jQuery.Unobtrusive.Validation": "4.0.0",
           "MimeKit": "4.3.0",
           "Newtonsoft.Json": "13.0.3",
+          "Stripe.net": "43.16.0",
           "Ventoura.Domain": "1.0.0",
           "Ventoura.Persistence": "1.0.0"
         },
@@ -1804,6 +1805,18 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
+      "Stripe.net/43.16.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Stripe.net.dll": {
+            "assemblyVersion": "43.16.0.0",
+            "fileVersion": "43.16.0.0"
+          }
+        }
+      },
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -2652,6 +2665,7 @@
           "Microsoft.jQuery.Unobtrusive.Validation": "4.0.0",
           "MimeKit": "4.3.0",
           "Newtonsoft.Json": "13.0.3",
+          "Stripe.net": "43.16.0",
           "Ventoura.Domain": "1.0.0"
         },
         "runtime": {
@@ -2665,7 +2679,8 @@
           "Microsoft.AspNetCore.Identity.UI": "6.0.25",
           "Microsoft.jQuery.Unobtrusive.Validation": "4.0.0",
           "MimeKit": "4.3.0",
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.3",
+          "Stripe.net": "43.16.0"
         },
         "runtime": {
           "Ventoura.Domain.dll": {}
@@ -2682,6 +2697,7 @@
           "Microsoft.jQuery.Unobtrusive.Validation": "4.0.0",
           "MimeKit": "4.3.0",
           "Newtonsoft.Json": "13.0.3",
+          "Stripe.net": "43.16.0",
           "Ventoura.Application": "1.0.0"
         },
         "runtime": {
@@ -3738,6 +3754,13 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
+    },
+    "Stripe.net/43.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BDKcJkGv8AwZkf07jw/PmBzxA+CRaND2ErGwqb+qnwk0vZccO9XYBpBZydQroq8ij0gIdnRvNLR/1qmNHQv4WQ==",
+      "path": "stripe.net/43.16.0",
+      "hashPath": "stripe.net.43.16.0.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",

@@ -300,3 +300,4 @@ C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\bin\Debug\n
 C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
 C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\User\Desktop\Ventoura\VentouraMain\Presentation\Ventoura.UI\bin\Debug\net6.0\Stripe.net.dll

@@ -5,6 +5,8 @@ using Ventoura.Domain.Entities;
 using Ventoura.Application.Abstractions.Services;
 using Ventoura.Persistence.Implementations.Services;
 using Ventoura.UI.MiddleWares;
+using Ventoura.Persistence.DAL;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(options =>
@@ -19,6 +21,7 @@ builder.Services.AddAuthentication(options =>
     options.ClientSecret = builder.Configuration.GetSection("GoogleKeys:ClientSecret").Value;
 });
 // Add services to the container.
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 builder.Services.AddControllersWithViews();
 builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
@@ -34,6 +37,7 @@ app.UseCookiePolicy(new CookiePolicyOptions()
 {
 	MinimumSameSitePolicy = SameSiteMode.None
 });
+StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(

@@ -2421,6 +2421,23 @@
           }
         }
       },
+      "Stripe.net/43.16.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Stripe.net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Stripe.net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3962,6 +3979,7 @@
           "Microsoft.jQuery.Unobtrusive.Validation": "4.0.0",
           "MimeKit": "4.3.0",
           "Newtonsoft.Json": "13.0.3",
+          "Stripe.net": "43.16.0",
           "Ventoura.Domain": "1.0.0"
         },
         "compile": {
@@ -3980,7 +3998,8 @@
           "Microsoft.AspNetCore.Identity.UI": "6.0.25",
           "Microsoft.jQuery.Unobtrusive.Validation": "4.0.0",
           "MimeKit": "4.3.0",
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.3",
+          "Stripe.net": "43.16.0"
         },
         "compile": {
           "bin/placeholder/Ventoura.Domain.dll": {}
@@ -4002,6 +4021,7 @@
           "Microsoft.jQuery.Unobtrusive.Validation": "4.0.0",
           "MimeKit": "4.3.0",
           "Newtonsoft.Json": "13.0.3",
+          "Stripe.net": "43.16.0",
           "Ventoura.Application": "1.0.0"
         },
         "compile": {
@@ -7549,6 +7569,30 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "Stripe.net/43.16.0": {
+      "sha512": "BDKcJkGv8AwZkf07jw/PmBzxA+CRaND2ErGwqb+qnwk0vZccO9XYBpBZydQroq8ij0gIdnRvNLR/1qmNHQv4WQ==",
+      "type": "package",
+      "path": "stripe.net/43.16.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "icon.png",
+        "lib/net461/Stripe.net.dll",
+        "lib/net461/Stripe.net.xml",
+        "lib/net5.0/Stripe.net.dll",
+        "lib/net5.0/Stripe.net.xml",
+        "lib/net6.0/Stripe.net.dll",
+        "lib/net6.0/Stripe.net.xml",
+        "lib/netcoreapp3.1/Stripe.net.dll",
+        "lib/netcoreapp3.1/Stripe.net.xml",
+        "lib/netstandard2.0/Stripe.net.dll",
+        "lib/netstandard2.0/Stripe.net.xml",
+        "stripe.net.43.16.0.nupkg.sha512",
+        "stripe.net.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -11365,6 +11409,7 @@
       "Microsoft.jQuery.Unobtrusive.Validation >= 4.0.0",
       "MimeKit >= 4.3.0",
       "Newtonsoft.Json >= 13.0.3",
+      "Stripe.net >= 43.16.0",
       "Ventoura.Domain >= 1.0.0",
       "Ventoura.Persistence >= 1.0.0"
     ]
@@ -11453,6 +11498,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "Stripe.net": {
+            "target": "Package",
+            "version": "[43.16.0, )"
           }
         },
         "imports": [

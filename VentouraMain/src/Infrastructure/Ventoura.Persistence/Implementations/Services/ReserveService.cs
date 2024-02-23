@@ -14,6 +14,7 @@ using Ventoura.Application.ViewModels.Pagination;
 using Ventoura.Application.ViewModels.Tours;
 using Ventoura.Domain.Entities;
 using Ventoura.Domain.Enums;
+using Ventoura.Domain.Exceptions;
 
 namespace Ventoura.Persistence.Implementations.Services
 {
@@ -60,7 +61,6 @@ namespace Ventoura.Persistence.Implementations.Services
         public async Task<List<TourReserveVM>> GetAllAsyncForReserve()
         { 
             List<UserReservationInfo> tours = await _repository
-
                 .GetAll(null, null, false,0,0, false)
                 .ToListAsync();
             List<TourReserveVM> dtos = new List<TourReserveVM>();
@@ -68,6 +68,7 @@ namespace Ventoura.Persistence.Implementations.Services
             {
                 dtos.Add(new TourReserveVM
                 {
+                    Id=tour.Id,
                     StartDate=tour.StartDate,
                     Capacity = tour.Capacity,
                     Email = tour.Email,
@@ -77,5 +78,58 @@ namespace Ventoura.Persistence.Implementations.Services
             } 
             return dtos;
         }
+        public async Task<TourReserveVM> GetReservationByIdAsync(int reservationId)
+        {
+           UserReservationInfo info=await _repository.GetByIdAsync(reservationId,false,nameof(UserReservationInfo.Tour));
+
+            TourReserveVM vm = new TourReserveVM
+            {
+                Id = info.Id,
+                Capacity = info.Capacity,
+                StartDate = info.StartDate,
+                Email = info.Email,
+                MemberCount = info.MemberCount,
+                Name = info.Name,
+                Price=info.Tour.Price
+            };
+            return vm;
+        }
+        public async Task<UserReservationInfo> FindAsync(int reservationId)
+        {
+           return  await _repository.FindAsync(reservationId);
+        }
+
+        public async Task DeleteReservationAsync(int reservationId)
+        {
+            _repository.DeleteAsync(reservationId);
+            await _repository.SaveChangesAsync();
+        }
+        //public async Task UpdateReservationStatusAsync(int reservationId, string status)
+        //{
+        //    var reservation = await _repository.GetReservationByIdAsync(reservationId);
+
+        //    if (reservation == null)
+        //    {
+        //        throw new NotFoundException($"Reservation with id {reservationId} not found.");
+        //    }
+
+        //    reservation.Status = status;
+
+        //    await _repository.SaveChangesAsync();
+        //}
+
+        //public async Task UpdateReservationStatusAndRemoveFromListAsync(int reservationId, string status)
+        //{
+        //    await UpdateReservationStatusAsync(reservationId, status);
+
+        //    //UserReservationInfo reservationToRemove = await _repository.GetReservationByIdAsync(reservationId);
+        //    //if (reservationToRemove != null)
+        //    //{
+        //    //    _repository.RemoveReservation(reservationToRemove);
+        //    //    await _repository.SaveChangesAsync();
+        //    //}
+        //}
+
+
     }
 }

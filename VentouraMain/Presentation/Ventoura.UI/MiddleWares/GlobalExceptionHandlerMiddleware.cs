@@ -16,7 +16,12 @@
             }
             catch (Exception e)
             {
-                context.Response.Redirect($"/error/errorpage?error={e.Message}");
+                //context.Response.Redirect($"/error/errorpage?error={e.Message}");
+                string errorpage = Path.Combine("/error", $"ErrorPage?error={e}");
+                string errorMessage = e.Message;
+                errorpage = Path.Combine("/error", $"ErrorPage?error={Uri.EscapeDataString(errorMessage)}");
+                context.Response.Redirect(errorpage);
+
             }
         }
     }

@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Ventoura.Application.Abstractions.Repositories;
+using Ventoura.Application.ViewModels.Tours;
 using Ventoura.Domain.Entities;
 using Ventoura.Persistence.DAL;
 
@@ -20,14 +21,14 @@ namespace Ventoura.Persistence.Implementations.Repositories
             _context = context;
             _table = context.Set<T>();
         }
-		public async Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate, bool isTracking = false, params string[] includes)
-		{
-			IQueryable<T> query = _table;
-			if (!isTracking) query = query.AsNoTracking();
-			query = _addIncludes(query, includes);
-			return await query.FirstOrDefaultAsync(predicate);
-		}
-		public IQueryable<T> GetAll(Expression<Func<T, 
+        public async Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate, bool isTracking = false, params string[] includes)
+        {
+            IQueryable<T> query = _table;
+            if (!isTracking) query = query.AsNoTracking();
+            query = _addIncludes(query, includes);
+            return await query.FirstOrDefaultAsync(predicate);
+        }
+        public IQueryable<T> GetAll(Expression<Func<T,
             bool>>? expression = null, Expression<Func<T,
             object>>? orderExpression = null,
             bool isDescending = false,
@@ -52,7 +53,7 @@ namespace Ventoura.Persistence.Implementations.Repositories
             }
             return isTracking ? query : query.AsNoTracking();
         }
-        public IQueryable<T> GetAllWhere(Expression<Func<T, bool>>? expression = null, Expression<Func<T, object>>? orderExpression = null, bool isDescending = false, int skip = 0, int take = 0, bool isTracking = false,params string[] includes)
+        public IQueryable<T> GetAllWhere(Expression<Func<T, bool>>? expression = null, Expression<Func<T, object>>? orderExpression = null, bool isDescending = false, int skip = 0, int take = 0, bool isTracking = false, params string[] includes)
         {
             IQueryable<T> query = _table;
             if (expression != null) query = query.Where(expression);
@@ -67,7 +68,7 @@ namespace Ventoura.Persistence.Implementations.Repositories
 
             return isTracking ? query : query.AsNoTracking();
         }
-        public async Task<T> GetByIdAsync(int id, bool isTracking = false,params string[] includes)
+        public async Task<T> GetByIdAsync(int id, bool isTracking = false, params string[] includes)
         {
 
             IQueryable<T> query = _table.Where(d => d.Id == id);
@@ -76,24 +77,24 @@ namespace Ventoura.Persistence.Implementations.Repositories
             return await query.FirstOrDefaultAsync();
         }
 
-        public async Task<T> GetByExpressionAsync(Expression<Func<T, bool>>? expression = null, bool isTracking = false,params string[] includes)
+        public async Task<T> GetByExpressionAsync(Expression<Func<T, bool>>? expression = null, bool isTracking = false, params string[] includes)
         {
             IQueryable<T> query = _table.Where(expression);
             if (!isTracking) query = query.AsNoTracking();
             query = _addIncludes(query, includes);
             return await query.FirstOrDefaultAsync();
         }
-        public  async Task<List<Country>> GetAllCountriesAsync()
+        public async Task<List<Country>> GetAllCountriesAsync()
         {
-            return await  _context.Countries.ToListAsync();
+            return await _context.Countries.ToListAsync();
         }
         public async Task<List<Category>> GetAllCategoryAsync()
         {
             return await _context.Category.ToListAsync();
         }
-        public async  Task<List<City>> GetAllCityAsync()
+        public async Task<List<City>> GetAllCityAsync()
         {
-            return await  _context.Cities.ToListAsync();
+            return await _context.Cities.ToListAsync();
         }
         public async Task<List<Tour>> GetAllTourAsync()
         {
@@ -117,7 +118,7 @@ namespace Ventoura.Persistence.Implementations.Repositories
         }
         public async Task SaveChangesAsync()
         {
-           await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
         private IQueryable<T> _addIncludes(IQueryable<T> query, params string[] includes)
         {
@@ -132,7 +133,7 @@ namespace Ventoura.Persistence.Implementations.Repositories
         }
         public async Task<Tour> GettingThatObject(int id)
         {
-            Tour tour=await _context.Tours.FirstOrDefaultAsync(c => c.Id == id);
+            Tour tour = await _context.Tours.FirstOrDefaultAsync(c => c.Id == id);
             return tour;
         }
 
@@ -145,5 +146,50 @@ namespace Ventoura.Persistence.Implementations.Repositories
         {
             return await _context.Tours.CountAsync();
         }
+        public async Task<TourReserveVM> GetReservationByIdAsync(int reservationId)
+        {
+            var reservation = await _context.UserReservationInfos
+                .Include(r => r.Tour)
+                .FirstOrDefaultAsync(r => r.Id == reservationId);
+
+            //if (reservation == null)
+            //{
+            //    return null;
+            //}
+            return new TourReserveVM
+            {
+                Capacity = reservation.Capacity,
+                StartDate = reservation.StartDate,
+                Email = reservation.Email,
+                Id = reservation.Id,
+                MemberCount = reservation.MemberCount,
+                Name = reservation.Name,
+                TourId = reservation.TourId,  
+                Tour=reservation.Tour,
+                Price=reservation.Tour.Price
+            };
+        }
+        public async Task<UserReservationInfo> FindAsync(int reservationId)
+        {
+            return await _context.UserReservationInfos.FindAsync(reservationId);
+        }
+
+        public void RemoveReservation(UserReservationInfo reservation)
+        {
+            _context.UserReservationInfos.Remove(reservation);
+            _context.SaveChangesAsync();
+        }
+
+        public Task DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task AddToOrder(Order order)
+        {
+            await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

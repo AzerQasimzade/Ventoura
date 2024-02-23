@@ -48,10 +48,12 @@ namespace Ventoura.Application.Abstractions.Repositories
         Task<List<City>> GetAllCityAsync();
         Task<List<Category>> GetAllCategoryAsync();
         Task<List<Tour>> GetAllTourAsync();
-
-
         Task AddWishlistItemAsync(WishlistItem item);
-
         Task<int> GetProductCountAsync();
+        Task<TourReserveVM> GetReservationByIdAsync(int reservationId);
+        Task<UserReservationInfo> FindAsync(int reservationId);
+        Task DeleteAsync(int id);
+        void RemoveReservation(UserReservationInfo reservation);
+        Task AddToOrder(Order order);
     }
 }

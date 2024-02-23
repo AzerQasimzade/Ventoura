@@ -17,5 +17,6 @@ namespace Ventoura.Domain.Entities
         public int Capacity { get; set; }
         public DateTime StartDate { get; set; }
 
+
     }
 }

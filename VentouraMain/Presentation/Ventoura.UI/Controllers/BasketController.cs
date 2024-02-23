@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Ventoura.Application.Abstractions.Services;
+using Ventoura.Application.ViewModels;
 using Ventoura.Domain.Entities;
 using Ventoura.Domain.Exceptions;
 
@@ -53,10 +56,16 @@ namespace Ventoura.UI.Controllers
             await _service.CalculateTotalPrice(options);
             return RedirectToAction("Index", "Basket");
         }
-        //public async Task<IActionResult> CheckOut()
-        //{ 
-        //    return View(await _service.CheckOut());  
-        //}
+        public async Task<IActionResult> CheckOut(int reservationId)
+        {
+            return View(await _service.CheckOut(reservationId));
+        }
+        [HttpPost]
+        public async Task<IActionResult> CheckOut(int reservationId,OrderVM orderVM,string stripeEmail,string stripeToken,ModelStateDictionary modelstate)
+        {
+            await _service.CheckOut(reservationId, orderVM, stripeEmail, stripeToken, modelstate);
+            return RedirectToAction("Index", "Home");           
 
+        }
     }
 }
